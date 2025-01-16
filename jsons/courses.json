@@ -1,0 +1,416 @@
+{
+        "courses": [
+            {
+                "id": 1,
+                "title": "Software Engineering Fundamentals Course",
+                "description": "The Software Engineering Fundamentals course is designed to equip students with the essential knowledge and practical skills required for modern software development. This course covers the entire software development lifecycle, from requirement analysis and system design to implementation, testing, deployment, and maintenance. Students will explore various methodologies, tools, and best practices in the industry, gaining hands-on experience through interactive projects and real-world scenarios. By the end of the course, students will be prepared to tackle software engineering challenges and pursue entry-level roles in the tech industry.",
+                "overview": "This course provides a comprehensive introduction to software engineering principles, covering the entire software development lifecycle, design patterns, programming fundamentals, testing, deployment, and security. Students will engage in hands-on projects to apply theoretical concepts in practical scenarios.",
+                "img": "./assets/img/sdlc.jpeg",
+                "calification": 4.5,
+                "carrears": [
+                    {
+                        "id": 1,
+                        "title": "Junior Software Engineer"
+                    },
+                    {
+                        "id": 2,
+                        "title": "Backend/Frontend Developer"
+                    },
+                    {
+                        "id": 3,
+                        "title": "QA Engineer/Software Teste"
+                    },
+                    {
+                        "id": 4,
+                        "title": "DevOps Engineer (Entry-Level)"
+                    },
+                    {
+                        "id": 5,
+                        "title": "Technical Support Engineer"
+                    },
+                    {
+                        "id": 6,
+                        "title": "Technical Support Engineer"
+                    }
+                ],
+                "teams": [
+                    {
+                        "id": 1,
+                        "title": "Software Development Lifecycle (SDLC)",
+                        "img": "./assets/img/sdlc.jpeg",
+                        "description": "The **Software Development Lifecycle (SDLC)** is a structured process used for developing software applications. It consists of various stages that guide the development process, ensuring the final product meets the desired quality and is delivered on time and within budge",
+                        "activities": [
+                            {
+                                "stages": [
+                                    {
+                                        "name": "Requirement Gathering and Analysis",
+                                        "details": "Gather necessary information from stakeholders to identify the project’s goals, requirements, and limitations.",
+                                        "key_activities": [
+                                            "Stakeholder meetings",
+                                            "Functional and non-functional requirements documentation",
+                                            "Feasibility studies (technical, operational, financial)"
+                                        ]
+                                    },
+                                    {
+                                        "name": "System Design",
+                                        "details": "Define the architecture and design to meet business needs.",
+                                        "key_activities": [
+                                            "High-level design (overall architecture)",
+                                            "Low-level design (detailed components)",
+                                            "Database design",
+                                            "UI/UX design",
+                                            "Technology stack selection"
+                                        ]
+                                    },
+                                    {
+                                        "name": "Implementation (Coding)",
+                                        "details": "Transform the design into code following standards and best practices.",
+                                        "key_activities": [
+                                            "Code writing",
+                                            "Unit testing",
+                                            "Version control",
+                                            "Code reviews"
+                                        ]
+                                    },
+                                    {
+                                        "name": "Testing",
+                                        "details": "Test the software rigorously to identify defects and ensure requirements are met.",
+                                        "key_activities": [
+                                            "Unit testing",
+                                            "Integration testing",
+                                            "System testing",
+                                            "Acceptance testing",
+                                            "Bug fixing"
+                                        ]
+                                    },
+                                    {
+                                        "name": "Deployment",
+                                        "details": "Deploy the software to the production environment.",
+                                        "key_activities": [
+                                            "Configuration management",
+                                            "CI/CD",
+                                            "Release notes and documentation",
+                                            "Rollback plans"
+                                        ]
+                                    },
+                                    {
+                                        "name": "Maintenance",
+                                        "details": "Ensure the application performs well over time, addressing bugs and performance issues.",
+                                        "key_activities": [
+                                            "Bug fixes",
+                                            "Performance enhancements",
+                                            "Feature updates",
+                                            "Monitoring and logging"
+                                        ]
+                                    }
+                                ]
+                            },
+                            {
+                                "methodologies": {
+                                    "title": "Software Development Methodologies",
+                                    "description": "Structured approaches for managing the SDLC process.",
+                                    "types": [
+                                        {
+                                            "name": "Waterfall Model",
+                                            "description": "A linear, sequential approach where each phase must be completed before moving to the next.",
+                                            "advantages": [
+                                                "Easy to understand and use",
+                                                "Clear, well-defined stages",
+                                                "Best for smaller projects with clear requirements"
+                                            ],
+                                            "disadvantages": [
+                                                "Difficult to go back to previous stages",
+                                                "Less flexible for changes during the process"
+                                            ]
+                                        },
+                                        {
+                                            "name": "Agile Methodology",
+                                            "description": "Focuses on iterative development, flexibility, and customer collaboration.",
+                                            "advantages": [
+                                                "High flexibility",
+                                                "Faster release cycles",
+                                                "Continuous feedback and improvement"
+                                            ],
+                                            "disadvantages": [
+                                                "Requires strong team collaboration",
+                                                "Can be difficult to manage for large projects"
+                                            ],
+                                            "frameworks": [
+                                                "Scrum",
+                                                "Kanban",
+                                                "Extreme Programming (XP)"
+                                            ]
+                                        },
+                                        {
+                                            "name": "Scrum",
+                                            "description": "An Agile framework that uses sprints for iterative development.",
+                                            "roles": [
+                                                "Product Owner",
+                                                "Scrum Master",
+                                                "Development Team"
+                                            ],
+                                            "advantages": [
+                                                "Clear roles and responsibilities",
+                                                "Frequent delivery of working software",
+                                                "Strong focus on continuous improvement"
+                                            ],
+                                            "disadvantages": null
+                                        },
+                                        {
+                                            "name": "Kanban",
+                                            "description": "Focuses on continuous delivery with a visual board to manage tasks.",
+                                            "advantages": [
+                                                "Flexible and adaptable",
+                                                "Focuses on efficiency and minimizing bottlenecks"
+                                            ],
+                                            "disadvantages": [
+                                                "Requires constant monitoring of work in progress",
+                                                "Less structured than Scrum"
+                                            ]
+                                        },
+                                        {
+                                            "name": "DevOps",
+                                            "description": "Integrates development and operations teams for better collaboration and productivity.",
+                                            "key_practices": [
+                                                "Continuous Integration (CI)",
+                                                "Continuous Delivery (CD)",
+                                                "Infrastructure as Code (IaC)"
+                                            ],
+                                            "advantages": [
+                                                "Faster delivery of software",
+                                                "Improved collaboration between teams",
+                                                "Automated testing and deployment"
+                                            ],
+                                            "disadvantages": [
+                                                "Can be difficult to implement without the right tools and culture",
+                                                "Requires strong automation and monitoring practices"
+                                            ]
+                                        },
+                                        {
+                                            "name": "Spiral Model",
+                                            "description": "An iterative process focused on risk assessment and management.",
+                                            "advantages": [
+                                                "Risk management is a priority",
+                                                "Flexible to changes"
+                                            ],
+                                            "disadvantages": [
+                                                "Complex and expensive to manage",
+                                                "Requires experienced team members"
+                                            ]
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": 2,
+                        "title": "Software Requirements, Design, and Architecture",
+                        "img": "./assets/img/software_requirements.jpeg",
+                        "description": "This module covers the fundamental stages of software development: gathering and documenting requirements, designing systems, and architecting scalable and maintainable solutions. These stages are crucial for creating software that meets business needs and is sustainable over time. ",
+                        "activities": [
+                            {
+                                "Lesson1": {
+                                    "title": "Software Requirements",
+                                    "content": {
+                                        "WhatAreSoftwareRequirements": {
+                                            "FunctionalRequirements": "Describe what the software should do (e.g., features, tasks).",
+                                            "NonFunctionalRequirements": "Specify how the software should perform (e.g., security, performance, scalability)."
+                                        },
+                                        "KeyTechniquesForGatheringRequirements": [
+                                            "Interviews with stakeholders to collect detailed needs.",
+                                            "Surveys and Questionnaires to reach a larger audience.",
+                                            "Use Cases and User Stories to document specific actions.",
+                                            "Prototyping to validate requirements early."
+                                        ],
+                                        "DocumentingAndAnalyzingRequirements": {
+                                            "Documentation": "Use a Requirements Specification document.",
+                                            "Prioritization": "Prioritize using methods like MoSCoW (Must have, Should have, Could have, Won’t have).",
+                                            "Traceability": "Ensure traceability to business objectives."
+                                        }
+                                    }
+                                }
+                            },
+                            {
+                                "Lesson2": {
+                                    "title": "Software Design",
+                                    "content": {
+                                        "IntroductionToSoftwareDesign": "Design involves translating requirements into system specifications that developers can implement.",
+                                        "TypesOfDesign": {
+                                            "HighLevelDesign": "Describes system architecture, components, and interactions.",
+                                            "LowLevelDesign": "Focuses on the details of components, data structures, and algorithms."
+                                        },
+                                        "DesignPrinciples": [
+                                            "Modularity: Break the system into smaller, manageable parts.",
+                                            "Separation of Concerns: Divide functionality into distinct sections.",
+                                            "Abstraction & Encapsulation: Hide complexity to simplify interfaces and interactions.",
+                                            "Design Patterns: Apply proven solutions like Singleton, Factory, or Observer."
+                                        ],
+                                        "ToolsForDesign": [
+                                            "UML Diagrams for visualizing system components.",
+                                            "Flowcharts and Pseudocode to design algorithms and logic."
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "Lesson3": {
+                                    "title": "Software Architecture",
+                                    "content": {
+                                        "IntroductionToSoftwareArchitecture": "Architecture involves high-level decisions that determine the overall structure of a system and how it meets business and technical needs.",
+                                        "ArchitecturalStylesAndPatterns": {
+                                            "MonolithicArchitecture": "Single, unified codebase with tightly coupled components.",
+                                            "MicroservicesArchitecture": "Distributed system with independent, loosely coupled services.",
+                                            "LayeredArchitecture": "Divides the system into layers (e.g., presentation, business logic, data access).",
+                                            "EventDrivenArchitecture": "Uses events for communication between loosely coupled components."
+                                        },
+                                        "DesigningScalableMaintainableSystems": [
+                                            "Scalability: Ensure the system can grow with increased demand.",
+                                            "Fault Tolerance: Design for system reliability, even in failure scenarios.",
+                                            "Security: Address authentication, authorization, and data protection in design.",
+                                            "Performance: Optimize for speed and resource usage."
+                                        ],
+                                        "DocumentingArchitecture": {
+                                            "ArchitecturalViews": {
+                                                "LogicalView": "Focus on functionality.",
+                                                "DevelopmentView": "Focus on the system's structure.",
+                                                "PhysicalView": "Focus on deployment."
+                                            }
+                                        },
+                                        "EvaluatingArchitecture": [
+                                            "Evaluate design decisions based on trade-offs (e.g., performance vs. scalability).",
+                                            "Use methods like ATAM (Architecture Tradeoff Analysis Method)."
+                                        ]
+                                    }
+                                }
+                            },
+                            {
+                                "Conclusion": {
+                                    "points": [
+                                        "Understand how to move from conceptualizing a system to designing and implementing it.",
+                                        "Explore career opportunities in software architecture and design, such as Software Architect or Solutions Architect.",
+                                        "Learn about modern trends, including cloud-native architecture and serverless computing."
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "id": 3,
+                        "title": "Programming Fundamentals",
+                        "img": "./assets/img/programing_fundamentals.jpeg",
+                        "description": "Understand the basic building blocks of programming, including syntax, control structures, data types, and algorithms.",
+                        "activities": [
+                            {
+                                "title": "Introduction to Programming",
+                                "content": {
+                                    "definition": "Programming is the process of creating instructions that a computer follows to perform tasks. These instructions are written in programming languages like Python, Java, C++, etc.",
+                                    "keyConcepts": {
+                                        "syntax": "The set of rules that define the structure of a program (e.g., how to declare variables, functions, and how code blocks are organized).",
+                                        "semantics": "The meaning behind the syntax; what actions the code performs when executed."
+                                    },
+                                    "programExecution": "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                                }
+                            },
+                            {
+                                "title": "Variables and Data Types",
+                                "content": {
+                                    "variables": "Containers for storing data. A variable is assigned a name and holds a value, which can change during program execution.",
+                                    "dataTypes": {
+                                        "integers": "Whole numbers.",
+                                        "floats": "Decimal numbers.",
+                                        "strings": "Sequences of characters.",
+                                        "booleans": "True/False values."
+                                    }
+                                }
+                            },
+                            {
+                                "title": "Control Structures",
+                                "content": {
+                                    "conditionals": {
+                                        "definition": "Allow the program to make decisions based on certain conditions.",
+                                        "example": "if age >= 18: print('You are an adult.') else: print('You are a minor.')"
+                                    },
+                                    "loops": {
+                                        "forLoop": "Repeats a block of code a set number of times.",
+                                        "forLoopExample": "for i in range(5): print(i)",
+                                        "whileLoop": "Repeats a block of code as long as a condition is true.",
+                                        "whileLoopExample": "while counter < 5: print(counter); counter += 1"
+                                    }
+                                }
+                            },
+                            {
+                                "title": "Functions",
+                                "content": {
+                                    "definition": "Reusable blocks of code that perform a specific task.",
+                                    "example": "def greet(name): return 'Hello, ' + name",
+                                    "parametersAndReturnValues": "Functions can take inputs (parameters) and return outputs."
+                                }
+                            },
+                            {
+                                "title": "Basic Algorithms",
+                                "content": {
+                                    "sorting": "Instructions for ordering data (e.g., bubble sort, quicksort).",
+                                    "searching": "Methods for finding an element in data (e.g., linear search, binary search)."
+                                }
+                            },
+                            {
+                                "title": "Version Control",
+                                "content": {
+                                    "definition": "Version control is a system that helps manage changes to files over time, allowing teams to track revisions, collaborate, and revert to earlier versions when needed.",
+                                    "types": {
+                                        "local": "Tracks changes in files on a single computer.",
+                                        "centralized": "Tracks changes on a central server, allowing multiple users to collaborate.",
+                                        "distributed": "Every user has a full copy of the repository, including its history."
+                                    },
+                                    "git": {
+                                        "repositories": {
+                                            "local": "The version history stored on your own machine.",
+                                            "remote": "A version history stored on a server (e.g., GitHub, GitLab)."
+                                        },
+                                        "commands": {
+                                            "init": "Initializes a new repository.",
+                                            "clone": "Copies a remote repository to your local machine.",
+                                            "status": "Displays the current state of the repository.",
+                                            "add": "Stages files for commit.",
+                                            "commit": "Records changes to the repository.",
+                                            "push": "Sends committed changes to the remote repository.",
+                                            "pull": "Fetches and merges changes from the remote repository."
+                                        },
+                                        "branching": {
+                                            "definition": "Branches are used to work on different versions of a project.",
+                                            "commands": {
+                                                "branch": "Lists or creates branches.",
+                                                "checkout": "Switches between branches."
+                                            }
+                                        },
+                                        "mergeConflicts": "Occur when changes from different branches conflict with each other. Git will ask for manual intervention to resolve the conflicts."
+                                    },
+                                    "collaboration": {
+                                        "forking": "A copy of a repository that allows for independent modifications.",
+                                        "pullRequests": "A request to merge changes from one branch to another, typically for code review and collaboration.",
+                                        "commitMessages": "Descriptions of changes made, explaining the reason for the change."
+                                    },
+                                    "bestPractices": [
+                                        "Commit frequently with descriptive messages.",
+                                        "Use branches to avoid working directly on the main branch.",
+                                        "Write clear and descriptive commit messages.",
+                                        "Sync regularly by pulling changes from the remote repository."
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                   
+                ],
+                "author": [
+                    {
+                        "name": "Marisbelsy Exposito Lopez",
+                        "img": "./assets/img/programing_fundamentals.jpeg",
+                        "biography": "bsdjashdasjkdhkjahsdkjakdhahdjahdkahsdjhsajdhsuajhdjasdgfjhsdgfjsdagfhk"
+                    }
+                ]
+            }
+        ]
+
+}

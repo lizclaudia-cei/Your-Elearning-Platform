@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Curso</title>
+    <meta name="description" content="Pagina de un curso especifico" />
+    <meta name="author" content="Liz Claudia Espinosa Gutierrez" />
+    <meta
+      name="keywords"
+      content="CEI, HTML, CSS, JS, Proyecto,Cursos,Development"
+    />
+
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
+    <!-- fonts -->
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/course.css" />
+
+    <script src="./js/course.js" defer></script>
+    <script src="./js/pruebas.js" defer></script>
+  </head>
+
+  <body>
+    <header class="Header u-bgPrimary">
+      <nav class="Header-nav">
+        <span class="material-symbols-outlined u-txtPrimary"> menu </span>
+      </nav>
+      <span class="material-symbols-outlined u-txtPrimary"> search </span>
+    </header>
+
+    <main class="Main">
+      <article class="Main-Article">
+        <h1 data-key="title" class="u-title">Nombre del curso</h1>
+        <iframe
+          class="Article-video"
+          src="https://www.youtube.com/embed/iReoQzBaRhs?start=6"
+          title="Youtube video player"
+          frameborder="0"
+          allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+          allowfullscreen
+        ></iframe>
+        <section class="Description-section">
+          <h2  class="u-title">Descripción</h2>
+          <p data-key="description" class="u-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus
+            ea porro fugiat maxime ab necessitatibus asperiores soluta ex
+            tenetur eaque atque aperiam, aliquid aliquam repudiandae voluptatum
+            rem veritatis eveniet!
+          </p>
+          <h2 class="u-title">Overview</h2>
+          <p data-key="overview" class="u-text">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus
+            ea porro fugiat maxime ab necessitatibus asperiores soluta ex
+            tenetur eaque atque aperiam, aliquid aliquam repudiandae voluptatum
+            rem veritatis eveniet!
+          </p>
+        </section>
+        <section class="Course-sections">
+            <h2 class="u-title">Carrear oportunities</h2>
+            
+          </section>
+        <section class="Acordeon-oportunities">
+          <div class="Acordeon-item">
+            <div class="Acordeon-title">
+              <h3 class="u-title">Secciones del curso</h3>
+              <span class="material-symbols-outlined"> arrow_drop_down </span>
+            </div>
+            <div class="Acordeon-content"></div>
+          </div>
+          
+        </section>
+       
+        <section class="Instructor-section">
+          <div class="Instructor-sections--item">
+            <div class="Instructor-imgContent">
+              <img
+                class="Instructor-img"
+                src="https://placehold.co/600x400?text=imagen"
+                alt="Imagen de contenido"
+              />
+            </div>
+            <div class="Instructor-content">
+              <h3 class="u-title">Nombre del instructor</h3>
+              <p class="u-text">
+                shdkjasgdjasdgkajsdhjakshdkjhasjdjahsdkoqiwoiwueoiruqpioewrioqweprioewquroihsjkdhbcljbuweqiubqweurycywlauxiunqwepwpeqriu
+              </p>
+            </div>
+          </div>
+        </section>
+      </article>
+    </main>
+    <footer class="Footer u-bgTerciary">
+      <nav class="Footer-nav">
+        <h2 class="u-tittle">About</h2>
+        <ul class="Footer-nav--ul">
+          <li class="Footer-nav--ul-li">
+            <a class="Footer-nav--ul-li" href="./">Home</a>
+          </li>
+          <li>
+            <a class="Footer-nav--ul-li" href="./">Menu</a>
+          </li>
+        </ul>
+        <h2 class="u-tittle">Legacy</h2>
+        <ul class="Footer-nav--ul">
+          <li class="Footer-nav--ul-li">
+            <a class="Footer-nav--ul-li" href="./ " target="_blank"
+              >Privacy Police</a
+            >
+          </li>
+          <li>
+            <a class="Footer-nav--ul-li" href="./" target="_blank">Terms</a>
+          </li>
+        </ul>
+        <hr class="Footer-nav--hr" />
+        <div class="Footer-nav--proyect-image">
+          <img
+            class="Footer-user-img"
+            src="https://placehold.co/600x400?text=imagen"
+            alt="Imagen referente al curso"
+          />
+          <p class="u-textPrimary">© 2021 Liz Claudia Espinosa</p>
+        </div>
+      </nav>
+    </footer>
+  </body>
+</html>

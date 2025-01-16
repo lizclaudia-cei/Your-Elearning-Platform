@@ -1,0 +1,78 @@
+/* ---------------------------------------------*/
+/*              Variables                       */
+/* ---------------------------------------------*/
+
+:root{
+    --bg-primary:#F0EBD8;
+    --bg-secondary:#3E5C76;
+    --bg-terciary:#748CAB;
+    --txt-primary:#1D2D44;
+    --txt-secondary:#748CAB;
+    --txt-danger:#ff0000;
+    --box-shadow:1px 1px 5px rgba(0,0,0,0.5);
+}
+
+
+/* ---------------------------------------------*/
+/*              Modo Claro/Obscuro              */
+/* ---------------------------------------------*/
+
+.u-Dark{
+    --bg-primary:#0D1321;
+    --bg-secondary:#1D2D44;
+    --txt-primary:#F0EBD8;
+    --txt-secondary:#748CAB;
+    --box-shadow:1px 1px 5px rgba(18, 11, 11, 0.5);
+}
+
+
+/* ---------------------------------------------*/
+/*        Clase reutilizables/ utilities        */
+/* ---------------------------------------------*/
+
+.u-title{
+    font-size:20px;
+    font-weight: bold;
+    color: var(--txt-primary);
+    transition: color 0.3s ease;
+}
+
+.u-text{
+    font-size:16px;
+    color: var(--txt-secondary);
+    transition: color 0.3s ease;
+    margin: 8px;
+    width: 100%;
+}
+
+.u-bgPrimary{
+    background: var(--bg-primary);
+    transition: background-color 0.3s ease;
+}
+.u-bgSecondary{
+    background: var(--bg-secondary);
+    transition: background-color 0.3s ease;
+}
+.u-bgTerciary{
+    background: var(--bg-terciary);
+    transition: background-color 0.3s ease;
+}
+
+
+.u-txtPrimary{
+    color: var(--txt-primary);
+    transition: color 0.3s ease;
+}
+.u-txtDanger{
+    color: var(--txt-danger);
+    transition: color 0.3s ease;
+}
+.u-txtSecondary{
+    color: var(--txt-secondary);
+    transition: color 0.3s ease;
+}
+
+.u-bxShadow{
+    box-shadow: var(--box-shadow);
+    transform: box-shadow 0.3s ease;
+}
