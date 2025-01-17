@@ -256,6 +256,10 @@ function addComments() {
             const cardText = document.createElement('p');
             const cardAuthor = document.createElement('p');
             const cardUser = document.createElement('div');
+            const divInteraction = document.createElement('div');
+            const textInteraction = document.createElement('p');
+            const iconLike = document.createElement('span');
+            const iconDislike = document.createElement('span');
             
             card.classList.add('Main-comments--coment');
             cardImage.classList.add('"Main-comments--coment-user-img');
@@ -263,15 +267,39 @@ function addComments() {
             cardAuthor.classList.add('u-title');
             cardUser.classList.add('Main-comments--coment-user');
             cardImage.classList.add('Main-comments--coment-user-img');
+            divInteraction.classList.add('Main-interaction');
+            iconLike.classList.add('material-symbols-outlined');
+            iconDislike.classList.add('material-symbols-outlined');
+
+
+            iconDislike.addEventListener('click', () => {
+                iconLike.style.color=`black`;
+                iconDislike.style.color=`red`;
+            });
+
+            iconLike.addEventListener('click', () => {
+                iconDislike.style.color=`black`;
+                iconLike.style.color=`green`;
+            })
+
             cardImage.src = comment.img;
             cardImage.alt = comment.author;
             cardAuthor.textContent = comment.author;
             cardText.textContent = comment.description;
+            iconLike.innerText = 'thumb_up';   
+            iconDislike.innerText = 'thumb_down';
+            textInteraction.textContent ='Helpful?'
+
+            divInteraction.appendChild(textInteraction);
+            divInteraction.appendChild(iconLike);
+            divInteraction.appendChild(iconDislike);
 
             card.appendChild(cardText);
             cardUser.appendChild(cardImage);
             cardUser.appendChild(cardAuthor);
             card.appendChild(cardUser);
+
+            card.appendChild(divInteraction);
             cardComments.appendChild(card);
             commentsSlider.push(card);
         });

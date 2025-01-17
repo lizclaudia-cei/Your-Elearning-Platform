@@ -86,7 +86,8 @@
 }
 
 .u-Starts{
-   color:gold
+   color:gold;
+   fill: gold;
 }
 
 .Main-comments {
@@ -130,3 +131,10 @@
     border-radius: 50%;
     object-fit: cover;
 }
+.Main-interaction{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+}
+
