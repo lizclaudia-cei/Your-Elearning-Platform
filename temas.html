@@ -28,13 +28,28 @@
      <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <!-- js -->
     <script src="./js/subjects.js" defer></script>
+    <script src="./js/pruebas.js" defer></script>
   </head>
   <body>
     <header class="Header u-bgPrimary">
+      <div class="Header-top">
+        <span class="material-symbols-outlined u-txtPrimary" id="menuBtn"> menu </span>
+         <p class="u-title">Your Elearning Platform</p>
+         <a href="./index.html"><img class="Header-logo" src="./assets/img/elearning_icon.webp" alt="Elearning logo"></a>
+         
+      </div>
+      
       <nav class="Header-nav">
-        <span class="material-symbols-outlined u-txtPrimary"> menu </span>
+        <ul class="Footer-nav--ul">
+
+          <li class="Footer-nav--ul-li"><a class="ul-li" href="#Description">Subject Description</a></li>
+
+          <li class="Footer-nav--ul-li"><a class="ul-li" href="#Modules">Subject modules</a></li>
+          <li class="Footer-nav--ul-li"><a class="ul-li" href="#Activities">Subject activities</a></li>
+
+        </ul>
       </nav>
-      <span class="material-symbols-outlined u-txtPrimary"> search </span>
+     
     </header>
 
     <main class="Main">
@@ -47,8 +62,8 @@
           allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
           allowfullscreen
         ></iframe>
-        <section class="Description-section">
-          <h2  class="u-title">Descripción</h2>
+        <section id="Description" class="Description-section">
+          <h2  class="u-title">Subject Description</h2>
           <p data-key="description" class="u-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus
             ea porro fugiat maxime ab necessitatibus asperiores soluta ex
@@ -56,10 +71,11 @@
             rem veritatis eveniet!
           </p>
         </section>
-        <section class="Acordeon">
+        <section id="Modules" class="Acordeon">
+          <h2 class="u-title">Modules</h2>
           <div class="Acordeon-item">
             <div class="Acordeon-title">
-              <h3 class="u-title">Secciones del curso</h3>
+              <h3 class="u-title">Subjects</h3>
               <span class="material-symbols-outlined"> arrow_drop_down </span>
             </div>
             <div class="Acordeon-content"></div>
@@ -67,8 +83,8 @@
         </section>
 
 
-        <section class="Methodology-section">
-          <h2 class="u-title">Descripción</h2>
+        <section id="Activities" class="Methodology-section">
+          <h2 class="u-title">Activities</h2>
           <p class="u-text">
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus
             ea porro fugiat maxime ab necessitatibus asperiores soluta ex

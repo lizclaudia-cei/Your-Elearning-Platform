@@ -22,18 +22,23 @@ let currentImage = 0;
 const listImages = `[
     {
         "id" : 1,
-        "src" : "https://placehold.co/600x400?text=Imagen",
-        "description": "imagen de pruebas 1"
+        "src" : "./assets/img/cursos_ia.jpg",
+        "description": "Curso IA"
     },
     {
-        "id" : 1,
-        "src" : "https://placehold.co/600x400?text=HolaMundo",
-        "description": "imagen de pruebas 1"
+        "id" : 2,
+        "src" : "./assets/img/version_control.jpeg",
+        "description": "Control de versiones"
     },
     {
-        "id" : 1,
-        "src" : "https://placehold.co/600x400?text=Hola",
-        "description": "imagen de pruebas 1"
+        "id" : 3,
+        "src" : "./assets/img/testing.jpg",
+        "description": "Testing"
+    },
+    {
+        "id" : 4,
+        "src" : "./assets/img/imagen_ejecutiva.jpg",
+        "description": "Ejecutiva"
     }
 ]`;
 
@@ -174,6 +179,7 @@ function addCards() {
             cardTitle.classList.add('u-title');
             cardAuthor.classList.add('u-text');
              cardImage.src = course.img;
+             cardImage.alt = course.title;
             cardTitle.textContent = course.title;;
             cardAuthor.textContent = course.author[0].name;
 

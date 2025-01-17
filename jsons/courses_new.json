@@ -6,6 +6,7 @@
       "description": "The Software Engineering Fundamentals course is designed to equip students with the essential knowledge and practical skills required for modern software development. This course covers the entire software development lifecycle, from requirement analysis and system design to implementation, testing, deployment, and maintenance. Students will explore various methodologies, tools, and best practices in the industry, gaining hands-on experience through interactive projects and real-world scenarios. By the end of the course, students will be prepared to tackle software engineering challenges and pursue entry-level roles in the tech industry.",
       "overview": "This course provides a comprehensive introduction to software engineering principles, covering the entire software development lifecycle, design patterns, programming fundamentals, testing, deployment, and security. Students will engage in hands-on projects to apply theoretical concepts in practical scenarios.",
       "img": "./assets/img/sdlc.jpeg",
+      "video":"https://www.youtube.com/embed/WMVjVgCGCG8",
       "qualification": 4.5,
       "careers": [
         {
@@ -672,6 +673,7 @@
       "description": "Understand the core principles of securing software, designing scalable systems, and optimizing performance",
       "overview": "Security in software development involves protecting systems, networks, and data from cyber threats and unauthorized access. This includes implementing measures such as encryption, access controls, and regular security audits to ensure the integrity, confidentiality, and availability of information.",
       "img": "./assets/img/sdlc.jpeg",
+      "video": "https://www.youtube.com/embed/ban-kiLchiY",
       "qualification": "5",
       "careers": [
         {
@@ -843,6 +845,7 @@
       "description": "Understand the ethical responsibilities of software developers and how to navigate challenges involving privacy, security, and societal impact.",
       "overview": "Ethics in software development involves adhering to principles that ensure the creation of software that is fair, transparent, and respectful of user rights. Ethical considerations guide developers in making decisions that prioritize the well-being of users and society, while minimizing harm and promoting trust.",
       "img": "./assets/img/sdlc.jpeg",
+      "video":"https://www.youtube.com/embed/EWXfhYlaQn0",
       "qualification": "3",
       "careers": [
         {

@@ -4,10 +4,10 @@
 
 const acordeonItems = document.querySelectorAll('.Acordeon-item');
 const acordeonTitle = document.querySelectorAll('.Acordeon-title');
-console.log(acordeonItems.length);
-console.log(acordeonTitle.length);
 
 const elements = document.querySelectorAll('[data-key]');
+
+const video = document.getElementById('video');
 
 const courseSection = document.querySelector('.Course-sections');
 
@@ -34,12 +34,11 @@ let course = [];
  */
 
 async function getCourses() {
-    console.log('agsdjghsjdaghdaks')
+   
     try {
         let courses = await fetch('./jsons/courses_new.json');
         courses = await courses.json();
-        console.log('Estos son los cursos');
-        console.log(courses);
+       
         return courses;
 
     } catch (error) {
@@ -73,14 +72,16 @@ async function fillData() {
         const key = element.getAttribute('data-key');
         element.textContent = course[key];
     })
+    video.src = course.video;
 
 }
 
 
 
+
+
 acordeonTitle.forEach(async (title) => {
     course = await getCourse(paramCourse);
-    console.log('course', course);
     const item = title.closest('.Acordeon-item');
     const content = item.querySelector('.Acordeon-content');
     title.addEventListener('click', () => {
@@ -108,6 +109,7 @@ acordeonTitle.forEach(async (title) => {
             title.classList.add('u-title');
 
             img.src = subject.img;
+            img.alt = subject.title;
             title.textContent = subject.title;
             divImg.appendChild(img);
             divContent.appendChild(title);
@@ -171,6 +173,7 @@ async function addAuthor() {
         text.classList.add('u-text');
 
         img.src = author.img;
+        img.alt = author.name;
         title.textContent = author.name;
         text.textContent = author.biography
         divImg.appendChild(img);

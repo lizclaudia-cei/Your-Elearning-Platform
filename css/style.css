@@ -73,6 +73,7 @@
     border-radius: 1rem;
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
     transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor:pointer;
 }
 
 .Main-course--img {
