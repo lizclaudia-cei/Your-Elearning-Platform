@@ -1,191 +1,138 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Proyecto</title>
+    <meta name="author" content="Liz Claudia Espinosa" />
+    <meta name="description" content="Proyecto final del modulo Paginas web" />
+    <meta name="keywords" content="HTML, CSS, JS, Proyecto, CEI" />
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto</title>
-  <meta name="author" content="Liz Claudia Espinosa" />
-  <meta name="description" content="Proyecto final del modulo Paginas web" />
-  <meta name="keywords" content="HTML, CSS, JS, Proyecto, CEI" />
-  <!-- icons -->
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+    <!-- fonts -->
 
-  <!-- fonts -->
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
-  <!-- styles -->
-  <link rel="stylesheet" href="./css/header.css" />
-  <link rel="stylesheet" href="./css/colors.css" />
-  <link rel="stylesheet" href="css/style.css" />
+    <script src="./js/content.js" defer></script>
+  </head>
 
-  <script src="./js/content.js" defer></script>
-</head>
+  <body class="Body">
+    <header class="Header u-bgPrimary">
+      <nav class="Header-nav">
+        <span class="material-symbols-outlined u-txtPrimary"> menu </span>
+      </nav>
+      <span class="material-symbols-outlined u-txtPrimary">  </span>
+    </header>
 
-<body class="Body">
-  <header class="Header u-bgPrimary">
-    <nav class="Header-nav">
-      <span class="material-symbols-outlined u-txtPrimary"> menu </span>
-    </nav>
-    <span class="material-symbols-outlined u-txtPrimary"> search </span>
-  </header>
-
-  <main class="Main">
-    <section class="Main-imageCarousel">
-      <div id="imageBoxes" class="ImageBoxes">
-        <!-- <img
+    <main class="Main">
+      <section class="Main-imageCarousel">
+        <h1 class="u-title">Your Elearning Platform</h1>
+        <div id="imageBoxes" class="ImageBoxes">
+          <!-- <img
             class="ImageBoxes--box"
             src="https://placehold.co/600x400?text=imagen"
             alt="Imagen referente al curso"
           /> -->
-      </div>
-      <button id="btnPrev" class="Main-imageCarousel--button u-Prev">
-        <span class="material-symbols-outlined"> arrow_back_ios </span>
-      </button>
-      <button id="btnNext" class="Main-imageCarousel--button u-Next">
-        <span class="material-symbols-outlined"> arrow_forward_ios </span>
-      </button>
-    </section>
-    <section class="Main-skills">
-      <h2 class="u-title">Todas las habilidades en un solo lugar</h2>
-      <p class="u-text">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quis
-        repellendus illo similique iusto repellat unde obcaecati, non expedita
-        at repudiandae recusandae cum aliquam quibusdam perferendis illum
-        magni. Maxime, nihil modi?
-      </p>
-      <div class="Main-acordeon">
-        <div class="Main-acordeon--item">
-          <div class="Main-acordeon--title">
-            <h3 class="u-title">Web Development</h3>
-            <span class="material-symbols-outlined"> arrow_drop_down </span>
-          </div>
-          <div id="skillsTitle" class="SkillsBoxes">
-            <!-- <button class="SkillBox">Pruebitas</button> -->
-          </div>
-          <div class="Main-acordeon--content">
-            <!-- 
+        </div>
+        <button id="btnPrev" class="Main-imageCarousel--button u-Prev">
+          <span class="material-symbols-outlined"> arrow_back_ios </span>
+        </button>
+        <button id="btnNext" class="Main-imageCarousel--button u-Next">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
+      </section>
+
+      <section class="Main-courses">
+        <h2 class="u-title">Start Today</h2>
+        <p class="u-text">
+          Discover a new way of learning with our online courses. At LearnWithUs, we offer a wide variety of courses designed to help you achieve your educational and professional goals. Whether you're looking to improve your technical skills, learn a new language, or explore a new passion, we have the perfect course for you.
+        </p>
+        <div class="CoursesCards"></div>
+        <button id="btnNextCard" class="Main-imageCarousel--button u-Next">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
+      </section>
+      <section class="Main-comments u-bgPrimary">
+        <h2 class="u-title">See what others are achieving through learning</h2>
+        <div class="Comments">
+          <div class="Main-comments--coment">
+            <p class="u-textPrimary">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+              illo ullam itaque, voluptatibus ad aperiam corrupti? Nemo
+              asperiores repellendus, libero tempora praesentium ea nam,
+              recusandae sint fugit laboriosam, aspernatur alias?
+            </p>
+            <div class="Main-comments--coment-user">
               <img
-                class="Main-acordeon--content-image"
+                class="Main-comments--coment-user-img"
                 src="https://placehold.co/600x400?text=imagen"
                 alt="Imagen referente al curso"
               />
-              <p class="u-title">HTML, CSS, JS</p>
-              <p class="u-text">Arturo Diaz</p>
-              <div class="Main-acordeon--starts">
-                <span class="material-symbols-outlined"> star </span>
-                <span class="material-symbols-outlined"> star </span>
-                <span class="material-symbols-outlined"> star </span>
-                <span class="material-symbols-outlined"> star </span>
-              </div>
-              <p class="u-title">$ 123</p> -->
+              <p class="u-title">Arturo Diaz</p>
+            </div>
           </div>
-        </div>
-        <div class="Main-acordeon--item">
-          <div class="Main-acordeon--title">
-            <h3 class="u-title">Web Development</h3>
-            <span class="material-symbols-outlined"> arrow_drop_down </span>
-          </div>
-          <div id="skillsTitle" class="SkillsBoxes">
-            <!-- <button class="SkillBox">Pruebitas</button> -->
-          </div>
-          <div class="Main-acordeon--content"></div>
-        </div>
-        <div class="Main-acordeon--item">
-          <div class="Main-acordeon--title">
-            <h3 class="u-title">Web Development</h3>
-            <span class="material-symbols-outlined"> arrow_drop_down </span>
-          </div>
-          <div id="skillsTitle" class="SkillsBoxes">
-            <!-- <button class="SkillBox">Pruebitas</button> -->
-          </div>
-          <div class="Main-acordeon--content"></div>
-        </div>
-      </div>
-    </section>
-    <section class="Main-courses">
-      <div class="CoursesCards">
-        <!-- <div class="Main-courses--course">
-            <img
-                class="Main-acordeon--content-image"
+          <div class="Main-comments--coment">
+            <p class="u-textPrimary">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
+              illo ullam itaque, voluptatibus ad aperiam corrupti? Nemo
+              asperiores repellendus, libero tempora praesentium ea nam,
+              recusandae sint fugit laboriosam, aspernatur alias?
+            </p>
+            <div class="Main-comments--coment-user">
+              <img
+                class="Main-comments--coment-user-img"
                 src="https://placehold.co/600x400?text=imagen"
                 alt="Imagen referente al curso"
               />
-              <p class="u-title">HTML, CSS, JS</p>
-              <p class="u-text">Arturo Diaz</p>
-              <div class="Main-acordeon--starts">
-                <span class="material-symbols-outlined"> star </span>
-                <span class="material-symbols-outlined"> star </span>
-                <span class="material-symbols-outlined"> star </span>
-                <span class="material-symbols-outlined"> star </span>
-              </div>
-              <p class="u-title">$ 123</p>
-        </div> -->
-      </div>
-
-      <button id="btnNextCard" class="Main-imageCarousel--button u-Next">
-        <span class="material-symbols-outlined"> arrow_forward_ios </span>
-      </button>
-    </section>
-    <section class="Main-comments u-bgPrimary">
-      <!-- <h2 class="u-title">Comentarios</h2> -->
-      <div class="Main-comments--coment">
-        <p class="u-textPrimary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa illo
-          ullam itaque, voluptatibus ad aperiam corrupti? Nemo asperiores
-          repellendus, libero tempora praesentium ea nam, recusandae sint
-          fugit laboriosam, aspernatur alias?
-        </p>
-        <div class="Main-comments--coment-user">
-          <img class="Main-comments--coment-user-img" src="https://placehold.co/600x400?text=imagen"
-            alt="Imagen referente al curso" />
-          <p class="u-title">Arturo Diaz</p>
+              <p class="u-title">Arturo Diaz</p>
+            </div>
+          </div>
         </div>
-      </div>
-      <div class="Main-comments--coment">
-        <p class="u-textPrimary">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa illo
-          ullam itaque, voluptatibus ad aperiam corrupti? Nemo asperiores
-          repellendus, libero tempora praesentium ea nam, recusandae sint
-          fugit laboriosam, aspernatur alias?
-        </p>
-        <div class="Main-comments--coment-user">
-          <img class="Main-comments--coment-user-img" src="https://placehold.co/600x400?text=imagen"
-            alt="Imagen referente al curso" />
-          <p class="u-title">Arturo Diaz</p>
+        <button id="btnNextComment" class="Main-imageCarousel--button u-Next">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
+      </section>
+    </main>
+
+    <footer class="Footer u-bgTerciary">
+      <nav class="Footer-nav">
+        <h2 class="u-tittle">About</h2>
+        <ul class="Footer-nav--ul">
+          <li class="Footer-nav--ul-li">
+            <a class="Footer-nav--ul-li" href="./">Home</a>
+          </li>
+          <li>
+            <a class="Footer-nav--ul-li" href="./">Menu</a>
+          </li>
+        </ul>
+        <h2 class="u-tittle">Legacy</h2>
+        <ul class="Footer-nav--ul">
+          <li class="Footer-nav--ul-li">
+            <a class="Footer-nav--ul-li" href="./ " target="_blank"
+              >Privacy Police</a
+            >
+          </li>
+          <li>
+            <a class="Footer-nav--ul-li" href="./" target="_blank">Terms</a>
+          </li>
+        </ul>
+        <hr class="Footer-nav--hr" />
+        <div class="Footer-nav--proyect-image">
+          <img
+            class="Footer-user-img"
+            src="https://placehold.co/600x400?text=imagen"
+            alt="Imagen referente al curso"
+          />
+          <p class="u-textPrimary">© 2021 Liz Claudia Espinosa</p>
         </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="Footer u-bgTerciary">
-    <nav class="Footer-nav">
-      <h2 class="u-tittle">About</h2>
-      <ul class="Footer-nav--ul">
-        <li class="Footer-nav--ul-li">
-          <a class="Footer-nav--ul-li" href="./">Home</a>
-        </li>
-        <li>
-          <a class="Footer-nav--ul-li" href="./">Menu</a>
-        </li>
-      </ul>
-      <h2 class="u-tittle">Legacy</h2>
-      <ul class="Footer-nav--ul">
-        <li class="Footer-nav--ul-li">
-          <a class="Footer-nav--ul-li" href="./ " target="_blank">Privacy Police</a>
-        </li>
-        <li>
-          <a class="Footer-nav--ul-li" href="./" target="_blank">Terms</a>
-        </li>
-      </ul>
-      <hr class="Footer-nav--hr" />
-      <div class="Footer-nav--proyect-image">
-        <img class="Footer-user-img" src="https://placehold.co/600x400?text=imagen"
-          alt="Imagen referente al curso" />
-        <p class="u-textPrimary">© 2021 Liz Claudia Espinosa</p>
-      </div>
-    </nav>
-  </footer>
-</body>
-
+      </nav>
+    </footer>
+  </body>
 </html>

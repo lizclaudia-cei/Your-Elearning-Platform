@@ -1,0 +1,963 @@
+{
+  "courses": [
+    {
+      "id": 1,
+      "title": "Software Engineering Fundamentals Course",
+      "description": "The Software Engineering Fundamentals course is designed to equip students with the essential knowledge and practical skills required for modern software development. This course covers the entire software development lifecycle, from requirement analysis and system design to implementation, testing, deployment, and maintenance. Students will explore various methodologies, tools, and best practices in the industry, gaining hands-on experience through interactive projects and real-world scenarios. By the end of the course, students will be prepared to tackle software engineering challenges and pursue entry-level roles in the tech industry.",
+      "overview": "This course provides a comprehensive introduction to software engineering principles, covering the entire software development lifecycle, design patterns, programming fundamentals, testing, deployment, and security. Students will engage in hands-on projects to apply theoretical concepts in practical scenarios.",
+      "img": "./assets/img/sdlc.jpeg",
+      "qualification": 4.5,
+      "careers": [
+        {
+          "id": 1,
+          "title": "Junior Software Engineer"
+        },
+        {
+          "id": 2,
+          "title": "Backend/Frontend Developer"
+        },
+        {
+          "id": 3,
+          "title": "QA Engineer/Software Tester"
+        },
+        {
+          "id": 4,
+          "title": "DevOps Engineer (Entry-Level)"
+        },
+        {
+          "id": 5,
+          "title": "Technical Support Engineer"
+        }
+      ],
+      "modules": [
+        {
+          "id": 1,
+          "title": "Software Development Lifecycle (SDLC)",
+          "img": "./assets/img/sdlc.jpeg",
+          "description": "The **Software Development Lifecycle (SDLC)** is a structured process used for developing software applications. It consists of various stages that guide the development process, ensuring the final product meets the desired quality and is delivered on time and within budge",
+          "lessons": [
+            {
+              "name": "stages",
+              "title": "Software Development Lifecycle Stages",
+              "description": "The Software Development Lifecycle (SDLC) consists of several stages that guide the development process from inception to deployment and maintenance. Each stage has specific goals, activities, and deliverables that contribute to the overall success of the project.",
+              "content": [
+                {
+                  "title": "Requirement Gathering and Analysis",
+                  "description": "Gather necessary information from stakeholders to identify the project’s goals, requirements, and limitations.",
+                  "key_points": [
+                    "Stakeholder meetings",
+                    "Functional and non-functional requirements documentation",
+                    "Feasibility studies (technical, operational, financial)"
+                  ]
+                },
+                {
+                  "title": "System Design",
+                  "description": "Define the architecture and design to meet business needs.",
+                  "key_points": [
+                    "High-level design (overall architecture)",
+                    "Low-level design (detailed components)",
+                    "Database design",
+                    "UI/UX design",
+                    "Technology stack selection"
+                  ]
+                },
+                {
+                  "title": "Implementation (Coding)",
+                  "description": "Transform the design into code following standards and best practices.",
+                  "key_points": [
+                    "Code writing",
+                    "Unit testing",
+                    "Version control",
+                    "Code reviews"
+                  ]
+                },
+                {
+                  "title": "Testing",
+                  "description": "Test the software rigorously to identify defects and ensure requirements are met.",
+                  "key_points": [
+                    "Unit testing",
+                    "Integration testing",
+                    "System testing",
+                    "Acceptance testing",
+                    "Bug fixing"
+                  ]
+                },
+                {
+                  "title": "Deployment",
+                  "description": "Deploy the software to the production environment.",
+                  "key_points": [
+                    "Configuration management",
+                    "CI/CD",
+                    "Release notes and documentation",
+                    "Rollback plans"
+                  ],
+                  "advantages": [
+                    "Ensures a structured approach to software development",
+                    "Improves communication and collaboration among team members",
+                    "Helps manage project scope, budget, and timeline"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive",
+                    "Rigid processes may not be suitable for all projects"
+                  ]
+                },
+                {
+                  "title": "Maintenance",
+                  "description": "Ensure the application performs well over time, addressing bugs and performance issues.",
+                  "key_points": [
+                    "Bug fixes",
+                    "Performance enhancements",
+                    "Feature updates",
+                    "Monitoring and logging"
+                  ],
+                  "advantages": [
+                    "Ensures a structured approach to software development",
+                    "Improves communication and collaboration among team members",
+                    "Helps manage project scope, budget, and timeline"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive",
+                    "Rigid processes may not be suitable for all projects"
+                  ]
+                }
+              ]
+            },
+            {
+              "name": "methodologies",
+              "title": "Software Development Methodologies",
+              "description": "Structured approaches for managing the SDLC process.",
+              "content": [
+                {
+                  "title": "Waterfall Model",
+                  "description": "A linear, sequential approach where each phase must be completed before moving to the next.",
+                  "key_points": [],
+                  "advantages": [
+                    "Easy to understand and use",
+                    "Clear, well-defined stages",
+                    "Best for smaller projects with clear requirements"
+                  ],
+                  "disadvantages": [
+                    "Difficult to go back to previous stages",
+                    "Less flexible for changes during the process"
+                  ]
+                },
+                {
+                  "title": "Agile Methodology",
+                  "description": "Focuses on iterative development, flexibility, and customer collaboration.",
+                  "key_points": [],
+                  "advantages": [
+                    "High flexibility",
+                    "Faster release cycles",
+                    "Continuous feedback and improvement"
+                  ],
+                  "disadvantages": [
+                    "Requires strong team collaboration",
+                    "Can be difficult to manage for large projects"
+                  ],
+                  "frameworks": [
+                    "Scrum",
+                    "Kanban",
+                    "Extreme Programming (XP)"
+                  ]
+                },
+                {
+                  "title": "Scrum",
+                  "description": "An Agile framework that uses sprints for iterative development.",
+                  "roles": [
+                    "Product Owner",
+                    "Scrum Master",
+                    "Development Team"
+                  ],
+                  "advantages": [
+                    "Clear roles and responsibilities",
+                    "Frequent delivery of working software",
+                    "Strong focus on continuous improvement"
+                  ],
+                  "disadvantages": null
+                },
+                {
+                  "title": "Kanban",
+                  "description": "Focuses on continuous delivery with a visual board to manage tasks.",
+                  "advantages": [
+                    "Flexible and adaptable",
+                    "Focuses on efficiency and minimizing bottlenecks"
+                  ],
+                  "disadvantages": [
+                    "Requires constant monitoring of work in progress",
+                    "Less structured than Scrum"
+                  ]
+                },
+                {
+                  "title": "DevOps",
+                  "description": "Integrates development and operations teams for better collaboration and productivity.",
+                  "key_points": [
+                    "Continuous Integration (CI)",
+                    "Continuous Delivery (CD)",
+                    "Infrastructure as Code (IaC)"
+                  ],
+                  "advantages": [
+                    "Faster delivery of software",
+                    "Improved collaboration between teams",
+                    "Automated testing and deployment"
+                  ],
+                  "disadvantages": [
+                    "Can be difficult to implement without the right tools and culture",
+                    "Requires strong automation and monitoring practices"
+                  ]
+                },
+                {
+                  "title": "Spiral Model",
+                  "description": "An iterative process focused on risk assessment and management.",
+                  "advantages": [
+                    "Risk management is a priority",
+                    "Flexible to changes"
+                  ],
+                  "disadvantages": [
+                    "Complex and expensive to manage",
+                    "Requires experienced team members"
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "title": "Software Requirements, Design, and Architecture",
+          "description": "This module covers the fundamental stages of software development: gathering and documenting requirements, designing systems, and architecting scalable and maintainable solutions. These stages are crucial for creating software that meets business needs and is sustainable over time. ",
+          "img": "./assets/img/software_requirements.jpeg",
+          "lessons": [
+            {
+              "name": "software_requirements",
+              "img": "./assets/img/software_requirements.jpeg",
+              "title": "Software Requirements",
+              "description": "Software requirements define what the software should do and how it should perform. Gathering, documenting, and analyzing requirements are essential steps in the software development process.",
+              "content": [
+                {
+                  "title": "Functional Requirements",
+                  "description": "Describe what the software should do (e.g., features, tasks).",
+                  "key_points": [
+                    "Interviews with stakeholders to collect detailed needs.",
+                    "Surveys and Questionnaires to reach a larger audience.",
+                    "Use Cases and User Stories to document specific actions.",
+                    "Prototyping to validate requirements early."
+                  ],
+                  "roles": [
+                    "Product Owner",
+                    "Business Analyst",
+                    "Stakeholders"
+                  ],
+                  "frameworks": null,
+                  "advantages": [
+                    "Provide clear and specific criteria for what the software must accomplish.",
+                    "Help ensure that all stakeholders have a common understanding of the software's functionality.",
+                    "Serve as a basis for designing, developing, and testing the software.",
+                    "Facilitate communication between developers, clients, and other stakeholders."
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming to gather and document all necessary requirements.",
+                    "May become outdated if not regularly reviewed and updated to reflect changes in project scope or user needs.",
+                    "Overly detailed requirements can limit flexibility and innovation during the development process.",
+                    "Misunderstandings or incomplete requirements can lead to software that does not meet user needs."
+                  ]
+                },
+                {
+                  "title": "Non-Functional Requirements",
+                  "description": "Specify how the software should perform (e.g., security, performance, scalability).",
+                  "key_points": [
+                    "Interviews with stakeholders to collect detailed needs.",
+                    "Surveys and Questionnaires to reach a larger audience.",
+                    "Use Cases and User Stories to document specific actions.",
+                    "Prototyping to validate requirements early."
+                  ],
+                  "roles": [
+                    "Product Owner",
+                    "Business Analyst",
+                    "Stakeholders",
+                    "Software Architect"
+                  ],
+                  "frameworks": null,
+                  "advantages": [
+                    "Ensure the software performs well under expected conditions and meets user expectations for performance, reliability, and usability.",
+                    "Help identify potential bottlenecks and areas for optimization early in the development process.",
+                    "Provide a basis for performance testing and benchmarking.",
+                    "Enhance user satisfaction by ensuring the software is efficient, secure, and scalable."
+                  ],
+                  "disadvantages": [
+                    "Can be challenging to quantify and measure compared to functional requirements.",
+                    "May require significant resources and time to implement and test effectively.",
+                    "Balancing non-functional requirements with functional requirements can be complex and may lead to trade-offs.",
+                    "Failure to meet non-functional requirements can result in poor user experience and system performance issues."
+                  ]
+                },
+                {
+                  "title": "Documenting and Analyzing Requirements",
+                  "description": "Use a Requirements Specification document to capture and prioritize requirements. Traceability ensures that requirements align with business objectives.",
+                  "key_points": [
+                    "Documentation: Use a Requirements Specification document.",
+                    "Prioritization: Prioritize using methods like MoSCoW (Must have, Should have, Could have, Won’t have).",
+                    "Traceability: Ensure traceability to business objectives."
+                  ],
+                  "roles": null,
+                  "frameworks": null,
+                  "advantages": [
+                    "Provides a clear and organized way to capture and communicate requirements to all stakeholders.",
+                    "Helps ensure that all requirements are understood and agreed upon before development begins.",
+                    "Facilitates traceability, making it easier to track changes and ensure all requirements are met.",
+                    "Reduces the risk of missing or misunderstood requirements, leading to a more accurate and complete final product."
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive to document and analyze all requirements thoroughly.",
+                    "May lead to excessive documentation, which can be difficult to maintain and keep up-to-date.",
+                    "Overemphasis on documentation can slow down the development process and reduce flexibility.",
+                    "Miscommunication or misinterpretation of documented requirements can still occur, leading to potential issues in the final product."
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Software Design",
+              "img": "./assets/img/software_design.jpeg",
+              "description": "Software design involves translating requirements into system specifications that developers can implement. Design principles, patterns, and tools help create scalable, maintainable systems.",
+              "content": [
+                {
+                  "title": "Introduction to Software Design",
+                  "description": "Design involves translating requirements into system specifications that developers can implement.",
+                  "key_points": [
+                    "Modularity: Break the system into smaller, manageable parts.",
+                    "Separation of Concerns: Divide functionality into distinct sections."
+                  ],
+                  "frameworks": null,
+                  "roles": null,
+                  "advantages": [
+                    "Provides a blueprint for the development process, ensuring that all components of the software work together cohesively.",
+                    "Helps identify potential issues and design flaws early in the development process, reducing the risk of costly changes later.",
+                    "Facilitates communication and collaboration among team members by providing a clear and shared understanding of the system architecture.",
+                    "Improves maintainability and scalability by promoting modular and well-structured code."
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming to create detailed design documents, especially for complex systems.",
+                    "May require significant upfront effort, which can delay the start of actual development.",
+                    "Overly rigid design can limit flexibility and adaptability to changing requirements or new insights during development.",
+                    "Miscommunication or misunderstanding of the design can lead to implementation issues and deviations from the intended architecture."
+                  ]
+                },
+                {
+                  "title": "Design Principles",
+                  "description": "Design principles, patterns, and tools help create scalable, maintainable systems.",
+                  "key_points": [
+                    "Modularity: Break the system into smaller, manageable parts.",
+                    "Separation of Concerns: Divide functionality into distinct sections.",
+                    "Abstraction & Encapsulation: Hide complexity to simplify interfaces and interactions.",
+                    "Design Patterns: Apply proven solutions like Singleton, Factory, or Observer."
+                  ],
+                  "advantages": [
+                    "Ensures a structured approach to software development",
+                    "Improves communication and collaboration among team members",
+                    "Helps manage project scope, budget, and timeline"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive",
+                    "Rigid processes may not be suitable for all projects"
+                  ]
+                },
+                {
+                  "title": "Tools for Design",
+                  "description": "Use UML diagrams, flowcharts, and pseudocode to visualize and design system components.",
+                  "key_points": [
+                    "UML Diagrams for visualizing system components.",
+                    "Flowcharts and Pseudocode to design algorithms and logic."
+                  ],
+                  "advantages": [
+                    "Ensures a structured approach to software development",
+                    "Improves communication and collaboration among team members",
+                    "Helps manage project scope, budget, and timeline"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive",
+                    "Rigid processes may not be suitable for all projects"
+                  ]
+                }
+              ]
+            },
+            {
+              "title": "Software Architecture",
+              "description": "Software architecture defines the structure of a system, including components, relationships, and interactions. Architectural decisions impact system scalability, maintainability, and performance.",
+              "img": "./assets/img/software_architecture.jpeg",
+              "content": [
+                {
+                  "title": "Introduction to Software Architecture",
+                  "description": "Architecture involves high-level decisions that determine the overall structure of a system and how it meets business and technical needs.",
+                  "key_points": [
+                    "Architecture involves high-level decisions that determine the overall structure of a system and how it meets business and technical needs."
+                  ],
+                  "advantages": [
+                    "Ensures a structured approach to software development",
+                    "Improves communication and collaboration among team members",
+                    "Helps manage project scope, budget, and timeline"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive",
+                    "Rigid processes may not be suitable for all projects"
+                  ]
+                },
+                {
+                  "title": "Designing Scalable Maintainable Systems",
+                  "description": "Design for scalability, fault tolerance, security, and performance to create robust systems.",
+                  "key_points": [
+                    "Scalability: Ensure the system can grow with increased demand.",
+                    "Fault Tolerance: Design for system reliability, even in failure scenarios.",
+                    "Security: Address authentication, authorization, and data protection in design.",
+                    "Performance: Optimize for speed and resource usage."
+                  ],
+                  "adventages": [
+                    "Ensures a structured approach to software development",
+                    "Improves communication and collaboration among team members",
+                    "Helps manage project scope, budget, and timeline"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive",
+                    "Rigid processes may not be suitable for all projects"
+                  ]
+                },
+                {
+                  "title": "Documenting Architecture",
+                  "description": "Use architectural views to document system structure and design decisions. Evaluation methods like ATAM help assess trade-offs and decisions.",
+                  "key_points": [
+                    "Architectural Views: Logical, Development, Physical views.",
+                    "Evaluating Architecture: Use methods like ATAM for trade-off analysis."
+                  ],
+                  "adventages": [
+                    "Ensures a structured approach to software development",
+                    "Improves communication and collaboration among team members",
+                    "Helps manage project scope, budget, and timeline"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive",
+                    "Rigid processes may not be suitable for all projects"
+                  ]
+                },
+                {
+                  "title": "Conclusion",
+                  "description": "Understand how to move from conceptualizing a system to designing and implementing it. Explore career opportunities in software architecture and design, such as Software Architect or Solutions Architect. Learn about modern trends, including cloud-native architecture and serverless computing.",
+                  "key_points": [
+                    "Understand how to move from conceptualizing a system to designing and implementing it.",
+                    "Explore career opportunities in software architecture and design, such as Software Architect or Solutions Architect.",
+                    "Learn about modern trends, including cloud-native architecture and serverless computing."
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "id": 3,
+          "title": "Programming Fundamentals",
+          "img": "./assets/img/programing_fundamentals.jpeg",
+          "description": "Understand the basic building blocks of programming, including syntax, control structures, data types, and algorithms.",
+          "lessons": [
+            {
+              "name": "introduction_to_programming",
+              "title": "Introduction to Programming",
+              "description": "Programming is the process of creating instructions that a computer follows to perform tasks. These instructions are written in programming languages like Python, Java, C++, etc.",
+              "content": [
+                {
+                  "title": "Programming Fundamentals",
+                  "description": "Programming is the process of creating instructions that a computer follows to perform tasks. These instructions are written in programming languages like Python, Java, C++, etc.",
+                  "key_points": [
+                    "The set of rules that define the structure of a program (e.g., how to declare variables, functions, and how code blocks are organized).",
+                    "The meaning behind the syntax; what actions the code performs when executed."
+                  ],
+                  "advantages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "disadvantages": null,
+                  "roles": null,
+                  "frameworks": null
+                },
+                {
+                  "title": "Programming Languages",
+                  "description": "Programming languages are used to create software, websites, and applications. Each language has its syntax, rules, and purpose.",
+                  "key_points": [
+                    "Python: General-purpose language known for its simplicity and readability.",
+                    "Java: Platform-independent language used for web and mobile applications.",
+                    "C++: High-performance language used for system software and games.",
+                    "JavaScript: Client-side language for web development."
+                  ],
+                  "advantages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "disadvantages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "roles": null,
+                  "frameworks": null
+                },
+                {
+                  "title": "Variables and Data Types",
+                  "description": "Variables are containers for storing data. A variable is assigned a name and holds a value, which can change during program execution. Data types define the type of data that a variable can hold.",
+                  "key_points": [
+                    "Integers: Whole numbers.",
+                    "Floats: Decimal numbers.",
+                    "Strings: Sequences of characters.",
+                    "Booleans: True/False values."
+                  ],
+                  "advantages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "disadvantages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "roles": null,
+                  "frameworks": null
+                },
+                {
+                  "title": "Control Structures",
+                  "description": "Control structures allow the program to make decisions based on certain conditions or repeat a block of code multiple times.",
+                  "key_points": [
+                    "Conditionals: Execute code based on a condition (e.g., if-else statements).",
+                    "Loops: Repeat a block of code multiple times (e.g., for loops, while loops)."
+                  ],
+                  "adventages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "disadvantages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "markdownContent":  "\nConditionals Javascript\n```javascript\nif (edad > 18) {\n    console.log('Eres mayor de edad');\n} else {\n    console.log('Eres menor de edad');\n}\n```\n\nLoops\n```javascript\nfor (let i = 0; i < 5; i++) {\n    console.log('Iteración ' + i);\n}\n```\n\n```javascript\nlet i = 0;\nwhile (i < 5) {\n    console.log('Iteración ' + i);\n    i++;\n}\n```",
+                  "roles": null,
+                  "frameworks": null
+                },
+                {
+                  "title": "Functions",
+                  "description": "Functions are reusable blocks of code that perform a specific task. They can take inputs (parameters) and return outputs.",
+                  "key_points": [
+                    "Definition: Define a function with a name, parameters, and a return value.",
+                    "Parameters and Return Values: Functions can take inputs and return outputs."
+                  ],
+                  "adventages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "disadvantages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "markdownContent":"\nFunctions  Javascript\n```javascript\nfunction saludo() {\n    console.log('Hola, mundo!');\n}\n```\n Arrow Functions\n```javascript\n const saludo = () => {\n console.log('Hola, mundo!');\n}\n```",
+                  "roles": null,
+                  "frameworks": null
+                },
+                {
+                  "title": "Basic Algorithms",
+                  "description": "Algorithms are step-by-step instructions for solving a problem. Basic algorithms include sorting and searching methods.",
+                  "key_points": [
+                    "Sorting: Arrange data in a specific order (e.g., bubble sort, quicksort).",
+                    "Searching: Find an element in a dataset (e.g., linear search, binary search)."
+                  ],
+                  "adventages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  "disadvantages": [
+                    "Programs are typically written in high-level languages (human-readable) and are translated into machine code by a compiler or interpreter."
+                  ],
+                  
+                    "markdownContent": "# Basic Algorithms\n\n Reverse a String\n```javascript\nfunction reverse(str){\nreturn str.split('') \n          .reverse() \n          .join('');\n}\nconsole.log(reverseString('hello'));\n // Output: 'olleh'\n",
+                
+                  "roles": null,
+                  "frameworks": null
+                }
+              ]
+            },
+            {
+              "name": "version_control",
+              "title": "Version Control",
+              "description": "Version control is a system that helps manage changes to files over time, allowing teams to track revisions, collaborate, and revert to earlier versions when needed.",
+              "content": [
+                {
+                  "title": "Introduction to Version Control",
+                  "description": "Version control is a system that helps manage changes to files over time, allowing teams to track revisions, collaborate, and revert to earlier versions when needed.",
+                  "key_points": [
+                    "Local: Tracks changes in files on a single computer.",
+                    "Centralized: Tracks changes on a central server, allowing multiple users to collaborate.",
+                    "Distributed: Every user has a full copy of the repository, including its history."
+                  ],
+                  "advantages": [
+                    "Enables multiple developers to collaborate on the same project without overwriting each other's work.",
+                    "Maintains a complete history of changes, allowing developers to track modifications and revert to previous versions if necessary.",
+                    "Facilitates branching and merging, enabling parallel development of features and bug fixes.",
+                    "Improves code quality and stability through code reviews and continuous integration practices."
+                  ],
+                  "disadvantages": [
+                    "Can be complex to set up and manage, especially for large projects with many contributors.",
+                    "Merge conflicts can arise, requiring manual resolution and potentially slowing down development.",
+                    "Requires discipline in committing changes regularly and writing meaningful commit messages to maintain a clear project history.",
+                    "Misuse or misunderstanding of version control commands can lead to data loss or repository corruption."
+                  ],
+                  "roles": null,
+                  "frameworks": null
+                },
+                {
+                  "title": "Git",
+                  "description": "Git is a popular version control system that allows users to track changes in files and collaborate with others. It uses repositories to store version history and provides commands for managing changes.",
+                  "key_points": [
+                    "Repositories: Local (stored on your own machine) and Remote (stored on a server like GitHub).",
+                    "Commands: Init, Clone, Status, Add, Commit, Push, Pull.",
+                    "Branching: Create and switch between branches to work on different versions of a project.",
+                    "Merge Conflicts: Occur when changes from different branches conflict with each other."
+                  ],
+                  "advantages": [
+                    "Facilitates collaboration by allowing multiple developers to work on the same project simultaneously without conflicts.",
+                    "Provides a detailed history of changes, making it easy to track and revert to previous versions if needed.",
+                    "Supports branching and merging, enabling developers to work on new features or bug fixes in isolation before integrating them into the main codebase.",
+                    "Enhances code quality and stability by enabling code reviews and continuous integration practices."
+                  ],
+                  "disadvantages": [
+                    "Can have a steep learning curve for beginners, especially when dealing with complex workflows and commands.",
+                    "Merge conflicts can occur, requiring manual resolution and potentially slowing down development.",
+                    "Requires regular commits and good commit messages to maintain a clear and useful project history.",
+                    "Misuse or misunderstanding of Git commands can lead to data loss or corruption of the repository."
+                  ],
+                  "roles": null,
+                  "frameworks": null
+                },
+                {
+                  "title": "Collaboration with Version Control",
+                  "description": "Version control enables collaboration through forking, pull requests, and commit messages. Best practices include committing frequently with clear messages, using branches, and syncing regularly.",
+                  "key_points": [
+                    "Forking: Create a copy of a repository for independent modifications.",
+                    "Pull Requests: Request to merge changes from one branch to another.",
+                    "Commit Messages: Descriptions of changes made, explaining the reason for the change."
+                  ],
+                  "advantages": [
+                    "Improves communication and collaboration among team members"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive"
+                  ],
+                  "roles": null,
+                  "frameworks": null
+                },
+                {
+                  "title": "Best Practices",
+                  "description": "Version control is a system that helps manage changes to files over time, allowing teams to track revisions, collaborate, and revert to earlier versions when needed.",
+                  "key_points": [
+                    "Commit frequently with descriptive messages.",
+                    "Use branches to avoid working directly on the main branch.",
+                    "Write clear and descriptive commit messages.",
+                    "Sync regularly by pulling changes from the remote repository."
+                  ],
+                  "advantages": [
+                    "Improves communication and collaboration among team members"
+                  ],
+                  "disadvantages": [
+                    "Can be time-consuming and resource-intensive"
+                  ],
+                  "roles": null,
+                  "frameworks": null
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "author": [
+        {
+          "name": "Marisbelsy Exposito Lopez",
+          "img": "./assets/img/programing_fundamentals.jpeg",
+          "biography": "bsdjashdasjkdhkjahsdkjakdhahdjahdkahsdjhsajdhsuajhdjasdgfjhsdgfjsdagfhk"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "Security, and Performance Optimization",
+      "description": "Understand the core principles of securing software, designing scalable systems, and optimizing performance",
+      "overview": "Security in software development involves protecting systems, networks, and data from cyber threats and unauthorized access. This includes implementing measures such as encryption, access controls, and regular security audits to ensure the integrity, confidentiality, and availability of information.",
+      "img": "./assets/img/sdlc.jpeg",
+      "qualification": "5",
+      "careers": [
+        {
+          "id": 1,
+          "title": "Cybersecurity Specialist"
+        },
+        {
+          "id": 2,
+          "title": "Network Security Engineer"
+        },
+        {
+          "id": 3,
+          "title": "Information Security Analyst"
+        },
+        {
+          "id": 4,
+          "title": "Scalability Engineer"
+        },
+        {
+          "id": 5,
+          "title": "Performance Optimization Specialist"
+        },
+        {
+          "id": 6,
+          "title": "DevOps Engineer"
+        },
+        {
+          "id": 7,
+          "title": "Cloud Security Architect"
+        },
+        {
+          "id": 8,
+          "title": "Systems Performance Engineer"
+        },
+        {
+          "id": 9,
+          "title": "Security Consultant"
+        },
+        {
+          "id": 10,
+          "title": "Application Security Engineer"
+        }
+      ],
+      "modules": [
+        {
+          "id": "1",
+          "title": "Security",
+          "description": "Learn to protect software from threats through secure coding practices, authentication, encryption, and testing.       ",
+          "img": "string",
+          "lessons": [
+            {
+              "name": "security_threats",
+              "title": "Security Threats",
+              "description": "In this lesson, students will explore the various types of security threats that can compromise the integrity, confidentiality, and availability of information systems. The lesson will cover common threats such as malware, phishing, man-in-the-middle attacks, and denial-of-service attacks. Students will learn how these threats operate, their potential impact on systems and data, and best practices for mitigating and preventing these threats. Through real-world examples and interactive activities, students will gain a comprehensive understanding of the importance of cybersecurity and the strategies used to protect against security threats.",
+              "content": [
+                {
+                  "title": "Types of Malware",
+                  "description": "Malware, short for malicious software, is designed to damage, disrupt, or gain unauthorized access to computer systems. Common types of malware include viruses, worms, Trojans, and ransomware.",
+                  "key_points": [
+                    "Viruses: Self-replicating programs that attach themselves to clean files and spread to other systems.",
+                    "Worms: Self-replicating programs that spread independently to other systems without user intervention.",
+                    "Trojans: Malicious programs disguised as legitimate software to trick users into installing them.",
+                    "Ransomware: Encrypts files or locks users out of their systems until a ransom is paid."
+                  ],
+                  "advantages": [
+                    " Understanding different types of malware helps in developing specific defense strategies.",
+                    "Awareness can lead to better user practices and reduced infection rates."
+                  ],
+                  "disadvantages": [
+                    " Malware can evolve rapidly, making it challenging to keep defenses up-to-date.",
+                    "Even knowledgeable users can fall victim to sophisticated attacks."
+                  ],
+                  "roles": [],
+                  "frameworks": []
+                }
+              ]
+            },
+            {
+              "name": "Scalability",
+              "title": "Scalability",
+              "description": "Learn to design systems that handle growth efficiently, both vertically (single server) and horizontally (multiple servers).",
+              "content": [
+                {
+                  "title": "Scalability Types",
+                  "description": "Scalability refers to the ability of a system to handle increasing workloads without impacting performance. There are two main types of scalability: vertical scaling and horizontal scaling.",
+                  "key_points": [
+                    "Vertical Scaling: Adding more resources (CPU, RAM, storage) to a single server to handle increased load.",
+                    "Horizontal Scaling: Adding more servers to distribute the workload and improve performance."
+                  ],
+                  "advantages": [
+                    "Vertical scaling is simpler and easier to implement for small to medium workloads.",
+                    "Horizontal scaling provides better fault tolerance and performance for large workloads."
+                  ],
+                  "disadvantages": [
+                    "Vertical scaling has hardware limitations and can lead to single points of failure.",
+                    "Horizontal scaling requires more complex architecture and coordination."
+                  ],
+                  "roles": [],
+                  "frameworks": []
+                }
+              ]
+            },
+            {
+              "name": "Performance Optimization",
+              "title": "Performance Optimization",
+              "description": "Learn how to improve the speed and efficiency of systems, ensuring they can handle increasing loads without performance degradation.",
+              "content": [
+                {
+                  "title": "Optimization Metrics",
+                  "description": "Performance optimization focuses on improving response time, throughput, and resource utilization to ensure systems can handle increasing loads without degradation.",
+                  "key_points": [
+                    "Response Time: The time taken to respond to a request or complete an operation.",
+                    "Throughput: The rate at which a system can process requests or transactions.",
+                    "Resource Utilization: The efficient use of system resources such as CPU, memory, and storage."
+                  ],
+                  "advantages": [
+                    "Optimized systems provide better user experience and reduce operational costs.",
+                    "Improved performance can lead to increased customer satisfaction and retention."
+                  ],
+                  "disadvantages": [
+                    "Optimization efforts may require additional time and resources during development.",
+                    "Over-optimization can lead to complexity and reduced maintainability."
+                  ],
+                  "roles": [],
+                  "frameworks": []
+                }
+              ]
+            },
+            {
+              "name": "Best Practices",
+              "title": "Best Practices",
+              "description": "Apply best practices for security, scalability, and performance in real-world applications.",
+              "content": [
+                {
+                  "title": "Security Best Practices",
+                  "description": "Security best practices help protect systems and data from unauthorized access, data breaches, and cyber threats. By following established guidelines and standards, organizations can reduce the risk of security incidents and maintain the confidentiality, integrity, and availability of information.",
+                  "key_points": [
+                    "Regular Updates: Keep software, operating systems, and security tools up-to-date to patch vulnerabilities and protect against known threats.",
+                    "Code Reviews: Conduct regular code reviews to identify and fix security vulnerabilities and coding errors.",
+                    "Zero Trust Architecture: Assume all networks are untrusted and verify every request, user, and device before granting access."
+                  ],
+                  "advantages": [
+                    "Regular updates help prevent known vulnerabilities from being exploited by attackers.",
+                    "Code reviews improve code quality and reduce the likelihood of security flaws."
+                  ],
+                  "disadvantages": [
+                    "Frequent updates can disrupt operations and require testing before deployment.",
+                    "Code reviews may introduce delays in development cycles."
+                  ],
+                  "roles": [],
+                  "frameworks": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "author": [
+        {
+          "name": "Marisbelsy Exposito Lopez",
+          "img": "./assets/img/programing_fundamentals.jpeg",
+          "biography": "bsdjashdasjkdhkjahsdkjakdhahdjahdkahsdjhsajdhsuajhdjasdgfjhsdgfjsdagfhk"
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "title": "Ethics in Software Development",
+      "description": "Understand the ethical responsibilities of software developers and how to navigate challenges involving privacy, security, and societal impact.",
+      "overview": "Ethics in software development involves adhering to principles that ensure the creation of software that is fair, transparent, and respectful of user rights. Ethical considerations guide developers in making decisions that prioritize the well-being of users and society, while minimizing harm and promoting trust.",
+      "img": "./assets/img/sdlc.jpeg",
+      "qualification": "3",
+      "careers": [
+        {
+          "id": 1,
+          "title": "Ethical Hacker"
+        },
+        {
+          "id": 2,
+          "title": "Privacy Officer"
+        },
+        {
+          "id": 3,
+          "title": "Compliance Analyst"
+        },
+        {
+          "id": 4,
+          "title": "Ethics Consultant"
+        },
+        {
+          "id": 5,
+          "title": "Data Protection Officer"
+        },
+        {
+          "id": 6,
+          "title": "Corporate Social Responsibility Manager"
+        },
+        {
+          "id": 7,
+          "title": "Software Quality Assurance Engineer"
+        },
+        {
+          "id": 8,
+          "title": "Technology Policy Analyst"
+        },
+        {
+          "id": 9,
+          "title": "Digital Ethics Researcher"
+        },
+        {
+          "id": 10,
+          "title": "Ethical AI Specialist"
+        }
+      ],
+      "modules": [
+        {
+          "id": "1",
+          "title": "Ethical Principles in Software Development",
+          "description": "Ethical principles in software development guide developers in making decisions that respect user rights, promote fairness, and ensure the integrity of software systems. These principles encompass a range of considerations, including privacy, security, transparency, and social responsibility. By adhering to ethical guidelines, developers can create software that not only meets functional requirements but also contributes positively to society and minimizes harm.",
+          "img": "string",
+          "lessons": [
+            {
+              "name": "confiendtiality_data_protection",
+              "title": "Confidentiality & Data Protection",
+              "description": "In this lesson, students will explore the various types of security threats that can compromise the integrity, confidentiality, and availability of information systems. The lesson will cover common threats such as malware, phishing, man-in-the-middle attacks, and denial-of-service attacks. Students will learn how these threats operate, their potential impact on systems and data, and best practices for mitigating and preventing these threats. Through real-world examples and interactive activities, students will gain a comprehensive understanding of the importance of cybersecurity and the strategies used to protect against security threats.",
+              "content": [
+                {
+                  "title": "Confidentiality & Data Protection",
+                  "description": "Confidentiality and data protection involve safeguarding personal and sensitive information from unauthorized access, disclosure, or misuse. These practices ensure that data is only accessible to those who are authorized and that it is handled with the utmost care to maintain privacy and security.",
+                  "key_points": [
+                    "Encryption: The process of converting data into a coded format to prevent unauthorized access.",
+                    "Access Controls: Mechanisms that restrict access to data based on user roles and permissions.",
+                    "Data Masking: Techniques used to obscure specific data within a database to protect it from unauthorized access.",
+                    "Data Minimization: The practice of limiting data collection to only what is necessary for a specific purpose."
+                  ],
+                  "advantages": [
+                    "Protects sensitive information from breaches and unauthorized access.",
+                    "Builds trust with users and stakeholders by ensuring their data is handled securely."
+                  ],
+                  "disadvantages": [
+                    "Implementing robust data protection measures can be resource-intensive.",
+                    "Strict data protection regulations may require significant changes to existing processes and systems."
+                  ],
+                  "roles": [],
+                  "frameworks": []
+                }
+              ]
+            },
+            {
+              "name": "social_responsibility",
+              "title": "Social Responsibility",
+              "description": "Social responsibility in software development involves creating software that not only meets user needs but also contributes positively to society. This includes considering the ethical implications of software, promoting inclusivity, and ensuring that the software does not cause harm to individuals or communities",
+              "content": [
+                {
+                  "title": "Impact on Society",
+                  "description": "The impact on society refers to the effects that software and technology have on individuals, communities, and the broader social environment. This includes both positive and negative consequences, such as improving quality of life, influencing social behavior, and contributing to economic development, as well as potential issues like privacy concerns and digital divide.",
+                  "key_points": [
+                    "Quality of Life: Software can enhance daily living by providing tools for education, healthcare, communication, and entertainment.",
+                    "Social Behavior: Technology influences how people interact, communicate, and form relationships.",
+                    "Economic Development: Software and technology drive innovation, create jobs, and contribute to economic growth.",
+                    "Privacy Concerns: The widespread use of technology raises issues related to data privacy and surveillance.",
+                    "Digital Divide: Access to technology can vary significantly, leading to disparities in opportunities and resources."
+                  ],
+                  "advantages": [
+                    "Promotes innovation and economic growth.",
+                    "Improves access to information, education, and healthcare."
+                  ],
+                  "disadvantages": [
+                    "Can exacerbate social inequalities and the digital divide.",
+                    "Raises ethical and privacy concerns related to data usage and surveillance."
+                  ],
+                  "roles": [],
+                  "frameworks": []
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "author": [
+        {
+          "name": "Marisbelsy Exposito Lopez",
+          "img": "./assets/img/programing_fundamentals.jpeg",
+          "biography": "bsdjashdasjkdhkjahsdkjakdhahdjahdkahsdjhsajdhsuajhdjasdgfjhsdgfjsdagfhk"
+        }
+      ]
+    }
+  ]
+}

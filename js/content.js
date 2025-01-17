@@ -9,11 +9,13 @@ const cardBoxes = document.querySelector('.CoursesCards');
 const sectionCourses = document.querySelector('.Main-courses');
 const btnNextCard = document.getElementById('btnNextCard');
 
+const cardComments = document.querySelector('.Comments');
+const btnNextComment = document.getElementById('btnNextComment');
+const sectionComments = document.querySelector('.Main-comments');
+console.log(btnNextComment);
+
 let btnPrevCard = '';
 
-const acordeonItems = document.querySelectorAll('.Main-acordeon--item');
-const acordeonTitle = document.querySelectorAll('.Main-acordeon--title');
-const skillBoxes = document.querySelector('.SkillsBoxes');
 
 // Variables para slider de imaganes de inicio 
 let currentImage = 0;
@@ -35,84 +37,39 @@ const listImages = `[
     }
 ]`;
 
+
 const imagesSlider = [];
 
 // Variables para slider  de atarjetas de cursos
 let currentCard = 0;
-const listCourses = `[
-    {
-        "id": 1,
-        "title": "Curso de React",
-        "src": "https://placehold.co/600x400?text=CursoReact",
-        "author": "Juan Perez",
-        "price": 100,
-        "calification": 4.5,
-        "skill": "HTML"
-    },
-    {
-        "id": 1,
-        "title": "Curso de React",
-        "src": "https://placehold.co/600x400?text=CursoReact",
-        "author": "Juan Perez",
-        "price": 100,
-        "calification": 4.5,
-        "skill": "JS"
-    },
-    {
-        "id": 1,
-        "title": "Curso de React",
-        "src": "https://placehold.co/600x400?text=CursoReact",
-        "author": "Juan Perez",
-        "price": 100,
-        "calification": 4.5,
-        "skill": "REACT"
-    },
-     {
-        "id": 1,
-        "title": "Curso de React",
-        "src": "https://placehold.co/600x400?text=CursoReact",
-        "author": "Juan Perez",
-        "price": 100,
-        "calification": 4.5,
-        "skill": "REACT"
-    }
-
-]`;
-
 const cardsSlider = [];
 
-// Variables par acordeon
+// Variables para slider de comentarios
+let currentComment = 0;
+const commentsSlider = [];
 
-let currentSkill = 0;
-
-let acordeonSlider = [];
-
-const listSkills = `[
+const listComments =`[
     {
-        "id":1,
-        "title":"HTML"
+        "author": "Juan Perez",
+        "img": "https://placehold.co/600x400?text=Imagen",
+        "description":"Excelente plataforma, me ayudo a mejorar mis habilidades"
     },
     {
-        "id":2,
-        "title":"JS"
+        "author": "Maria Lopez",
+        "img": "https://placehold.co/600x400?text=Imagen",
+        "description":"Me encanto el curso, muy recomendado"
     },
     {
-        "id":3,
-        "title":"CSS"
+        "author": "Pedro Ramirez",
+        "img": "https://placehold.co/600x400?text=Imagen",
+        "description":"Excelente curso, muy completo"
     },
     {
-        "id":4,
-        "title":"REACT"
+        "author": "Ana Maria",
+         "img": "https://placehold.co/600x400?text=Imagen",
+        "description":"Muy buen curso, lo recomiendo"
     }
-
-]`;
-
-
-const skillSlider = [];
-
-
-
-
+]`
 
 //----------------------------------
 // Functions
@@ -127,13 +84,14 @@ function convertJsonToObject(json) {
     return JSON.parse(json);
 }
 
+
 /**
  * Funcion para tarer los cursos desde el courses.json
  */
 
 async function getCourses() {
     try {
-        let courses = await fetch('./jsons/courses.json');
+        let courses = await fetch('./jsons/courses_new.json');
         courses = await courses.json();
         console.log('Estos son los cursos');
         console.log(courses);
@@ -196,33 +154,27 @@ function showImagesInterval() {
  * Funcion para agregar las tarjetas de cursos
  */
 function addCards() {
-    const courses = convertJsonToObject(listCourses);
     getCourses().then((cour) => {
-        console.log('este es el cour', cour);
-        cour.courses.map((course, index) => {
-            console.log('esta es la imagen del curso', course.img)
+        cour.courses.map((course) => {
             const card = document.createElement('div');
             const cardImage = document.createElement('img');
             const cardTitle = document.createElement('p');
-            const cardPrice = document.createElement('p');
             const cardAuthor = document.createElement('p');
             const cardStarts = document.createElement('div');
 
-            for (let i = 0; i < course.calification; i++) {
+            for (let i = 0; i < course.qualification; i++) {
                 const star = document.createElement('span');
                 star.classList.add('material-symbols-outlined');
+                star.classList.add('u-Starts');
                 star.innerText = 'star';
                 cardStarts.appendChild(star);
             }
             card.classList.add('Main-courses--course');
             cardImage.classList.add('Main-course--img');
             cardTitle.classList.add('u-title');
-            cardPrice.classList.add('u-title');
             cardAuthor.classList.add('u-text');
-            cardStarts.classList.add('Main-acordeon--starts');
              cardImage.src = course.img;
-            cardTitle.textContent = course.title;
-            //cardPrice.textContent = `$ ${course.price}`;
+            cardTitle.textContent = course.title;;
             cardAuthor.textContent = course.author[0].name;
 
             card.addEventListener('click', () => { window.location.href = 'course.html?course=' + course.title });
@@ -230,7 +182,6 @@ function addCards() {
             card.appendChild(cardTitle);
             card.appendChild(cardAuthor);
             card.appendChild(cardStarts);
-            // card.appendChild(cardPrice);
             cardBoxes.appendChild(card);
             cardsSlider.push(card);
         });
@@ -244,14 +195,13 @@ function addCards() {
  */
 function updateCards() {
     const width = 250;
-    const offset = 250;
-    cardBoxes.style.transform = `translateX(-${currentCard * width - offset}px)`;
+    cardBoxes.style.transform = `translateX(-${currentCard * width}px)`;
 
     const button = document.getElementById('btnPrevCard');
     if (button) {
         button.remove();
     }
-    if (currentCard > 1) {
+    if (currentCard > 0) {
         const button = document.createElement('button');
         const span = document.createElement('span');
         button.classList.add('Main-imageCarousel--button');
@@ -293,120 +243,99 @@ function prevCard() {
 }
 
 
-// Funciones para acordeon 
-
-acordeonTitle.forEach((title, index) => {
-    const item = title.closest('.Main-acordeon--item');
-    const content = item.querySelector('.Main-acordeon--content');
-    const skillBoxes = item.querySelector('.SkillsBoxes');
-
-    title.addEventListener('click', () => {
-        acordeonItems.forEach((item) => {
-            content.innerHTML = '';
-            skillBoxes.innerHTML = '';
-            item.classList.remove('isActive');
-            acordeonSlider = [];
-            const courses = convertJsonToObject(listCourses);
-            courses.map((course, index) => {
-                const card = document.createElement('div');
-                const cardImage = document.createElement('img');
-                const cardTitle = document.createElement('p');
-                const cardPrice = document.createElement('p');
-                const cardAuthor = document.createElement('p');
-                const cardStarts = document.createElement('div');
-                const cardSkill = document.createElement('p');
-
-                for (let i = 0; i < course.calification; i++) {
-                    const star = document.createElement('span');
-                    star.classList.add('material-symbols-outlined');
-                    star.innerText = 'star';
-                    cardStarts.appendChild(star);
-                }
-                card.classList.add('Main-courses--course');
-                cardImage.classList.add('Main-course--img');
-                cardTitle.classList.add('u-title');
-                cardPrice.classList.add('u-title');
-                cardAuthor.classList.add('u-text');
-                cardStarts.classList.add('Main-acordeon--starts');
-                cardSkill.classList.add('u-text');
-                cardImage.src = course.src;
-                cardTitle.textContent = course.title;
-                cardPrice.textContent = `$ ${course.price}`;
-                cardAuthor.textContent = course.author;
-                cardSkill.textContent = course.skill;
-
-                card.addEventListener('click', () => { window.location.href = 'course.html' });
-                card.appendChild(cardImage);
-                card.appendChild(cardTitle);
-                card.appendChild(cardAuthor);
-                card.appendChild(cardStarts);
-                card.appendChild(cardPrice);
-                card.appendChild(cardSkill);
-                content.appendChild(card);
-                acordeonSlider.push(card);
-            });
-
-        })
-        content.classList.toggle('isActive');
-        addSkills(skillBoxes);
-        skillBoxes.classList.toggle('isActive');
-
-
-    });
-});
 
 /**
- * Funcion para agregar habilidades en el top de cada acordeon
+ * Funcion para agregar comentarios 
  */
+function addComments() {
+    cardComments.innerHTML = '';
+    const comments = convertJsonToObject(listComments);   
+        comments.map((comment) => {
+            const card = document.createElement('div');
+            const cardImage = document.createElement('img');
+            const cardText = document.createElement('p');
+            const cardAuthor = document.createElement('p');
+            const cardUser = document.createElement('div');
+            
+            card.classList.add('Main-comments--coment');
+            cardImage.classList.add('"Main-comments--coment-user-img');
+            cardText.classList.add('u-textPrimary');
+            cardAuthor.classList.add('u-title');
+            cardUser.classList.add('Main-comments--coment-user');
+            cardImage.classList.add('Main-comments--coment-user-img');
+            cardImage.src = comment.img;
+            cardImage.alt = comment.author;
+            cardAuthor.textContent = comment.author;
+            cardText.textContent = comment.description;
 
-function addSkills(container) {
-    const skills = convertJsonToObject(listSkills);
-    skills.map((skill, index) => {
-        const skillBox = document.createElement('button');
-        skillBox.classList.add('SkillBox');
-        skillBox.textContent = skill.title;
-        skillBox.id = `skill-${skill.id}`;
-        skillBox.addEventListener('click', () => {
-            currentSkill = skill.title;
-            filterCourses();
+            card.appendChild(cardText);
+            cardUser.appendChild(cardImage);
+            cardUser.appendChild(cardAuthor);
+            card.appendChild(cardUser);
+            cardComments.appendChild(card);
+            commentsSlider.push(card);
         });
-        container.appendChild(skillBox);
-        skillSlider.push(skillBox);
-    });
+   
+
+
+}
+
+function updateComments() {
+    console.log('este es el currentComment', currentComment);
+    const width = 200;
+    cardComments.style.transform = `translateX(-${currentComment * width}px)`;
+
+    const button = document.getElementById('btnPrevComment');
+    if (button) {
+        button.remove();
+    }
+    if (currentComment > 1) {
+        const button = document.createElement('button');
+        const span = document.createElement('span');
+        button.classList.add('Main-imageCarousel--button');
+        button.classList.add('u-Prev');
+        span.classList.add('material-symbols-outlined');
+        button.id = 'btnPrevComments';
+        span.innerText = 'arrow_back_ios';
+        button.addEventListener('click', prevComment);
+        button.appendChild(span);
+        sectionComments.appendChild(button);
+    }
+
+}
+
+
+/**
+ * Funcion para mostrar la siguiente card
+ */
+function nextComment() {
+    console.log('este es el currentComment', currentComment);
+    currentComment++;
+    console.log(commentsSlider)
+    if (currentComment >= commentsSlider.length) {
+        currentComment = 0;
+    }
+    updateComments();
 }
 
 /**
- * Funcion para que solo se muestren los contenidos de los cursos que tengan la habilidad seleccionada
+ * Funcion para mostrar boton anterior
  */
-
-function filterCourses() {
-    acordeonSlider.map((card) => {
-
-        const info = card.querySelectorAll('p');
-        let containsSkill = false;
-        info.forEach((element) => {
-            if (element.textContent.includes(currentSkill)) {
-                containsSkill = true;
-            }
-        })
-        if (containsSkill) {
-            card.classList.add('isActive');
-            card.style.display = 'flex';
-        } else {
-            card.style.display = 'none';
-        }
-
-    });
+function prevComment() {
+    currentComment--;
+    if (currentComment <= 0) {
+       
+        currentComment = commentsSlider.length - 1;
+    }
+    updateComments();
 }
-
-
 
 //----------------------------------
 // Events
 //----------------------------------
 
 btnNextCard.addEventListener('click', nextCard);
-console.log('este es el boton btnPrevCard', btnPrevCard);
+btnNextComment.addEventListener('click', nextComment);
 // 
 
 
@@ -418,7 +347,7 @@ console.log('este es el boton btnPrevCard', btnPrevCard);
 addImages();
 showImagesInterval();
 addCards();
-acordeonTitle[0].click();
+addComments();
 
 
 

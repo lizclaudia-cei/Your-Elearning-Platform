@@ -18,6 +18,11 @@
     padding: 1rem;
     border-bottom-left-radius: 1rem;
     border-bottom-right-radius: 1rem;
+    position:sticky;
+    /* compatibilidad con safari */
+    position : -webkit-sticky;
+    z-index: 1000;
+    top: 0;
 }
 
 .Footer{

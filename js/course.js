@@ -36,7 +36,7 @@ let course = [];
 async function getCourses() {
     console.log('agsdjghsjdaghdaks')
     try {
-        let courses = await fetch('./jsons/courses.json');
+        let courses = await fetch('./jsons/courses_new.json');
         courses = await courses.json();
         console.log('Estos son los cursos');
         console.log(courses);
@@ -92,7 +92,7 @@ acordeonTitle.forEach(async (title) => {
         });
 
 
-        course.teams.map((subject) => {
+        course.modules.map((subject) => {
             console.log('subject', subject);
 
             const div = document.createElement('div');
@@ -134,7 +134,7 @@ acordeonTitle.forEach(async (title) => {
 
 async function addCourseSection() {
     course = await getCourse(paramCourse);
-    course.carrears.map((carrear) => {
+    course.careers.map((carrear) => {
         const ul = document.createElement('ul');
         const li = document.createElement('li');
         ul.classList.add('Oporunities-list');

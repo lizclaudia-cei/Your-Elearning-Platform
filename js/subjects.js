@@ -3,6 +3,7 @@
 //--------------------------------------
 
 const acordeon = document.querySelector('.Acordeon');
+console.log(typeof marked);
 
 const elements = document.querySelectorAll('[data-key]');
 
@@ -14,8 +15,6 @@ const methodologySection = document.querySelector('.Methodology-section');
 const params = new URLSearchParams(window.location.search);
 const paramCourse = params.get("course");
 const paramSubject = params.get("subject");
-console.log('paramCourse', paramCourse);
-console.log('paramSubject', paramSubject);
 
 
 let course = [];
@@ -35,12 +34,9 @@ let course = [];
  */
 
 async function getCourses() {
-    console.log('agsdjghsjdaghdaks')
     try {
-        let courses = await fetch('./jsons/courses.json');
+        let courses = await fetch('./jsons/courses_new.json');
         courses = await courses.json();
-        console.log('Estos son los cursos');
-        console.log(courses);
         return courses;
 
     } catch (error) {
@@ -54,12 +50,10 @@ async function getCourses() {
  * Funcion para obtener el curso que viene en la url
  */
 async function getCourse(paramCourse) {
-    console.log('paramCourse', paramCourse);
     try {
         const courses = await getCourses();
-        console.log('courses del getCourses', courses);
         const course = courses.courses.find((course) => course.title === paramCourse);
-        console.log('course del getCourse', course);
+
         return course;
     } catch (error) {
         console.error(error);
@@ -71,16 +65,15 @@ async function getCourse(paramCourse) {
  * Funcion para obtener el tema que viene en la url
  */
 async function getSubject(paramCourse, paramSubject) {
-    console.log('paramSubject', paramSubject);
-    try{
+    try {
         const curse = await getCourse(paramCourse);
-        console.log('curse', curse);
-        const subject = curse.teams.find((subject) => subject.title === paramSubject);
-        console.log('subject', subject);
+
+        const subject = curse.modules.find((subject) => subject.title === paramSubject);
+
         return subject;
 
 
-    }catch(error){
+    } catch (error) {
         console.log(error);
         return null;
     }
@@ -107,7 +100,7 @@ async function fillData() {
 async function createAcordeon() {
     acordeon.innerHTML = '';
     const subject = await getSubject(paramCourse, paramSubject);
-    subject.activities[0].stages.forEach((stage) => {
+    subject.lessons[0].content.forEach((stage) => {
         const divItem = document.createElement('div');
         const divTitle = document.createElement('div');
         const divContent = document.createElement('div');
@@ -120,7 +113,7 @@ async function createAcordeon() {
         divTitle.classList.add('Acordeon-title');
         divContent.classList.add('Acordeon-content');
 
-        title.textContent = stage.name;
+        title.textContent = stage.title;
         span.textContent = 'arrow_drop_down';
         divTitle.appendChild(title);
         divTitle.appendChild(span);
@@ -128,7 +121,7 @@ async function createAcordeon() {
         divItem.appendChild(divContent);
         acordeon.appendChild(divItem);
 
-        
+
         // Agregar el evento para que al clickear se muestre el contenido del acordeon
         divTitle.addEventListener('click', () => {
             // Creacion de variable booleana para saber si el item esta activo
@@ -138,27 +131,38 @@ async function createAcordeon() {
                 item.classList.remove('isActive');
                 divContent.innerHTML = '';
             });
-             // Si el item que se selecciono no esta activo se le agrega la clase active y se agrega contenido al divContent
+            // Si el item que se selecciono no esta activo se le agrega la clase active y se agrega contenido al divContent
             if (!isActive) {
                 divItem.classList.toggle('isActive');
                 divContent.classList.toggle('isActive');
-                    const div = document.createElement('div');
-                    const text = document.createElement('p');
-                    const ul = document.createElement('ul');
-                    text.classList.add('u-text');
-                    ul.classList.add('Oporunities-list');
-                    text.textContent = stage.details;
+                const div = document.createElement('div');
+                const text = document.createElement('p');
+                const ul = document.createElement('ul');
+                const divMarkdown = document.createElement('div');
+                divMarkdown.classList.add('Markdown-content');
+                text.classList.add('u-text');
+                ul.classList.add('Oporunities-list');
+                text.textContent = stage.description;
+               // Se busca en el contenido del json si hay una propiedad markdownContent 
+                
+                stage.key_points.forEach(keyActivity => {
+                    const li = document.createElement('li');
+                    li.classList.add('u-text');
+                    li.textContent = keyActivity;
+                    ul.appendChild(li);
+                });
+                div.appendChild(text);
+                div.appendChild(ul);
+                if(stage.markdownContent != null){
+                    // si la encuentra, se crea una variable const htmlContent que contendra la conversion del markdown a html 
+                    const htmlContent = marked.parse(stage.markdownContent);
+                    // se agrega el htmlContent al divMarkdown
+                    divMarkdown.innerHTML = htmlContent;
+                    div.appendChild(divMarkdown);
+                }
+                
+                divContent.appendChild(div);
 
-                    stage.key_activities.forEach(keyActivity => {
-                        const li = document.createElement('li');
-                        li.classList.add('u-text');
-                        li.textContent = keyActivity;
-                        ul.appendChild(li);
-                    });
-                    div.appendChild(text);
-                    div.appendChild(ul);
-                    divContent.appendChild(div);
-               
             }
         });
     });
@@ -168,22 +172,22 @@ async function createAcordeon() {
  * Funcion para crear seccion de metodologias
  */
 async function addMethodologies() {
+    console.log('addMethodologies');
     methodologySection.innerHTML = '';
     const subject = await getSubject(paramCourse, paramSubject);
-    console.log('subject', subject.activities[1].methodologies);
+    subject.lessons[1].content.forEach((content) => {
+        console.log(content);
+        // const title = document.createElement('h3');
+        // const text = document.createElement('p');
 
-    const title = document.createElement('h3');
-    const text = document.createElement('p');
+        // title.classList.add('u-title');
+        // text.classList.add('u-text');
 
-    title.classList.add('u-title');
-    text.classList.add('u-text');
-
-    title.textContent = subject.activities[1].methodologies.title;
-    text.textContent = subject.activities[1].methodologies.description;
-    methodologySection.appendChild(title);
-    methodologySection.appendChild(text);
-
-    for (let i = 0; i < subject.activities[1].methodologies.types.length; i++) {
+        // title.textContent = content.title;
+        // text.textContent = content.description;
+        // methodologySection.appendChild(title);
+        // methodologySection.appendChild(text);
+        console.log('content[i]', content);
         const divContent = document.createElement('div');
         const typeTitle = document.createElement('h3');
         const typeText = document.createElement('p');
@@ -206,35 +210,38 @@ async function addMethodologies() {
         const divRoles = document.createElement('div');
         const roles = document.createElement('h4');
         const ulRoles = document.createElement('ul');
+        console.log('content.advantages', content.advantages);
 
-        for (let j = 0; j < subject.activities[1].methodologies.types[i].advantages.length; j++) {
-            const li = document.createElement('li');
-            li.classList.add('u-text');
-            li.textContent = subject.activities[1].methodologies.types[i].advantages[j];
-            ulAdvantages.appendChild(li);
-        }
-
-        if (subject.activities[1].methodologies.types[i].disadvantages != null) {
-            for (let k = 0; k < subject.activities[1].methodologies.types[i].disadvantages.length; k++) {
+        if (content.advantages != null) {
+            for (let j = 0; j < content.advantages.length; j++) {
+                console.log('content[i].advantages[j]', content.advantages[j]);
                 const li = document.createElement('li');
                 li.classList.add('u-text');
-                li.textContent = subject.activities[1].methodologies.types[i].disadvantages[k];
+                li.textContent = content.advantages[j];
+                ulAdvantages.appendChild(li);
+            }
+        }
+        if (content.disadvantages != null) {
+            for (let k = 0; k < content.disadvantages.length; k++) {
+                const li = document.createElement('li');
+                li.classList.add('u-text');
+                li.textContent = content.disadvantages[k];
                 ulDisadvantages.appendChild(li);
             }
         }
-        if (subject.activities[1].methodologies.types[i].frameworks != null) {
-            for (let f= 0; f < subject.activities[1].methodologies.types[i].frameworks.length; f++) {
+        if (content.frameworks != null) {
+            for (let f = 0; f < content.frameworks.length; f++) {
                 const li = document.createElement('li');
                 li.classList.add('u-text');
-                li.textContent = subject.activities[1].methodologies.types[i].frameworks[f];
+                li.textContent = content.frameworks[f];
                 ulFrameworks.appendChild(li);
             }
         }
-        if (subject.activities[1].methodologies.types[i].roles != null) {
-            for (let r = 0; r < subject.activities[1].methodologies.types[i].roles.length; r++) {
+        if (content.roles != null) {
+            for (let r = 0; r < content.roles.length; r++) {
                 const li = document.createElement('li');
                 li.classList.add('u-text');
-                li.textContent = subject.activities[1].methodologies.types[i].roles[r];
+                li.textContent = content.roles[r];
                 ulRoles.appendChild(li);
             }
         }
@@ -264,8 +271,8 @@ async function addMethodologies() {
         roles.classList.add('u-title');
         ulRoles.classList.add('Oporunities-list');
 
-        typeTitle.textContent = subject.activities[1].methodologies.types[i].name;
-        typeText.textContent = subject.activities[1].methodologies.types[i].description;
+        typeTitle.textContent = content.title;
+        typeText.textContent = content.description;
 
         advantages.textContent = 'Addvantages';
         disadvantages.textContent = 'Disadvantages';
@@ -287,28 +294,30 @@ async function addMethodologies() {
 
         divContent.appendChild(typeTitle);
         divContent.appendChild(typeText);
-       console.log('ulFrameworks', ulFrameworks);   
-       if(ulFrameworks.childElementCount > 0){
-        divContent.appendChild(divFrameworks);
-       }
-       if(
-        ulAdvantages.childElementCount > 0){
-          div.appendChild(divAdvantages);
-         }
+        console.log('ulFrameworks', ulFrameworks);
+        if (ulFrameworks.childElementCount > 0) {
+            divContent.appendChild(divFrameworks);
+        }
+        if (
+            ulAdvantages.childElementCount > 0) {
+            div.appendChild(divAdvantages);
+        }
 
-        if(ulDisadvantages.childElementCount > 0){
+        if (ulDisadvantages.childElementCount > 0) {
             div.appendChild(divDisadvantages);
         }
-        if(ulRoles.childElementCount > 0){
+        if (ulRoles.childElementCount > 0) {
             divContent.appendChild(divRoles);
         }
 
         divContent.appendChild(div);
 
         methodologySection.appendChild(divContent);
-    }
+
+    })
+
 }
-    
+
 
 
 //--------------------------------------

@@ -32,7 +32,6 @@
 
 .u-title{
     font-size:20px;
-    font-weight: bold;
     color: var(--txt-primary);
     transition: color 0.3s ease;
 }
@@ -72,7 +71,4 @@
     transition: color 0.3s ease;
 }
 
-.u-bxShadow{
-    box-shadow: var(--box-shadow);
-    transform: box-shadow 0.3s ease;
-}
+
