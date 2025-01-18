@@ -57,22 +57,22 @@ const commentsSlider = [];
 const listComments =`[
     {
         "author": "Juan Perez",
-        "img": "https://placehold.co/600x400?text=Imagen",
+        "img": "./assets/img/user2.jpg",
         "description":"Excelente plataforma, me ayudo a mejorar mis habilidades"
     },
     {
         "author": "Maria Lopez",
-        "img": "https://placehold.co/600x400?text=Imagen",
+        "img": "./assets/img/user1.jpg",
         "description":"Me encanto el curso, muy recomendado"
     },
     {
         "author": "Pedro Ramirez",
-        "img": "https://placehold.co/600x400?text=Imagen",
+        "img": "./assets/img/user3.jpg",
         "description":"Excelente curso, muy completo"
     },
     {
         "author": "Ana Maria",
-         "img": "https://placehold.co/600x400?text=Imagen",
+         "img": "./assets/img/user4.jpg",
         "description":"Muy buen curso, lo recomiendo"
     }
 ]`
