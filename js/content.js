@@ -12,7 +12,7 @@ const btnNextCard = document.getElementById('btnNextCard');
 const cardComments = document.querySelector('.Comments');
 const btnNextComment = document.getElementById('btnNextComment');
 const sectionComments = document.querySelector('.Main-comments');
-console.log(btnNextComment);
+
 
 const screenWidth = window.innerWidth;
 let btnPrevCard = '';
@@ -99,8 +99,7 @@ async function getCourses() {
     try {
         let courses = await fetch('./jsons/courses_new.json');
         courses = await courses.json();
-        console.log('Estos son los cursos');
-        console.log(courses);
+      
         return courses;
 
     } catch (error) {
@@ -156,7 +155,7 @@ function nextImage() {
  * Funcion para mostrar imaganes en un intervalo de tiempo
  */
 function showImagesInterval() {
-    intervals = setInterval(nextImage, 1000);
+    intervals = setInterval(nextImage, 4000);
 }
 
 
@@ -216,7 +215,6 @@ function updateCards() {
     if(screenWidth >= 600 && screenWidth <= 900){
         width = 400;
     }
-    console.log('este es el width', width);
     cardBoxes.style.transform = `translateX(-${currentCard * width}px)`;
 
     const button = document.getElementById('btnPrevCard');
@@ -254,11 +252,7 @@ function nextCard() {
  */
 function prevCard() {
     currentCard--;
-    console.log('este es el currentCard', currentCard);
-
-    console.log('este es el lenght ', cardsSlider.length);
     if (currentCard <= 0) {
-        console.log('este es el lenght ', cardsSlider.length);
         currentCard = cardsSlider.length - 1;
     }
     updateCards();
@@ -366,9 +360,8 @@ function updateComments() {
  * Funcion para mostrar la siguiente card
  */
 function nextComment() {
-    console.log('este es el currentComment', currentComment);
+   
     currentComment++;
-    console.log(commentsSlider)
     if (currentComment >= commentsSlider.length) {
         currentComment = 0;
     }

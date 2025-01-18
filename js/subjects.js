@@ -3,7 +3,6 @@
 //--------------------------------------
 
 const acordeon = document.querySelector('.Acordeon');
-console.log(typeof marked);
 
 const elements = document.querySelectorAll('[data-key]');
 
@@ -213,11 +212,9 @@ async function addMethodologies() {
         const divRoles = document.createElement('div');
         const roles = document.createElement('h4');
         const ulRoles = document.createElement('ul');
-        console.log('content.advantages', content.advantages);
-
+        
         if (content.advantages != null) {
             for (let j = 0; j < content.advantages.length; j++) {
-                console.log('content[i].advantages[j]', content.advantages[j]);
                 const li = document.createElement('li');
                 li.classList.add('u-text');
                 li.textContent = content.advantages[j];
@@ -301,7 +298,6 @@ async function addMethodologies() {
         divTitle.appendChild(typeText);
         divContent.appendChild(divTitle);
         
-        console.log('ulFrameworks', ulFrameworks);
         if (ulFrameworks.childElementCount > 0) {
             divContent.appendChild(divFrameworks);
         }

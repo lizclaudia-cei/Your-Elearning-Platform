@@ -95,7 +95,6 @@ acordeonTitle.forEach(async (title) => {
 
 
         course.modules.map((subject) => {
-            console.log('subject', subject);
 
             const div = document.createElement('div');
             const divImg = document.createElement('div');
