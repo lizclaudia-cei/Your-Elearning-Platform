@@ -57,22 +57,22 @@ const commentsSlider = [];
 const listComments =`[
     {
         "author": "Juan Perez",
-        "img": "./assets/img/user2.jpg",
+        "img": "./assets/img/user2.webp",
         "description":"Excelente plataforma, me ayudo a mejorar mis habilidades"
     },
     {
         "author": "Maria Lopez",
-        "img": "./assets/img/user1.jpg",
+        "img": "./assets/img/user1.webp",
         "description":"Me encanto el curso, muy recomendado"
     },
     {
         "author": "Pedro Ramirez",
-        "img": "./assets/img/user3.jpg",
+        "img": "./assets/img/user3.webp",
         "description":"Excelente curso, muy completo"
     },
     {
         "author": "Ana Maria",
-         "img": "./assets/img/user4.jpg",
+         "img": "./assets/img/user4.webp",
         "description":"Muy buen curso, lo recomiendo"
     }
 ]`
