@@ -25,6 +25,6 @@ navBar.appendChild(ul);
 }
 
 btnMenu.addEventListener('click', ()=>{
-    navBar.classList.toggle('isActive');
-    header.classList.toggle('isActive');
+    navBar.classList.toggle('isActiveMenu');
+    header.classList.toggle('isActiveMenu');
 });

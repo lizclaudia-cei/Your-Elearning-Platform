@@ -42,7 +42,7 @@
     flex-direction: column;
 
 }
-.isActive{
+.isActiveMenu{
     display:flex;
     flex-direction: column;
     align-items: start;

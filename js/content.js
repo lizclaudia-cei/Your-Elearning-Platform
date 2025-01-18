@@ -14,6 +14,7 @@ const btnNextComment = document.getElementById('btnNextComment');
 const sectionComments = document.querySelector('.Main-comments');
 console.log(btnNextComment);
 
+const screenWidth = window.innerWidth;
 let btnPrevCard = '';
 
 
@@ -130,7 +131,13 @@ function addImages() {
  * Funcion para actualizar el slider de imagenes
  */
 function updateSlider() {
-    const width = 400;
+    let width = 400;
+    const screenWidth = window.innerWidth;
+    if(screenWidth >= 600 && screenWidth <= 900){
+        width = 800;
+    }else if(screenWidth >= 900){
+        width = 2800;
+    }
     imageBoxes.style.transform = `translateX(-${currentImage * width}px)`;
 }
 
@@ -192,6 +199,10 @@ function addCards() {
             cardsSlider.push(card);
         });
     });
+    if(screenWidth >= 900){
+        const button = document.getElementById('btnNextCard');
+        button.remove();
+    }
 
 
 }
@@ -200,7 +211,12 @@ function addCards() {
  * Funciones para actualizar el slider de tarjetas
  */
 function updateCards() {
-    const width = 250;
+    let width = 250;
+    const screenWidth = window.innerWidth;
+    if(screenWidth >= 600 && screenWidth <= 900){
+        width = 400;
+    }
+    console.log('este es el width', width);
     cardBoxes.style.transform = `translateX(-${currentCard * width}px)`;
 
     const button = document.getElementById('btnPrevCard');
@@ -255,7 +271,8 @@ function prevCard() {
  */
 function addComments() {
     cardComments.innerHTML = '';
-    const comments = convertJsonToObject(listComments);   
+    const comments = convertJsonToObject(listComments); 
+    
         comments.map((comment) => {
             const card = document.createElement('div');
             const cardImage = document.createElement('img');
@@ -268,11 +285,10 @@ function addComments() {
             const iconDislike = document.createElement('span');
             
             card.classList.add('Main-comments--coment');
-            cardImage.classList.add('"Main-comments--coment-user-img');
+            cardImage.classList.add('Main-comments--coment-user-img');
             cardText.classList.add('u-textPrimary');
             cardAuthor.classList.add('u-title');
             cardUser.classList.add('Main-comments--coment-user');
-            cardImage.classList.add('Main-comments--coment-user-img');
             divInteraction.classList.add('Main-interaction');
             iconLike.classList.add('material-symbols-outlined');
             iconDislike.classList.add('material-symbols-outlined');
@@ -310,13 +326,20 @@ function addComments() {
             commentsSlider.push(card);
         });
    
-
+        if(screenWidth >= 900){
+            
+            const button = document.getElementById('btnNextComment');
+            button.remove();
+        }  
 
 }
 
 function updateComments() {
-    console.log('este es el currentComment', currentComment);
-    const width = 200;
+    let width = 200;
+   
+    if(screenWidth >= 600 && screenWidth <= 900){
+        width = 550;
+    }
     cardComments.style.transform = `translateX(-${currentComment * width}px)`;
 
     const button = document.getElementById('btnPrevComment');
