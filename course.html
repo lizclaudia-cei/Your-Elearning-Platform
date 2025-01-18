@@ -4,6 +4,8 @@
     <meta charset="UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0" >
     <title>Curso</title>
+
+    <link rel="icon" href="./assets/img/elearning_icon.webp" />
     <meta name="description" content="Pagina de un curso especifico" >
     <meta name="author" content="Liz Claudia Espinosa Gutierrez" >
     <meta
@@ -22,6 +24,7 @@
     <!-- styles -->
     <link rel="stylesheet" href="./css/header.css" >
     <link rel="stylesheet" href="./css/colors.css" >
+    <link rel="stylesheet" href="./css/elements.css" >
     <link rel="stylesheet" href="./css/course.css" >
 
     <script src="./js/course.js" defer></script>
@@ -30,15 +33,13 @@
 
   <body>
     <header class="Header u-bgPrimary">
-      <div class="Header-top">
-        <span class="material-symbols-outlined u-txtPrimary" id="menuBtn"> menu </span>
-         <p class="u-title">Your Elearning Platform</p>
-         <a href="./index.html"><img class="Header-logo" src="./assets/img/elearning_icon.webp" alt="Elearning logo"></a>
-         
-      </div>
+    <span class="material-symbols-outlined Header-menu" id="menuBtn"> menu </span>
+        
+       <p  class="Header-title">Your Elearning Platform</p>
+      <a href="./index.html"><img class="Header-logo" src="./assets/img/elearning_icon.webp" alt="Elearning logo"></a>
       
       <nav class="Header-nav">
-        <ul class="Footer-nav--ul">
+        <ul class="Header-nav--ul">
           <li class="Footer-nav--ul-li"><a class="ul-li " href="#Description">Description</a></li>
 
           <li class="Footer-nav--ul-li"><a class="ul-li" href="#Carrear">Carrear Oportunities</a></li>
@@ -52,64 +53,50 @@
      
     </header>
 
+    
+
     <main class="Main">
       <article class="Main-Article">
-        <h1 data-key="title" class="u-title">Nombre del curso</h1>
+        <h1 data-key="title" class="s">Nombre del curso</h1>
+        
+        <section id="Description" class="Description-section">
         <iframe
         id="video"
+        class="Article-video"
           src="https://www.youtube.com/embed/iReoQzBaRhs?start=6"
           title="Youtube video player"
           allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
           allowfullscreen
         ></iframe>
-        <section id="Description" class="Description-section">
-          <h2  class="u-title">Description</h2>
+        <div class="Description">
+        <h2  class="u-title">Description</h2>
           <p data-key="description" class="u-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus
-            ea porro fugiat maxime ab necessitatibus asperiores soluta ex
-            tenetur eaque atque aperiam, aliquid aliquam repudiandae voluptatum
-            rem veritatis eveniet!
+           
           </p>
           <h2 class="u-title">Overview</h2>
           <p data-key="overview" class="u-text">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio natus
-            ea porro fugiat maxime ab necessitatibus asperiores soluta ex
-            tenetur eaque atque aperiam, aliquid aliquam repudiandae voluptatum
-            rem veritatis eveniet!
+           
           </p>
+        </div>
+          
         </section>
         <section id="Carrear" class="Course-sections">
             <h2 class="u-title">Carrear oportunities</h2>
             
           </section>
+          
         <section id="Subjects" class="Acordeon-oportunities">
           <div class="Acordeon-item">
             <div class="Acordeon-title">
               <h3 class="u-title">Course Subjects</h3>
-              <span class="material-symbols-outlined"> arrow_drop_down </span>
+              <span id='iconArrrow' class="material-symbols-outlined"> arrow_drop_down </span>
             </div>
             <div class="Acordeon-content"></div>
           </div>
           
         </section>
        
-        <section id="Author" class="Instructor-section">
-          <div class="Instructor-sections--item">
-            <div class="Instructor-imgContent">
-              <img
-                class="Instructor-img"
-                src="https://placehold.co/600x400?text=imagen"
-                alt="Imagen de contenido"
-              >
-            </div>
-            <div class="Instructor-content">
-              <h3 class="u-title">Nombre del instructor</h3>
-              <p class="u-text">
-                shdkjasgdjasdgkajsdhjakshdkjhasjdjahsdkoqiwoiwueoiruqpioewrioqweprioewquroihsjkdhbcljbuweqiubqweurycywlauxiunqwepwpeqriu
-              </p>
-            </div>
-          </div>
-        </section>
+        <section id="Author" class="Instructor-section"></section>
       </article>
     </main>
     <footer class="Footer u-bgTerciary">
@@ -128,7 +115,7 @@
         <div class="Footer-nav--proyect-image">
           <img
             class="Footer-user-img"
-            src="https://placehold.co/600x400?text=imagen"
+            src="./assets/img/elearning_icon.webp"
             alt="Imagen referente al curso"
           />
           <p class="u-textPrimary">© 2021 Liz Claudia Espinosa</p>

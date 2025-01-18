@@ -1,0 +1,31 @@
+/* Stilos del acordeon  */
+
+.Acordeon{
+display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.Acordeon-item {
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid #000;
+}
+
+.Acordeon-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.Acordeon-content {
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+
+
+

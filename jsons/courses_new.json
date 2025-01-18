@@ -5,7 +5,7 @@
       "title": "Software Engineering Fundamentals Course",
       "description": "The Software Engineering Fundamentals course is designed to equip students with the essential knowledge and practical skills required for modern software development. This course covers the entire software development lifecycle, from requirement analysis and system design to implementation, testing, deployment, and maintenance. Students will explore various methodologies, tools, and best practices in the industry, gaining hands-on experience through interactive projects and real-world scenarios. By the end of the course, students will be prepared to tackle software engineering challenges and pursue entry-level roles in the tech industry.",
       "overview": "This course provides a comprehensive introduction to software engineering principles, covering the entire software development lifecycle, design patterns, programming fundamentals, testing, deployment, and security. Students will engage in hands-on projects to apply theoretical concepts in practical scenarios.",
-      "img": "./assets/img/software_fundamentals.jpg",
+      "img": "./assets/img/software_fundamentals.webp",
       "video":"https://www.youtube.com/embed/WMVjVgCGCG8",
       "qualification": 4.5,
       "careers": [
@@ -34,7 +34,7 @@
         {
           "id": 1,
           "title": "Software Development Lifecycle (SDLC)",
-          "img": "./assets/img/sdlc.jpeg",
+          "img": "./assets/img/sdlc.webp",
           "description": "The **Software Development Lifecycle (SDLC)** is a structured process used for developing software applications. It consists of various stages that guide the development process, ensuring the final product meets the desired quality and is delivered on time and within budge",
           "lessons": [
             {
@@ -226,11 +226,11 @@
           "id": 2,
           "title": "Software Requirements, Design, and Architecture",
           "description": "This module covers the fundamental stages of software development: gathering and documenting requirements, designing systems, and architecting scalable and maintainable solutions. These stages are crucial for creating software that meets business needs and is sustainable over time. ",
-          "img": "./assets/img/software_requirements.jpeg",
+          "img": "./assets/img/software_requirements.webp",
           "lessons": [
             {
               "name": "software_requirements",
-              "img": "./assets/img/software_requirements.jpeg",
+              "img": "./assets/img/software_requirements.webp",
               "title": "Software Requirements",
               "description": "Software requirements define what the software should do and how it should perform. Gathering, documenting, and analyzing requirements are essential steps in the software development process.",
               "content": [
@@ -318,7 +318,7 @@
             },
             {
               "title": "Software Design",
-              "img": "./assets/img/software_design.jpeg",
+              "img": "./assets/img/software_design.webp",
               "description": "Software design involves translating requirements into system specifications that developers can implement. Design principles, patterns, and tools help create scalable, maintainable systems.",
               "content": [
                 {
@@ -384,7 +384,7 @@
             {
               "title": "Software Architecture",
               "description": "Software architecture defines the structure of a system, including components, relationships, and interactions. Architectural decisions impact system scalability, maintainability, and performance.",
-              "img": "./assets/img/software_architecture.jpeg",
+              "img": "./assets/img/software_architecture.webp",
               "content": [
                 {
                   "title": "Introduction to Software Architecture",
@@ -454,8 +454,8 @@
         {
           "id": 3,
           "title": "Programming Fundamentals",
-          "img": "./assets/img/programing_fundamentals.jpeg",
-          "description": "Understand the basic building blocks of programming, including syntax, control structures, data types, and algorithms.",
+          "img": "./assets/img/programing_fundamentals.webp",
+          "description": "Programming Fundamentals refers to the essential building blocks and basic concepts needed to write computer programs. These are the foundational skills and knowledge that every programmer must understand to effectively develop software",
           "lessons": [
             {
               "name": "introduction_to_programming",
@@ -662,8 +662,8 @@
       "author": [
         {
           "name": "Marisbelsy Exposito Lopez",
-          "img": "./assets/img/programing_fundamentals.jpeg",
-          "biography": "bsdjashdasjkdhkjahsdkjakdhahdjahdkahsdjhsajdhsuajhdjasdgfjhsdgfjsdagfhk"
+          "img": "./assets/img/author_image.webp",
+          "biography": "An experienced informatics instructor with over 10 years of expertise in teaching programming, computer science, and digital literacy. She has a deep passion for technology and education, and has helped countless students build strong foundations in the digital world. Maria is dedicated to creating engaging, hands-on learning experiences that empower her students to succeed in today’s technology-driven society"
         }
       ]
     },
@@ -672,7 +672,7 @@
       "title": "Security, and Performance Optimization",
       "description": "Understand the core principles of securing software, designing scalable systems, and optimizing performance",
       "overview": "Security in software development involves protecting systems, networks, and data from cyber threats and unauthorized access. This includes implementing measures such as encryption, access controls, and regular security audits to ensure the integrity, confidentiality, and availability of information.",
-      "img": "./assets/img/security.jpg",
+      "img": "./assets/img/security.webp",
       "video": "https://www.youtube.com/embed/ban-kiLchiY",
       "qualification": "5",
       "careers": [
@@ -722,7 +722,7 @@
           "id": "1",
           "title": "Security",
           "description": "Learn to protect software from threats through secure coding practices, authentication, encryption, and testing.       ",
-          "img": "string",
+          "img": "./assets/img/security.webp",
           "lessons": [
             {
               "name": "security_threats",
@@ -834,8 +834,8 @@
       "author": [
         {
           "name": "Marisbelsy Exposito Lopez",
-          "img": "./assets/img/programing_fundamentals.jpeg",
-          "biography": "bsdjashdasjkdhkjahsdkjakdhahdjahdkahsdjhsajdhsuajhdjasdgfjhsdgfjsdagfhk"
+          "img": "./assets/img/author_image.webp",
+          "biography": "An experienced informatics instructor with over 10 years of expertise in teaching programming, computer science, and digital literacy. She has a deep passion for technology and education, and has helped countless students build strong foundations in the digital world. Maria is dedicated to creating engaging, hands-on learning experiences that empower her students to succeed in today’s technology-driven society"
         }
       ]
     },
@@ -844,7 +844,7 @@
       "title": "Ethics in Software Development",
       "description": "Understand the ethical responsibilities of software developers and how to navigate challenges involving privacy, security, and societal impact.",
       "overview": "Ethics in software development involves adhering to principles that ensure the creation of software that is fair, transparent, and respectful of user rights. Ethical considerations guide developers in making decisions that prioritize the well-being of users and society, while minimizing harm and promoting trust.",
-      "img": "./assets/img/ethics.jpg",
+      "img": "./assets/img/ethics.webp",
       "video":"https://www.youtube.com/embed/EWXfhYlaQn0",
       "qualification": "3",
       "careers": [
@@ -894,7 +894,7 @@
           "id": "1",
           "title": "Ethical Principles in Software Development",
           "description": "Ethical principles in software development guide developers in making decisions that respect user rights, promote fairness, and ensure the integrity of software systems. These principles encompass a range of considerations, including privacy, security, transparency, and social responsibility. By adhering to ethical guidelines, developers can create software that not only meets functional requirements but also contributes positively to society and minimizes harm.",
-          "img": "string",
+          "img": "./assets/img/ethics.webp",
           "lessons": [
             {
               "name": "confiendtiality_data_protection",
@@ -957,8 +957,8 @@
       "author": [
         {
           "name": "Marisbelsy Exposito Lopez",
-          "img": "./assets/img/programing_fundamentals.jpeg",
-          "biography": "bsdjashdasjkdhkjahsdkjakdhahdjahdkahsdjhsajdhsuajhdjasdgfjhsdgfjsdagfhk"
+          "img": "./assets/img/author_image.webp",
+          "biography": "An experienced informatics instructor with over 10 years of expertise in teaching programming, computer science, and digital literacy. She has a deep passion for technology and education, and has helped countless students build strong foundations in the digital world. Maria is dedicated to creating engaging, hands-on learning experiences that empower her students to succeed in today’s technology-driven society"
         }
       ]
     }

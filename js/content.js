@@ -23,22 +23,22 @@ let currentImage = 0;
 const listImages = `[
     {
         "id" : 1,
-        "src" : "./assets/img/cursos_ia.jpg",
+        "src" : "./assets/img/cursos_ia.webp",
         "description": "Curso IA"
     },
     {
         "id" : 2,
-        "src" : "./assets/img/version_control.jpeg",
+        "src" : "./assets/img/version_control.webp",
         "description": "Control de versiones"
     },
     {
         "id" : 3,
-        "src" : "./assets/img/testing.jpg",
+        "src" : "./assets/img/testing.webp",
         "description": "Testing"
     },
     {
         "id" : 4,
-        "src" : "./assets/img/imagen_ejecutiva.jpg",
+        "src" : "./assets/img/imagen_ejecutiva.webp",
         "description": "Ejecutiva"
     }
 ]`;

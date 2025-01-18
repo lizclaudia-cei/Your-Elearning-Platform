@@ -9,7 +9,7 @@ const elements = document.querySelectorAll('[data-key]');
 
 const courseSection = document.querySelector('.Course-sections');
 
-const methodologySection = document.querySelector('.Methodology-section');
+const methodologySection = document.querySelector('.Section-content');
 
 
 const params = new URLSearchParams(window.location.search);
@@ -100,6 +100,13 @@ async function fillData() {
 async function createAcordeon() {
     acordeon.innerHTML = '';
     const subject = await getSubject(paramCourse, paramSubject);
+
+
+    const titleSection = document.createElement('h2');
+    titleSection.classList.add('u-title');
+    titleSection.classList.add('Section-title');
+    titleSection.textContent = 'Modules';
+    acordeon.appendChild(titleSection);
     subject.lessons[0].content.forEach((stage) => {
         const divItem = document.createElement('div');
         const divTitle = document.createElement('div');
@@ -113,6 +120,7 @@ async function createAcordeon() {
         divTitle.classList.add('Acordeon-title');
         divContent.classList.add('Acordeon-content');
 
+        
         title.textContent = stage.title;
         span.textContent = 'arrow_drop_down';
         divTitle.appendChild(title);
@@ -153,15 +161,17 @@ async function createAcordeon() {
                 });
                 div.appendChild(text);
                 div.appendChild(ul);
+                div.classList.add('Content-title')
+                divContent.appendChild(div);
                 if(stage.markdownContent != null){
                     // si la encuentra, se crea una variable const htmlContent que contendra la conversion del markdown a html 
                     const htmlContent = marked.parse(stage.markdownContent);
                     // se agrega el htmlContent al divMarkdown
                     divMarkdown.innerHTML = htmlContent;
-                    div.appendChild(divMarkdown);
+                    divContent.appendChild(divMarkdown);
                 }
                 
-                divContent.appendChild(div);
+                
 
             }
         });
@@ -172,23 +182,11 @@ async function createAcordeon() {
  * Funcion para crear seccion de metodologias
  */
 async function addMethodologies() {
-    console.log('addMethodologies');
     methodologySection.innerHTML = '';
     const subject = await getSubject(paramCourse, paramSubject);
     subject.lessons[1].content.forEach((content) => {
-        console.log(content);
-        // const title = document.createElement('h3');
-        // const text = document.createElement('p');
-
-        // title.classList.add('u-title');
-        // text.classList.add('u-text');
-
-        // title.textContent = content.title;
-        // text.textContent = content.description;
-        // methodologySection.appendChild(title);
-        // methodologySection.appendChild(text);
-        console.log('content[i]', content);
         const divContent = document.createElement('div');
+        const divTitle = document.createElement('div');
         const typeTitle = document.createElement('h3');
         const typeText = document.createElement('p');
 
@@ -252,6 +250,8 @@ async function addMethodologies() {
         typeText.classList.add('u-text');
         divContent.classList.add('Methodology-item');
         div.classList.add('Methodology-content');
+        
+        divTitle.classList.add('Methodology-title');
 
         divAdvantages.classList.add('Methodology-advantages');
         advantages.classList.add('u-title');
@@ -292,8 +292,10 @@ async function addMethodologies() {
         divRoles.appendChild(roles);
         divRoles.appendChild(ulRoles);
 
-        divContent.appendChild(typeTitle);
-        divContent.appendChild(typeText);
+        divTitle.appendChild(typeTitle);
+        divTitle.appendChild(typeText);
+        divContent.appendChild(divTitle);
+        
         console.log('ulFrameworks', ulFrameworks);
         if (ulFrameworks.childElementCount > 0) {
             divContent.appendChild(divFrameworks);
