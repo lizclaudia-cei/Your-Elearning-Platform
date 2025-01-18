@@ -12,6 +12,9 @@ const courseSection = document.querySelector('.Course-sections');
 const methodologySection = document.querySelector('.Section-content');
 
 
+const img = document.getElementById('img');
+
+
 const params = new URLSearchParams(window.location.search);
 const paramCourse = params.get("course");
 const paramSubject = params.get("subject");
@@ -89,6 +92,8 @@ async function fillData() {
         const key = element.getAttribute('data-key');
         element.textContent = subject[key];
     })
+    img.src = subject.img;
+    img.alt = subject.title;
 
 }
 

@@ -4,11 +4,10 @@
 
 const acordeonItems = document.querySelectorAll('.Acordeon-item');
 const acordeonTitle = document.querySelectorAll('.Acordeon-title');
-const iconArrrow = document.getElementById('iconArrrow');
 
 const elements = document.querySelectorAll('[data-key]');
 
-const video = document.getElementById('video');
+const img = document.getElementById('img');
 
 const courseSection = document.querySelector('.Course-sections');
 
@@ -73,7 +72,8 @@ async function fillData() {
         const key = element.getAttribute('data-key');
         element.textContent = course[key];
     })
-    video.src = course.video;
+    img.src = course.img;
+    img.alt = course.title;
 
 }
 
@@ -85,15 +85,18 @@ acordeonTitle.forEach(async (title) => {
     course = await getCourse(paramCourse);
     const item = title.closest('.Acordeon-item');
     const content = item.querySelector('.Acordeon-content');
-    
     title.addEventListener('click', () => {
+
         acordeonItems.forEach((item) => {
             const content = item.querySelector('.Acordeon-content');
             content.innerHTML = '';
             item.classList.remove('isActive');
-          
         });
+
+
         course.modules.map((subject) => {
+            console.log('subject', subject);
+
             const div = document.createElement('div');
             const divImg = document.createElement('div');
             const img = document.createElement('img');
