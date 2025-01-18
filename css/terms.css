@@ -1,0 +1,14 @@
+
+.Body{
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg-primary);
+}
+
+.Main{
+    display:flex;
+    flex-direction:column;
+    margin: 1rem;
+    padding: 1rem;
+   
+}
