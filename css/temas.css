@@ -17,6 +17,12 @@
   gap: 1rem;
 }
 
+.Description{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
 .isActive {
   display: flex;
   flex-direction: column;
@@ -183,4 +189,13 @@
     width: 40%;
     justify-content: space-around;
   }
+
+    .Description-section {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .Article-video {
+        width: 40%;
+    }
 }
