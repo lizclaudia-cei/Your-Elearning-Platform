@@ -167,6 +167,7 @@ async function createAcordeon() {
                 div.appendChild(ul);
                 div.classList.add('Content-title')
                 divContent.appendChild(div);
+                // saber si en el json viene la propiedad markdownContent   
                 if(stage.markdownContent != null){
                     // si la encuentra, se crea una variable const htmlContent que contendra la conversion del markdown a html 
                     const htmlContent = marked.parse(stage.markdownContent);
