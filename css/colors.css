@@ -22,7 +22,7 @@
     --bg-secondary:#1D2D44;
     --txt-primary:#F0EBD8;
     --txt-secondary:#748CAB;
-    --box-shadow:1px 1px 5px rgba(18, 11, 11, 0.5);
+    --box-shadow:1px 1px 5px rgba(52, 46, 46, 0.5);
 }
 
 
@@ -31,17 +31,70 @@
 /* ---------------------------------------------*/
 
 .u-title{
-    font-size:20px;
     color: var(--txt-primary);
     transition: color 0.3s ease;
 }
-
+.u-Starts{
+    color:gold;
+ }
+.u-icon{
+    font-size:25px;
+    color: var(--txt-secondary);
+    transition: color 0.3s ease;
+    cursor: pointer;
+    margin: 8px;
+    transition: transform 0.5s ease,color 0.5s ease;
+}
+.u-icon:hover{
+    color: var(--txt-primary);
+    transform: scale(1.05);
+}
+.u-close{
+    font-size:25px;
+    color: var(--txt-secondary);
+    transition: color 0.3s ease;
+    margin: 8px;
+    cursor: pointer;
+    border-radius: 50%;
+    height: fit-content;
+    
+}
+.u-button{
+    font-size:16px;
+    color: var(--txt-primary);
+    transition: color 0.5s ease, transform 0.5s ease, background-color 0.5s ease;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--bg-terciary);
+}
+.u-button:hover{
+    background-color: var(--bg-secondary);
+    color: var(--txt-secondary);
+    transform: scale(1.05);
+}
 .u-text{
     font-size:16px;
     color: var(--txt-secondary);
     transition: color 0.3s ease;
     margin: 8px;
     width: 100%;
+}
+
+.u-input{
+    font-size:16px;
+    color: var(--txt-primary);
+    transition: color 0.5s ease, transform 0.5s ease, background-color 0.5s ease;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--bg-terciary);
+}
+.u-input:hover{
+    background-color: var(--bg-secondary);
+    color: var(--txt-secondary);
+    transform: scale(1.05);
 }
 
 .u-bgPrimary{
@@ -72,3 +125,6 @@
 }
 
 
+.isHover{
+    border-bottom-color: var(--txt-secondary);
+}

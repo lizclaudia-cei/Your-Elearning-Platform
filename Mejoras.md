@@ -56,10 +56,10 @@ Aspectos a mejorar:
 ### Cambios de mejora a realizar
   - ## Cambios JS 
      - Homogenizar el header
-     - Agregar funcionalidad para el modo obscuro
-     - Agregar funcionalidad de boton adelante atras del carousel principal
+     * Agregar funcionalidad para el modo obscuro
+     * Agregar funcionalidad de boton adelante atras del carousel principal
      - Revisar comportamiento del carousel que agrega un boton de next
-     - Revisar funcion toggle menu
+     * Revisar funcion toggle menu
  - ## Cambios CSS
      - Revisar reponsive en pantallas intermedias
      - Agregar cursoser y hover en los botones faltantes
@@ -67,8 +67,8 @@ Aspectos a mejorar:
      - Revisar legacy o eliminarlo
   - ## User Stories
     - modificar flujo de app
-    - agregar un register
-    - agregar un login
+    * agregar un register
+    * agregar un login
 
     # Colores
      432061 -> Backs

@@ -26,9 +26,8 @@
 }
 
 .isActive {
-    display: flex;
-    flex-direction: column;
-    overflow: hidden;
+  max-height: 100%;
+    padding: 1rem;
 }
 
 
@@ -36,13 +35,23 @@
     display: flex;
     flex-direction: column;
     padding-top: 1rem;
-    border-top: 1px solid #000;
+    border-top: 1px solid var(--txt-primary);
 }
 
 .Course-sections--item{
     display: flex;
     gap:1rem;
+    padding: 1rem;
     align-items: center;
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+    cursor: pointer;
+    border-radius: 1rem;
+   
+}
+.Course-sections--item:hover{
+    box-shadow: var(--box-shadow);
+    transform: scale(1.05);
+   
 }
 
 .Item-imgContent{

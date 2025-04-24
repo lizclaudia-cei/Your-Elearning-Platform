@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        /* Estilos básicos del navbar */
+/* Estilos base (Mobile-First) */
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  background-color: #333;
+  color: white;
+  position: relative;
+}
+
+.logo, .menu {
+  transition: opacity 0.3s ease;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.search-input {
+  width: 0;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  transition: width 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+  background-color: white;
+  color: black;
+  position: absolute;
+  right: 10px;
+  z-index: 10;
+}
+
+.search-input.active {
+  width: 100%; /* Ocupa todo el espacio disponible */
+  opacity: 1;
+  position: static;
+}
+
+.search-icon {
+  cursor: pointer;
+  font-size: 24px;
+  color: white;
+  margin-left: 10px;
+}
+
+/* Estilos para pantallas más grandes */
+@media (min-width: 768px) {
+  .search-input.active {
+    width: 300px; /* Ancho fijo en pantallas grandes */
+  }
+}
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo" id="logo">Logo</div>
+        <div class="menu" id="menu">Menú</div>
+        <div class="search-container">
+          <input type="text" id="searchInput" class="search-input" placeholder="Buscar...">
+          <i id="searchIcon" class="search-icon">🔍</i>
+        </div>
+      </nav>
+      <div id="content">
+        <p>JavaScript es un lenguaje de programación.</p>
+        <p>CSS se utiliza para diseñar páginas web.</p>
+        <p>HTML es el lenguaje de marcado para la web.</p>
+        <p>Python es un lenguaje de propósito general.</p>
+      </div>
+
+      <script>
+       const searchIcon = document.getElementById('searchIcon');
+const searchInput = document.getElementById('searchInput');
+const logo = document.getElementById('logo');
+const menu = document.getElementById('menu');
+
+// Al hacer clic en el ícono de búsqueda
+searchIcon.addEventListener('click', () => {
+  searchInput.classList.toggle('active'); // Mostrar/ocultar el input
+  logo.style.opacity = searchInput.classList.contains('active') ? '0' : '1'; // Ocultar/mostrar logo
+  menu.style.opacity = searchInput.classList.contains('active') ? '0' : '1'; // Ocultar/mostrar menú
+  if (searchInput.classList.contains('active')) {
+    searchInput.focus(); // Enfocar el input si está activo
+  }
+});
+
+// Opcional: Ocultar el input si pierde el foco
+searchInput.addEventListener('blur', () => {
+  searchInput.classList.remove('active');
+  logo.style.opacity = '1';
+  menu.style.opacity = '1';
+});
+      </script>
+</body>
+</html>

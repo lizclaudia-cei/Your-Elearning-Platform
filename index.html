@@ -26,36 +26,84 @@
   </head>
 
   <body class="Body">
-    <header class="Header u-bgPrimary">
-      <span class="material-symbols-outlined Header-menu" id="menuBtn"> menu </span>
-        
-       <p  class="Header-title">Your Elearning Platform</p>
-      <a href="./index.html"><img class="Header-logo" src="./assets/logo/logo_black.svg" alt="Elearning logo"></a>
-      
+    <header class="Header">
+      <span class="material-symbols-outlined Header-menu" id="menuBtn">
+        menu
+      </span>
+
+      <a href="./index.html"
+        ><img
+          class="Header-logo"
+          id="headerLogo"
+          src="./assets/logo/logo_black.svg"
+          alt="Elearning logo"
+      /></a>
+
       <nav class="Header-nav">
         <ul class="Header-nav--ul">
-          <li class="Footer-nav--ul-li"><a class="ul-li " href="./">Home</a></li>
+          <li class="Footer-nav--ul-li"><a class="ul-li" href="./">Home</a></li>
 
-          <li class="Footer-nav--ul-li"><a class="ul-li" href="#Courses">Courses</a></li>
+          <li class="Footer-nav--ul-li">
+            <a class="ul-li" href="#Courses">Courses</a>
+          </li>
 
-          <li class="Footer-nav--ul-li"><a class="ul-li" href="#Comments">Comments</a></li>
+          <li class="Footer-nav--ul-li">
+            <a class="ul-li" href="#Comments">Comments</a>
+          </li>
 
+          <span id="changeTeam" class="material-symbols-outlined u-icon">
+            dark_mode
+          </span>
+          <button id="loginButton" class="u-button">Sign in</button>
         </ul>
+        <button id="btnClose" class="u-close">
+          <span class="material-symbols-outlined u-icon"> close </span>
+        </button>
       </nav>
-     
+      <div class="cart-container">
+        <span class="material-symbols-outlined u-icon"> shopping_cart </span>
+        <span class="cart-count">0</span>
+      </div>
+      
+      <div id="modal" class="modal">
+        <div class="modal-contenido">
+          <img
+            class="imageForm"
+            id="headerLogo"
+            src="./assets/img/elearning_icon.webp"
+            alt="Elearning logo"
+          />
+          <form id="loginForm" class="form" method="post" action="./index.html">
+            <label class="u-txtPrimary" for="email">Email</label>
+            <input
+              class="u-input"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <label class="u-txtPrimary" for="password">Password</label>
+            <input
+              class="u-input"
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+
+            <button class="u-button" id="logIn" type="submit">Sign in</button>
+            <span class="u-txtPrimary"
+              >You don't have an account yet? <a href="./">Sign up</a></span
+            >
+          </form>
+        </div>
+      </div>
     </header>
-    
 
     <main class="Main">
       <section class="Main-imageCarousel">
-        <!-- <h1 class="u-title">Your Elearning Platform</h1> -->
-        <div id="imageBoxes" class="ImageBoxes">
-          <!-- <img
-            class="ImageBoxes--box"
-            src="https://placehold.co/600x400?text=imagen"
-            alt="Imagen referente al curso"
-          /> -->
-        </div>
+        <div id="imageBoxes" class="ImageBoxes"></div>
         <button id="btnPrev" class="Main-imageCarousel--button u-Prev">
           <span class="material-symbols-outlined"> arrow_back_ios </span>
         </button>
@@ -64,24 +112,52 @@
         </button>
       </section>
 
-      <section id="Courses" class="Main-courses">
+      <section class="StartSection">
         <div class="Courses-tittle">
-          <h2 class="u-title">Start Today</h2>
-        <p class="u-text">
-          Discover a new way of learning with our online courses. At LearnWithUs, we offer a wide variety of courses designed to help you achieve your educational and professional goals. Whether you're looking to improve your technical skills, learn a new language, or explore a new passion, we have the perfect course for you.
-        </p>
+          <h1 class="u-title">Your Elearning Platform</h1>
+          <p class="u-text">
+            Discover a new way of learning with our online courses. At learn
+            with us, we offer a wide variety of courses designed to help you
+            achieve your educational and professional goals. Whether you're
+            looking to improve your technical skills, learn a new language, or
+            explore a new passion, we have the perfect course for you.
+          </p>
+
+          <button id="loginButton" class="u-button">Sign in</button>
         </div>
-        
-        <div class="CoursesCards"></div>
-        <button id="btnNextCard" class="Main-imageCarousel--button u-Next">
-          <span class="material-symbols-outlined"> arrow_forward_ios </span>
-        </button>
+      </section>
+      <section id="Courses" class="Main-courses">
+        <div class="Main-courses-start">
+          <p class="u-text">
+            Here are the courses available. Start by searching for the skill you
+            want to develop and take the first step toward your learning
+            journey!
+          </p>
+        </div>
+        <div class="Main-courses-content">
+          <div class="searchInput">
+            <input
+              class="input"
+              type="text"
+              id="serachInput"
+              name="searchInput"
+              placeholder="What do you want to learn?"
+            />
+            <span id="btnSearch" class="material-symbols-outlined u-icon">
+              search
+            </span>
+          </div>
+          <div class="CoursesCards"></div>
+          <button id="btnNextCard" class="Main-imageCarousel--button u-Next">
+            <span class="material-symbols-outlined"> arrow_forward_ios </span>
+          </button>
+        </div>
       </section>
       <section id="Comments" class="Main-comments u-bgPrimary">
         <h2 class="u-title">See what others are achieving through learning</h2>
         <div class="Comments">
           <div class="Main-comments--coment">
-            <p class="u-textPrimary">
+            <p class="u-txtPrimary">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
               illo ullam itaque, voluptatibus ad aperiam corrupti? Nemo
               asperiores repellendus, libero tempora praesentium ea nam,
@@ -97,7 +173,7 @@
             </div>
           </div>
           <div class="Main-comments--coment">
-            <p class="u-textPrimary">
+            <p class="u-txtPrimary">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
               illo ullam itaque, voluptatibus ad aperiam corrupti? Nemo
               asperiores repellendus, libero tempora praesentium ea nam,
@@ -119,30 +195,67 @@
       </section>
     </main>
 
-    <footer class="Footer u-bgTerciary">
-      <nav class="Footer-nav">
+    <footer class="Footer u-bgSecondary">
+      <div class="Footer-section">
         
-        <h2 class="u-tittle">Legacy</h2>
-        <ul class="Footer-nav--ul">
-          <li class="Footer-nav--ul-li">
-            <a class="Footer-nav--ul-li" href="./terms_conditons.html " target="_blank"
-              >Terms and Conditions</a
-            >
-          </li>
-          
-        </ul>
-        <hr class="Footer-nav--hr" />
-       
-        
-      </nav>
-       <div class="Footer-nav--proyect-image">
-          <img
-            class="Footer-user-img"
-            src="./assets/img/elearning_icon.webp"
-            alt="Imagen referente al curso"
+        <form
+          id="commentForm"
+          class="Footer-form"
+          method="post"
+          action="./index.html"
+        >
+        <h2 class="u-title">We’d love to hear from you!</h2>
+        <p class="u-text">
+          Share your thoughts about our platform or courses — your feedback helps us grow.</p>
+          <input
+            class="u-input"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Nombre"
+            required
           />
-          <p class="u-textPrimary">© 2025 Liz Claudia Espinosa</p>
-        </div>
+
+          <input
+            class="u-input"
+            type="email"
+            id="emailComment"
+            name="emailComment"
+            placeholder="Email"
+            required
+          />
+          <textarea
+            class="u-input"
+            name="comments"
+            id="comment"
+            cols="30"
+            rows="10"
+            placeholder="Comentarios"
+          ></textarea>
+
+          <button class="u-button" id="submitComment" type="submit">
+            Add Comment
+          </button>
+        </form>
+        <nav class="Footer-nav">
+          <ul class="Footer-nav--ul">
+            <li class="Footer-nav--ul-li">
+              <a class="ul-li" href="./terms_conditons.html " target="_blank"
+                >Terms and Conditions</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <hr class="Footer-nav--hr" />
+      <div class="Footer-nav--proyect-image">
+        <img
+          class="Footer-user-img"
+          src="./assets/img/elearning_icon.webp"
+          alt="Imagen referente al curso"
+        />
+        <p class="u-txtPrimary">© 2025 Liz Claudia Espinosa</p>
+      </div>
     </footer>
   </body>
 </html>

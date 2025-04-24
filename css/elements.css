@@ -9,7 +9,8 @@ display:flex;
 .Acordeon-item {
     display: flex;
     flex-direction: column;
-    border-bottom: 1px solid #000;
+    border-bottom: 1px solid var(--txt-primary);
+    
 }
 
 .Acordeon-title {
@@ -17,14 +18,25 @@ display:flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+.Acordeon-title:hover {
+   transform:scale(0.9);
+   
+ 
 }
 
 .Acordeon-content {
-    display: none;
-    flex-direction: column;
+   max-height: 0;
+   overflow: hidden;
     gap: 1rem;
-    padding: 1rem;
+    padding:0 1rem;
+    display:flex;
+    flex-direction: column;
+    transition: max-height 0.5s ease, padding 0.5s ease;
 }
+
 
 
 

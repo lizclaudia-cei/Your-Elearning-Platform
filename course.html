@@ -27,37 +27,89 @@
     <link rel="stylesheet" href="./css/elements.css" >
     <link rel="stylesheet" href="./css/course.css" >
 
-    <script src="./js/course.js" defer></script>
+
     <script src="./js/header.js" defer></script>
+    <script src="./js/course.js" defer></script>
+    
   </head>
 
-  <body>
-    <header class="Header u-bgPrimary">
-    <span class="material-symbols-outlined Header-menu" id="menuBtn"> menu </span>
-        
-       <p  class="Header-title">Your Elearning Platform</p>
-      <a href="./index.html"><img class="Header-logo" src="./assets/img/elearning_icon.webp" alt="Elearning logo"></a>
-      
+  <body class="Body">
+    <header class="Header">
+      <span class="material-symbols-outlined Header-menu" id="menuBtn">
+        menu
+      </span>
+
+      <a href="./index.html"
+        ><img
+          class="Header-logo"
+          id="headerLogo"
+          src="./assets/logo/logo_black.svg"
+          alt="Elearning logo"
+      /></a>
+
       <nav class="Header-nav">
         <ul class="Header-nav--ul">
-          <li class="Footer-nav--ul-li"><a class="ul-li " href="#Description">Description</a></li>
+          <li class="Footer-nav--ul-li"><a class="ul-li" href="./">Home</a></li>
 
-          <li class="Footer-nav--ul-li"><a class="ul-li" href="#Carrear">Carrear Oportunities</a></li>
+          <li class="Footer-nav--ul-li">
+            <a class="ul-li" href="#Courses">Courses</a>
+          </li>
 
-          <li class="Footer-nav--ul-li"><a class="ul-li" href="#Subjects">Course Subjects</a></li>
+          <li class="Footer-nav--ul-li">
+            <a class="ul-li" href="#Comments">Comments</a>
+          </li>
 
-          <li class="Footer-nav--ul-li"><a class="ul-li" href="#Author">Course Author</a></li>
-
+          <span id="changeTeam" class="material-symbols-outlined u-icon">
+            dark_mode
+          </span>
+          <button id="loginButton" class="u-button">Sign in</button>
         </ul>
+        <button id="btnClose" class="u-close">
+          <span class="material-symbols-outlined u-icon"> close </span>
+        </button>
       </nav>
-     
+      <span class="material-symbols-outlined u-icon"> shopping_cart </span>
+      <div id="modal" class="modal">
+        <div class="modal-contenido">
+          <img
+            class="imageForm"
+            id="headerLogo"
+            src="./assets/img/elearning_icon.webp"
+            alt="Elearning logo"
+          />
+          <form id="loginForm" class="form" method="post" action="./index.html">
+            <label class="u-txtPrimary" for="email">Email</label>
+            <input
+              class="u-input"
+              type="email"
+              id="email"
+              name="email"
+              required
+            />
+
+            <label class="u-txtPrimary" for="password">Password</label>
+            <input
+              class="u-input"
+              type="password"
+              id="password"
+              name="password"
+              required
+            />
+
+            <button class="u-button" id="logIn" type="submit">Sign in</button>
+            <span class="u-txtPrimary"
+              >You don't have an account yet? <a href="./">Sign up</a></span
+            >
+          </form>
+        </div>
+      </div>
     </header>
 
     
 
     <main class="Main">
       <article class="Main-Article">
-        <h1 data-key="title" class="s">Nombre del curso</h1>
+        <h1 data-key="title" class="u-title">Nombre del curso</h1>
         
         <section id="Description" class="Description-section">
        
@@ -93,28 +145,67 @@
         <section id="Author" class="Instructor-section"></section>
       </article>
     </main>
-    <footer class="Footer u-bgTerciary">
-      <nav class="Footer-nav">
+    <footer class="Footer u-bgSecondary">
+      <div class="Footer-section">
         
-        <h2 class="u-tittle">Legacy</h2>
-        <ul class="Footer-nav--ul">
-          <li class="Footer-nav--ul-li">
-            <a class="Footer-nav--ul-li" href="./terms_conditons.html " target="_blank"
-              >Terms and Conditions</a
-            >
-          </li>
-          
-        </ul>
-        <hr class="Footer-nav--hr" />
-        <div class="Footer-nav--proyect-image">
-          <img
-            class="Footer-user-img"
-            src="./assets/img/elearning_icon.webp"
-            alt="Imagen referente al curso"
+        <form
+          id="commentForm"
+          class="Footer-form"
+          method="post"
+          action="./index.html"
+        >
+        <h2 class="u-title">We’d love to hear from you!</h2>
+        <p class="u-text">
+          Share your thoughts about our platform or courses — your feedback helps us grow.</p>
+          <input
+            class="u-input"
+            type="text"
+            id="name"
+            name="name"
+            placeholder="Nombre"
+            required
           />
-          <p class="u-textPrimary">© 2021 Liz Claudia Espinosa</p>
-        </div>
-      </nav>
+
+          <input
+            class="u-input"
+            type="email"
+            id="emailComment"
+            name="emailComment"
+            placeholder="Email"
+            required
+          />
+          <textarea
+            class="u-input"
+            name="comments"
+            id="comment"
+            cols="30"
+            rows="10"
+            placeholder="Comentarios"
+          ></textarea>
+
+          <button class="u-button" id="submitComment" type="submit">
+            Add Comment
+          </button>
+        </form>
+        <nav class="Footer-nav">
+          <ul class="Footer-nav--ul">
+            <li class="Footer-nav--ul-li">
+              <a class="ul-li" href="./terms_conditons.html " target="_blank"
+                >Terms and Conditions</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <hr class="Footer-nav--hr" />
+      <div class="Footer-nav--proyect-image">
+        <img
+          class="Footer-user-img"
+          src="./assets/img/elearning_icon.webp"
+          alt="Imagen referente al curso"
+        />
+        <p class="u-txtPrimary">© 2025 Liz Claudia Espinosa</p>
+      </div>
     </footer>
   </body>
 </html>

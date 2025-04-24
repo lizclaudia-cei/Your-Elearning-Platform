@@ -13,13 +13,23 @@ const cardComments = document.querySelector('.Comments');
 const btnNextComment = document.getElementById('btnNextComment');
 const sectionComments = document.querySelector('.Main-comments');
 
+const inputSearch = document.getElementById('serachInput');
+const btnSearch = document.getElementById('btnSearch');
+const cartCountElement = document.querySelector('.cart-count');
 
+const btnCart = document.querySelector('.cart-container');
 const screenWidth = window.innerWidth;
 let btnPrevCard = '';
 
 
+const commentForm = document.getElementById('commentForm');
+
+
+
 // Variables para slider de imaganes de inicio 
 let currentImage = 0;
+let cartCount = 0;
+let courses = JSON.parse(localStorage.getItem('courses')) || [];
 const listImages = `[
     {
         "id" : 1,
@@ -54,7 +64,7 @@ const cardsSlider = [];
 let currentComment = 0;
 const commentsSlider = [];
 
-const listComments =`[
+let listComments = `[
     {
         "author": "Juan Perez",
         "img": "./assets/img/user2.webp",
@@ -99,7 +109,7 @@ async function getCourses() {
     try {
         let courses = await fetch('./jsons/courses_new.json');
         courses = await courses.json();
-      
+
         return courses;
 
     } catch (error) {
@@ -116,7 +126,7 @@ async function getCourses() {
  */
 function addImages() {
     const images = convertJsonToObject(listImages);
-    images.map((image, index) => {
+    images.map((image) => {
         const imageBox = document.createElement('img');
         imageBox.classList.add('ImageBoxes--box');
         imageBox.src = image.src;
@@ -132,9 +142,9 @@ function addImages() {
 function updateSlider() {
     let width = 400;
     const screenWidth = window.innerWidth;
-    if(screenWidth >= 600 && screenWidth <= 900){
+    if (screenWidth >= 600 && screenWidth <= 900) {
         width = 800;
-    }else if(screenWidth >= 900){
+    } else if (screenWidth >= 900) {
         width = 2800;
     }
     imageBoxes.style.transform = `translateX(-${currentImage * width}px)`;
@@ -147,6 +157,17 @@ function nextImage() {
     currentImage++;
     if (currentImage >= imagesSlider.length) {
         currentImage = 0;
+    }
+    updateSlider();
+}
+
+/**
+ * Funcion para mostrar la imagen anterior
+ */
+function prevImage() {
+    currentImage--;
+    if (currentImage < 0) {
+        currentImage = imagesSlider.length - 1;
     }
     updateSlider();
 }
@@ -172,6 +193,7 @@ function addCards() {
             const cardTitle = document.createElement('p');
             const cardAuthor = document.createElement('p');
             const cardStarts = document.createElement('div');
+            const btnAdd = document.createElement('button');
 
             for (let i = 0; i < course.qualification; i++) {
                 const star = document.createElement('span');
@@ -180,25 +202,37 @@ function addCards() {
                 star.innerText = 'star';
                 cardStarts.appendChild(star);
             }
+
+            card.id = `Curso_${course.id}`;
             card.classList.add('Main-courses--course');
             cardImage.classList.add('Main-course--img');
             cardTitle.classList.add('u-title');
             cardAuthor.classList.add('u-text');
-             cardImage.src = course.img;
-             cardImage.alt = course.title;
+            btnAdd.classList.add('u-button');
+            cardImage.src = course.img;
+            cardImage.alt = course.title;
             cardTitle.textContent = course.title;;
             cardAuthor.textContent = course.author[0].name;
+            btnAdd.textContent = 'Agregar';
 
-            card.addEventListener('click', () => { window.location.href = 'course.html?course=' + course.title });
+           btnAdd.addEventListener('click', (e) => {
+                cartCount++;
+                cartCountElement.textContent = cartCount;
+                courses.push(course);
+                localStorage.setItem('courses', JSON.stringify(courses));
+                alert(`Se ha agregado el curso ${course.title} al carrito`);
+                console.log(courses);
+            });
             card.appendChild(cardImage);
             card.appendChild(cardTitle);
             card.appendChild(cardAuthor);
             card.appendChild(cardStarts);
+            card.appendChild(btnAdd);
             cardBoxes.appendChild(card);
             cardsSlider.push(card);
         });
     });
-    if(screenWidth >= 900){
+    if (screenWidth >= 900) {
         const button = document.getElementById('btnNextCard');
         button.remove();
     }
@@ -212,7 +246,7 @@ function addCards() {
 function updateCards() {
     let width = 250;
     const screenWidth = window.innerWidth;
-    if(screenWidth >= 600 && screenWidth <= 900){
+    if (screenWidth >= 600 && screenWidth <= 900) {
         width = 400;
     }
     cardBoxes.style.transform = `translateX(-${currentCard * width}px)`;
@@ -236,27 +270,7 @@ function updateCards() {
 
 }
 
-/**
- * Funcion para mostrar la siguiente card
- */
-function nextCard() {
-    currentCard++;
-    if (currentCard >= cardsSlider.length) {
-        currentCard = 0;
-    }
-    updateCards();
-}
 
-/**
- * Funcion para mostrar boton anterior
- */
-function prevCard() {
-    currentCard--;
-    if (currentCard <= 0) {
-        currentCard = cardsSlider.length - 1;
-    }
-    updateCards();
-}
 
 
 
@@ -265,73 +279,50 @@ function prevCard() {
  */
 function addComments() {
     cardComments.innerHTML = '';
-    const comments = convertJsonToObject(listComments); 
+    const comments = convertJsonToObject(listComments);
     
-        comments.map((comment) => {
-            const card = document.createElement('div');
-            const cardImage = document.createElement('img');
-            const cardText = document.createElement('p');
-            const cardAuthor = document.createElement('p');
-            const cardUser = document.createElement('div');
-            const divInteraction = document.createElement('div');
-            const textInteraction = document.createElement('p');
-            const iconLike = document.createElement('span');
-            const iconDislike = document.createElement('span');
-            
-            card.classList.add('Main-comments--coment');
-            cardImage.classList.add('Main-comments--coment-user-img');
-            cardText.classList.add('u-textPrimary');
-            cardAuthor.classList.add('u-title');
-            cardUser.classList.add('Main-comments--coment-user');
-            divInteraction.classList.add('Main-interaction');
-            iconLike.classList.add('material-symbols-outlined');
-            iconDislike.classList.add('material-symbols-outlined');
+
+    comments.map((comment) => {
+        const card = document.createElement('div');
+        const cardImage = document.createElement('img');
+        const cardText = document.createElement('p');
+        const cardAuthor = document.createElement('p');
+        const cardUser = document.createElement('div');
 
 
-            iconDislike.addEventListener('click', () => {
-                iconLike.style.color=`black`;
-                iconDislike.style.color=`red`;
-            });
+        card.classList.add('Main-comments--coment');
+        cardImage.classList.add('Main-comments--coment-user-img');
+        cardText.classList.add('u-txtPrimary');
+        cardAuthor.classList.add('u-title');
+        cardUser.classList.add('Main-comments--coment-user');
 
-            iconLike.addEventListener('click', () => {
-                iconDislike.style.color=`black`;
-                iconLike.style.color=`green`;
-            })
 
-            cardImage.src = comment.img;
-            cardImage.alt = comment.author;
-            cardAuthor.textContent = comment.author;
-            cardText.textContent = comment.description;
-            iconLike.innerText = 'thumb_up';   
-            iconDislike.innerText = 'thumb_down';
-            textInteraction.textContent ='Helpful?'
 
-            divInteraction.appendChild(textInteraction);
-            divInteraction.appendChild(iconLike);
-            divInteraction.appendChild(iconDislike);
+        cardImage.src = comment.img;
+        cardImage.alt = comment.author;
+        cardAuthor.textContent = comment.author;
+        cardText.textContent = comment.description;
 
-            card.appendChild(cardText);
-            cardUser.appendChild(cardImage);
-            cardUser.appendChild(cardAuthor);
-            card.appendChild(cardUser);
+        card.appendChild(cardText);
+        cardUser.appendChild(cardImage);
+        cardUser.appendChild(cardAuthor);
+        card.appendChild(cardUser);
 
-            card.appendChild(divInteraction);
-            cardComments.appendChild(card);
-            commentsSlider.push(card);
-        });
-   
-        if(screenWidth >= 900){
-            
-            const button = document.getElementById('btnNextComment');
-            button.remove();
-        }  
+
+        cardComments.appendChild(card);
+        commentsSlider.push(card);
+
+        checkCommentsOverflow();
+    });
+
+
 
 }
 
 function updateComments() {
     let width = 200;
-   
-    if(screenWidth >= 600 && screenWidth <= 900){
+
+    if (screenWidth >= 600 && screenWidth <= 900) {
         width = 550;
     }
     cardComments.style.transform = `translateX(-${currentComment * width}px)`;
@@ -360,7 +351,7 @@ function updateComments() {
  * Funcion para mostrar la siguiente card
  */
 function nextComment() {
-   
+
     currentComment++;
     if (currentComment >= commentsSlider.length) {
         currentComment = 0;
@@ -374,22 +365,110 @@ function nextComment() {
 function prevComment() {
     currentComment--;
     if (currentComment <= 0) {
-       
+
         currentComment = commentsSlider.length - 1;
     }
     updateComments();
 }
 
+
+
+
+
+
+
+/**
+ * Funcion para verificar el tamaño del contenidos
+ */
+function checkCommentsOverflow() {
+    const comments = document.querySelector('.Comments');
+    if (comments.scrollWidth > comments.clientWidth) {
+        btnNextComment.style.opacity = '1';
+
+    } else {
+        btnNextComment.style.opacity = '0';
+
+    }
+}
+
+
 //----------------------------------
 // Events
 //----------------------------------
-
-btnNextCard.addEventListener('click', nextCard);
 btnNextComment.addEventListener('click', nextComment);
+btnNext.addEventListener('click', nextImage);
+btnPrev.addEventListener('click', prevImage);
+
+
+window.addEventListener('resize',checkCommentsOverflow);
+
+
+inputSearch.addEventListener('focus', (e) => {
+    inputSearch.style.outline = 'none';
+    document.querySelector('.searchInput').classList.toggle('isFocus');
+});
+inputSearch.addEventListener('input', (e) => {
+    const searchValue = e.target.value.toLowerCase();
+    getCourses().then((cours) => {
+        cours.courses.forEach(course => {
+            const title = course.title.toLowerCase();
+            if (searchValue === '') {
+                document.getElementById(`Curso_${course.id}`).classList.remove('isNotFounded');
+            }
+            if (!title.includes(searchValue)) {
+                document.getElementById(`Curso_${course.id}`).classList.add('isNotFounded');
+            } else {
+                document.getElementById(`Curso_${course.id}`).classList.remove('isNotFounded');
+            }
+        });
+    })
+});
+inputSearch.addEventListener('blur', () => {
+    document.querySelector('.searchInput').classList.remove('isFocus');
+
+});
+
 // 
 
 
 
+commentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name');
+    const email = document.getElementById('emailComment');
+    const comment = document.getElementById('comment');
+
+    console.log(name.value);
+    console.log(email.value);
+    console.log(comment.value);
+    
+    if (name.value === '' || email.value === '' || comment.value === '') {
+        alert('Por favor, completa todos los campos');
+        return;
+    }
+    let comments = JSON.parse(listComments);
+    comments.push({
+
+        "author": name.value,
+        "img": "./assets/img/user2.webp",
+        "description": comment.value
+
+    });
+    listComments = JSON.stringify(comments);
+    console.log(comments);
+  
+    addComments();
+    commentForm.reset();
+});
+
+
+btnCart.addEventListener('click', (e) => {
+    if (cartCount > 0) {
+        window.location.href = './shoping_car.html';
+    } else {
+        alert('No tienes cursos en el carrito');
+    }
+});
 
 //----------------------------------
 // Inits
@@ -398,7 +477,7 @@ addImages();
 showImagesInterval();
 addCards();
 addComments();
-
+checkCommentsOverflow();
 
 
 
