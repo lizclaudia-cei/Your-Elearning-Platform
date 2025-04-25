@@ -78,7 +78,7 @@
     width: 100%;
     border-radius: 1rem;
     box-shadow: var(--box-shadow);
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     color: var(--txt-primary);
     border: none;
     display: flex;
@@ -97,7 +97,7 @@
     width: 100%;
     padding: 1rem;
     border-radius: 1rem;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     color: var(--txt-primary);
     border: none;
 }
@@ -232,7 +232,7 @@
     
 
     .CoursesCards {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(2, 1fr);
     }
 
   

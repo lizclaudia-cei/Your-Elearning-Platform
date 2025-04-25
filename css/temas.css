@@ -10,6 +10,12 @@
   height: 100%;
   border-radius: 1rem;
 }
+.projects-title{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
 
 .Description-section {
   display: flex;
@@ -169,10 +175,7 @@
     width: 100%;
   }
 
-  .Methodology-content {
-    display: flex;
-    flex-direction: row;
-  }
+
   
 
   .Acordeon-content {

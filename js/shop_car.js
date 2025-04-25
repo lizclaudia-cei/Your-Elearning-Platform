@@ -10,14 +10,18 @@ const btnBuy = document.getElementById('btnBuy');
 const paymentModal = document.getElementById('modalPayment');
 const paymentForm = document.getElementById('paymentForm');
 
+const dialog = document.getElementById('custom-dialog');
+let courses = JSON.parse(localStorage.getItem('courses'));
+    
+
 /**
  * 
  * Funcion para agregar las tarjetas de los cursos agregados al carrito
  * 
  */
 function showCards(){
-    let courses = JSON.parse(localStorage.getItem('courses'));
     
+let courses = JSON.parse(localStorage.getItem('courses'));
     if(courses){
         courses.map((course) => {
             const card = document.createElement('div');
@@ -96,7 +100,6 @@ function openModal() {
 }
 
 paymentForm.addEventListener('submit', (e) => {
-    let courses = JSON.parse(localStorage.getItem('courses'));
     
     e.preventDefault();
     const cardNumber = document.getElementById('cardNumber').value;
@@ -110,19 +113,43 @@ paymentForm.addEventListener('submit', (e) => {
     }
     paymentForm.reset();
     paymentModal.classList.remove('isOpen');
-    const userChoice = confirm('Se ha realizado tu compra de manera satisfactoria, ¿Deseas ir a tu curso?');
-    if (userChoice) {
-        window.location.href = 'course.html?course=' + courses[0].title ;
-    } else {
-       window.location.href = './index.html';
-    }
+    showDialog();
 
     localStorage.removeItem('courses');
  
 
 })
 
+/**
+ * Funcion para mostrar el confirm dialog
+ */
+function showDialog() {
+    dialog.classList.add('isActive');
+}
 
+/**
+ * Funcion para ocultar el confirm dialog
+ */
+function hideDialog() {
+    dialog.classList.remove('isActive');
+}
+
+
+document.getElementById('go-to-course').addEventListener('click', () => {
+    hideDialog();
+    window.location.href = 'course.html?course=' + courses[0].title;
+  });
+  
+  document.getElementById('go-to-home').addEventListener('click', () => {
+    hideDialog();
+    window.location.href = './index.html';
+  });
+  
 btnBuy.addEventListener('click',openModal);
+window.addEventListener('click', (e) => {
+    if (e.target === paymentModal) {
+        closeModal();
+    }
+})
 
 showCards();

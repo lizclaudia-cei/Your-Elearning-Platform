@@ -107,14 +107,20 @@
         <div class="CartItems"></div>
 
         <div class="Cart-summary">
-          <p id="sumary" class="u-text">Total: </p>
+          <h2 id="sumary" class="u-title">Total: </h2>
           <button id="btnBuy" class="u-button">Checkout</button>
         </div>
         <div id="modalPayment" class="modal">
             <div class="modal-contenido">
-              <p class="u-text"> Pay for your course and start the learning journey</p>
+             
+              <img
+              class="imageForm"
+              id="headerLogo"
+              src="./assets/img/elearning_icon.webp"
+              alt="Elearning logo"
+            />
               <form id="paymentForm" class="form" method="post" action="./shoping_car.html">
-                
+                <p class="u-title"> Pay for your course and start the learning journey</p>
                 <input
                   class="u-input"
                   type="text"
@@ -135,7 +141,7 @@
                 />
                 <input
                   class="u-input"
-                  type="text"
+                  type="date"
                   id="cardDate"
                   name="card-expiry"
                   placeholder="Expiry Date (MM/YY)"
@@ -155,6 +161,17 @@
               </form>
             </div>
           </div>
+          <div id="custom-dialog" class="Dialog">
+            <div class="Dialog-content">
+              <h2 class="u-title">Purchase Successful</h2>
+              <p class="u-title">Your purchase was completed successfully. Do you want to go to your course?</p>
+              <div class="Dialog-footer">
+                <button class="u-button" id="go-to-course">Yes</button>
+                <button class="u-button" id="go-to-home">No</button>
+             
+              </div>
+              </div>
+          </div>
 
       </div>
 
@@ -162,45 +179,7 @@
     <footer class="Footer u-bgSecondary">
         <div class="Footer-section">
           
-          <form
-            id="commentForm"
-            class="Footer-form"
-            method="post"
-            action="./index.html"
-          >
-          <h2 class="u-title">We’d love to hear from you!</h2>
-          <p class="u-text">
-            Share your thoughts about our platform or courses — your feedback helps us grow.</p>
-            <input
-              class="u-input"
-              type="text"
-              id="name"
-              name="name"
-              placeholder="Nombre"
-              required
-            />
-  
-            <input
-              class="u-input"
-              type="email"
-              id="emailComment"
-              name="emailComment"
-              placeholder="Email"
-              required
-            />
-            <textarea
-              class="u-input"
-              name="comments"
-              id="comment"
-              cols="30"
-              rows="10"
-              placeholder="Comentarios"
-            ></textarea>
-  
-            <button class="u-button" id="submitComment" type="submit">
-              Add Comment
-            </button>
-          </form>
+          
           <nav class="Footer-nav">
             <ul class="Footer-nav--ul">
               <li class="Footer-nav--ul-li">

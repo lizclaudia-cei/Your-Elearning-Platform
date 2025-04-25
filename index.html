@@ -148,9 +148,17 @@
             </span>
           </div>
           <div class="CoursesCards"></div>
-          <button id="btnNextCard" class="Main-imageCarousel--button u-Next">
-            <span class="material-symbols-outlined"> arrow_forward_ios </span>
-          </button>
+         
+        </div>
+        <div id="custom-dialog" class="Dialog">
+          <div class="Dialog-content">
+            <p id="coursesBuy"class='u-title'></p>
+            <div class="Dialog-footer">
+              <button class="u-button" id="go-to-cart">Buy now</button>
+              <button class="u-button" id="go-to-home">Keep looking</button>
+            </div>
+            
+          </div>
         </div>
       </section>
       <section id="Comments" class="Main-comments u-bgPrimary">
@@ -207,6 +215,15 @@
         <h2 class="u-title">We’d love to hear from you!</h2>
         <p class="u-text">
           Share your thoughts about our platform or courses — your feedback helps us grow.</p>
+
+          <select
+            class="u-input"
+            name="course-select"
+            id="course-select"
+            required>
+          <option value="" disabled selected> Select one of the shouses to create a comment</option>
+          <option value="Platform">Platform</option>
+          </select>
           <input
             class="u-input"
             type="text"

@@ -197,6 +197,8 @@ async function addMethodologies() {
 
         const div = document.createElement('div');
 
+        const h2 = document.createElement('h2');
+
         const divAdvantages = document.createElement('div');
         const advantages = document.createElement('h4');
         const ulAdvantages = document.createElement('ul');
@@ -251,6 +253,7 @@ async function addMethodologies() {
 
         typeTitle.classList.add('u-title');
         typeText.classList.add('u-text');
+        h2.classList.add('projects-title');
         divContent.classList.add('Methodology-item');
         div.classList.add('Methodology-content');
         
@@ -277,6 +280,7 @@ async function addMethodologies() {
         typeTitle.textContent = content.title;
         typeText.textContent = content.description;
 
+        h2.textContent = 'Real projects usage';
         advantages.textContent = 'Addvantages';
         disadvantages.textContent = 'Disadvantages';
         frameworks.textContent = 'Frameworks';
@@ -298,6 +302,7 @@ async function addMethodologies() {
         divTitle.appendChild(typeTitle);
         divTitle.appendChild(typeText);
         divContent.appendChild(divTitle);
+        div.appendChild(h2);
         
         if (ulFrameworks.childElementCount > 0) {
             divContent.appendChild(divFrameworks);

@@ -19,7 +19,6 @@ display:flex;
     align-items: center;
     padding: 1rem;
     cursor: pointer;
-    transition: transform 0.5s ease;
 }
 .Acordeon-title:hover {
    transform:scale(0.9);

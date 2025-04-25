@@ -21,9 +21,9 @@ const btnCart = document.querySelector('.cart-container');
 const screenWidth = window.innerWidth;
 let btnPrevCard = '';
 
+const courseDropdown = document.getElementById('course-select');
 
-const commentForm = document.getElementById('commentForm');
-
+const customDialog = document.getElementById('custom-dialog');
 
 
 // Variables para slider de imaganes de inicio 
@@ -66,21 +66,25 @@ const commentsSlider = [];
 
 let listComments = `[
     {
+        "topic": "Platform",
         "author": "Juan Perez",
         "img": "./assets/img/user2.webp",
         "description":"Excelente plataforma, me ayudo a mejorar mis habilidades"
     },
     {
+        "topic": "Software Engineering",
         "author": "Maria Lopez",
         "img": "./assets/img/user1.webp",
         "description":"Me encanto el curso, muy recomendado"
     },
     {
+        "topic": "Software Engineering",
         "author": "Pedro Ramirez",
         "img": "./assets/img/user3.webp",
         "description":"Excelente curso, muy completo"
     },
     {
+        "topic": "Software Engineering",
         "author": "Ana Maria",
          "img": "./assets/img/user4.webp",
         "description":"Muy buen curso, lo recomiendo"
@@ -190,9 +194,11 @@ function addCards() {
         cour.courses.map((course) => {
             const card = document.createElement('div');
             const cardImage = document.createElement('img');
-            const cardTitle = document.createElement('p');
+            const cardTitle = document.createElement('h2');
+            const cardDescription = document.createElement('p');
             const cardAuthor = document.createElement('p');
             const cardStarts = document.createElement('div');
+            const cardPrice = document.createElement('h3');
             const btnAdd = document.createElement('button');
 
             for (let i = 0; i < course.qualification; i++) {
@@ -207,35 +213,49 @@ function addCards() {
             card.classList.add('Main-courses--course');
             cardImage.classList.add('Main-course--img');
             cardTitle.classList.add('u-title');
-            cardAuthor.classList.add('u-text');
+            cardDescription.classList.add('u-text');
+            cardAuthor.classList.add('u-title');
+            cardPrice.classList.add('u-title');
             btnAdd.classList.add('u-button');
             cardImage.src = course.img;
             cardImage.alt = course.title;
-            cardTitle.textContent = course.title;;
-            cardAuthor.textContent = course.author[0].name;
-            btnAdd.textContent = 'Agregar';
+            cardTitle.textContent = course.title;
+            cardDescription.textContent = course.overview;
+            cardPrice.textContent = `Price: $20.00`;
+            cardAuthor.textContent = `Professor: ${course.author[0].name}` ;
+            btnAdd.textContent = 'Buy now';
 
            btnAdd.addEventListener('click', (e) => {
                 cartCount++;
                 cartCountElement.textContent = cartCount;
                 courses.push(course);
                 localStorage.setItem('courses', JSON.stringify(courses));
-                alert(`Se ha agregado el curso ${course.title} al carrito`);
+                document.getElementById('coursesBuy').textContent = `The course ${course.title} has been added to the cart`;
+                customDialog.classList.add('isActive');
+                document.getElementById('go-to-cart').addEventListener('click', () => {
+                    customDialog.classList.remove('isActive');
+                    window.location.href = './shoping_car.html';
+                  });
+                  
+                  document.getElementById('go-to-home').addEventListener('click', () => {
+                    customDialog.classList.remove('isActive');
+                    window.location.href = './index.html';
+                  });
                 console.log(courses);
             });
             card.appendChild(cardImage);
             card.appendChild(cardTitle);
-            card.appendChild(cardAuthor);
+            card.appendChild(cardDescription);
             card.appendChild(cardStarts);
+            card.appendChild(cardAuthor);
+            card.appendChild(cardPrice);
+           
             card.appendChild(btnAdd);
             cardBoxes.appendChild(card);
             cardsSlider.push(card);
         });
     });
-    if (screenWidth >= 900) {
-        const button = document.getElementById('btnNextCard');
-        button.remove();
-    }
+    
 
 
 }
@@ -286,12 +306,14 @@ function addComments() {
         const card = document.createElement('div');
         const cardImage = document.createElement('img');
         const cardText = document.createElement('p');
+        const cardTitle = document.createElement('h3');
         const cardAuthor = document.createElement('p');
         const cardUser = document.createElement('div');
 
 
         card.classList.add('Main-comments--coment');
         cardImage.classList.add('Main-comments--coment-user-img');
+        cardTitle.classList.add('u-title');
         cardText.classList.add('u-txtPrimary');
         cardAuthor.classList.add('u-title');
         cardUser.classList.add('Main-comments--coment-user');
@@ -300,9 +322,11 @@ function addComments() {
 
         cardImage.src = comment.img;
         cardImage.alt = comment.author;
+        cardTitle.textContent = comment.topic;
         cardAuthor.textContent = comment.author;
         cardText.textContent = comment.description;
 
+        card.appendChild(cardTitle);
         card.appendChild(cardText);
         cardUser.appendChild(cardImage);
         cardUser.appendChild(cardAuthor);
@@ -391,6 +415,21 @@ function checkCommentsOverflow() {
     }
 }
 
+/**
+ * Funcion para mostrar el select del form
+ */
+
+function showSelect() {
+    getCourses().then((cours) => {
+        cours.courses.map((course) => {
+            const option = document.createElement('option');
+            option.value = course.id;
+            option.textContent = course.title;
+            courseDropdown.appendChild(option);
+        });
+    });
+}
+
 
 //----------------------------------
 // Events
@@ -437,18 +476,19 @@ commentForm.addEventListener('submit', (e) => {
     const name = document.getElementById('name');
     const email = document.getElementById('emailComment');
     const comment = document.getElementById('comment');
+    
 
     console.log(name.value);
     console.log(email.value);
     console.log(comment.value);
     
-    if (name.value === '' || email.value === '' || comment.value === '') {
+    if (name.value === '' || email.value === '' || comment.value === '' || courseDropdown.value === '') {
         alert('Por favor, completa todos los campos');
         return;
     }
     let comments = JSON.parse(listComments);
     comments.push({
-
+        "topic": courseDropdown.value,
         "author": name.value,
         "img": "./assets/img/user2.webp",
         "description": comment.value
@@ -478,7 +518,7 @@ showImagesInterval();
 addCards();
 addComments();
 checkCommentsOverflow();
-
+showSelect();
 
 
 
