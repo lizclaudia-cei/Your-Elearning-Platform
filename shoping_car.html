@@ -22,7 +22,10 @@
     <!-- styles -->
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/colors.css" />
+
+    <link rel="stylesheet" href="./css/elements.css" />
     <link rel="stylesheet" href="./css/shop_car.css" />
+
     <script src="./js/header.js" defer></script>
     <script src="./js/shop_car.js" defer></script>
   </head>
@@ -55,7 +58,7 @@
           <span id="changeTeam" class="material-symbols-outlined u-icon">
             dark_mode
           </span>
-          <button id="loginButton" class="u-button">Sign in</button>
+         
         </ul>
         <button id="btnClose" class="u-close">
           <span class="material-symbols-outlined u-icon"> close </span>
@@ -65,41 +68,6 @@
         <span class="material-symbols-outlined u-icon"> shopping_cart </span>
         <span class="cart-count">0</span>
       </div>
-
-      <div id="modal" class="modal">
-        <div class="modal-contenido">
-          <img
-            class="imageForm"
-            id="headerLogo"
-            src="./assets/img/elearning_icon.webp"
-            alt="Elearning logo"
-          />
-          <form id="loginForm" class="form" method="post" action="./index.html">
-            <label class="u-txtPrimary" for="email">Email</label>
-            <input
-              class="u-input"
-              type="email"
-              id="email"
-              name="email"
-              required
-            />
-
-            <label class="u-txtPrimary" for="password">Password</label>
-            <input
-              class="u-input"
-              type="password"
-              id="password"
-              name="password"
-              required
-            />
-
-            <button class="u-button" id="logIn" type="submit">Sign in</button>
-            <span class="u-txtPrimary"
-              >You don't have an account yet? <a href="./">Sign up</a></span
-            >
-          </form>
-        </div>
-      </div>
     </header>
     <main class="Main">
       <div class="Cart">
@@ -107,98 +75,105 @@
         <div class="CartItems"></div>
 
         <div class="Cart-summary">
-          <h2 id="sumary" class="u-title">Total: </h2>
+          <h2 id="sumary" class="u-title">Total:</h2>
           <button id="btnBuy" class="u-button">Checkout</button>
         </div>
-        <div id="modalPayment" class="modal">
-            <div class="modal-contenido">
-             
-              <img
-              class="imageForm"
-              id="headerLogo"
-              src="./assets/img/elearning_icon.webp"
-              alt="Elearning logo"
-            />
-              <form id="paymentForm" class="form" method="post" action="./shoping_car.html">
-                <p class="u-title"> Pay for your course and start the learning journey</p>
-                <input
-                  class="u-input"
-                  type="text"
-                  id="cardNumber"
-                  name="card-number"
-                  maxlength="16"
-                  placeholder="Card Number"
-                  required
-                />
-    
-                <input
-                  class="u-input"
-                  type="text"
-                  id="cardName"
-                  name="card-name"
-                  placeholder="Full Name"
-                  required
-                />
-                <input
-                  class="u-input"
-                  type="date"
-                  id="cardDate"
-                  name="card-expiry"
-                  placeholder="Expiry Date (MM/YY)"
-                  required
-                  />
-                <input
-                class="u-input"
-                type="text"
-                id="cardCvc"
-                name="card-cvc"
-                placeholder="CVC"
-                required
-                />
-    
-                <button class="u-button" id="payment-form" type="submit">Pay Course</button>
-               
-              </form>
-            </div>
-          </div>
-          <div id="custom-dialog" class="Dialog">
-            <div class="Dialog-content">
-              <h2 class="u-title">Purchase Successful</h2>
-              <p class="u-title">Your purchase was completed successfully. Do you want to go to your course?</p>
-              <div class="Dialog-footer">
-                <button class="u-button" id="go-to-course">Yes</button>
-                <button class="u-button" id="go-to-home">No</button>
-             
-              </div>
-              </div>
-          </div>
-
       </div>
-
+      
     </main>
     <footer class="Footer u-bgSecondary">
-        <div class="Footer-section">
-          
-          
-          <nav class="Footer-nav">
-            <ul class="Footer-nav--ul">
-              <li class="Footer-nav--ul-li">
-                <a class="ul-li" href="./terms_conditons.html " target="_blank"
-                  >Terms and Conditions</a
-                >
-              </li>
-            </ul>
-          </nav>
-        </div>
-        <hr class="Footer-nav--hr" />
-        <div class="Footer-nav--proyect-image">
-          <img
-            class="Footer-user-img"
-            src="./assets/img/elearning_icon.webp"
-            alt="Imagen referente al curso"
+      <div class="Footer-section">
+        <nav class="Footer-nav">
+          <ul class="Footer-nav--ul">
+            <li class="Footer-nav--ul-li">
+              <a class="ul-li" href="./terms_conditons.html " target="_blank"
+                >Terms and Conditions</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+      <hr class="Footer-nav--hr" />
+      <div class="Footer-nav--proyect-image">
+        <img
+          class="Footer-user-img"
+          src="./assets/img/elearning_icon.webp"
+          alt="Imagen referente al curso"
+        />
+        <p class="u-txtPrimary">© 2025 Liz Claudia Espinosa</p>
+      </div>
+    </footer>
+    <div id="modalPayment" class="modal">
+      <div class="modal-contenido">
+        <img
+          class="imageForm"
+          id="headerLogo"
+          src="./assets/img/elearning_icon.webp"
+          alt="Elearning logo"
+        />
+        <form
+          id="paymentForm"
+          class="form"
+          method="post"
+          action="./shoping_car.html"
+        >
+          <p class="u-title">
+            Pay for your course and start the learning journey
+          </p>
+          <input
+            class="u-input"
+            type="text"
+            id="cardNumber"
+            name="card-number"
+            maxlength="16"
+            placeholder="Card Number"
+            required
           />
-          <p class="u-txtPrimary">© 2025 Liz Claudia Espinosa</p>
+
+          <input
+            class="u-input"
+            type="text"
+            id="cardName"
+            name="card-name"
+            placeholder="Full Name"
+            required
+          />
+          <input
+            class="u-input"
+            type="date"
+            id="cardDate"
+            name="card-expiry"
+            placeholder="Expiry Date (MM/YY)"
+            required
+          />
+          <input
+            class="u-input"
+            type="text"
+            id="cardCvc"
+            name="card-cvc"
+            placeholder="CVC"
+            required
+          />
+
+          <button class="u-button" id="payment-form" type="submit">
+            Pay Course
+          </button>
+        </form>
+      </div>
+    </div>
+    <div id="custom-dialog" class="Dialog">
+      <div class="Dialog-content">
+        <h2 class="u-title">Purchase Successful</h2>
+        <p class="u-title">
+          Your purchase was completed successfully. Do you want to go to your
+          course?
+        </p>
+        <div class="Dialog-footer">
+          <button class="u-button" id="go-to-course">Yes</button>
+          <button class="u-button" id="go-to-home">No</button>
         </div>
-      </footer>
+      </div>
+    </div>
+
   </body>
 </html>

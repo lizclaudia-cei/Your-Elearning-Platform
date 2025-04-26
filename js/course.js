@@ -1,195 +1,133 @@
 //--------------------------------------
-//Variables
+// Variables
 //--------------------------------------
 
 const acordeonItems = document.querySelectorAll('.Acordeon-item');
-const acordeonTitle = document.querySelectorAll('.Acordeon-title');
-
+const acordeonTitles = document.querySelectorAll('.Acordeon-title');
 const elements = document.querySelectorAll('[data-key]');
-
 const img = document.getElementById('img');
-
 const courseSection = document.querySelector('.Course-sections');
-
 const authorSection = document.querySelector('.Instructor-section');
-
 const params = new URLSearchParams(window.location.search);
 const paramCourse = params.get("course");
-
 
 let course = [];
 
 
-
-
-
-
 //--------------------------------------
-//Functions
+// Functions
 //--------------------------------------
 
+const getCourses = async () => {
+  try {
+    const response = await fetch('./jsons/courses_new.json');
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
 
-/**
- * Funcion para tarer los cursos desde el courses.json
- */
+const getCourse = async (paramCourse) => {
+  try {
+    const coursesData = await getCourses();
+    return coursesData.courses.find(course => course.title === paramCourse);
+  } catch (error) {
+    console.error(error);
+    return null;
+  }
+};
 
-async function getCourses() {
-   
-    try {
-        let courses = await fetch('./jsons/courses_new.json');
-        courses = await courses.json();
-       
-        return courses;
+const fillData = async () => {
+  course = await getCourse(paramCourse);
+  elements.forEach(element => {
+    const key = element.dataset.key;
+    element.textContent = course[key];
+  });
+  img.src = course.img;
+  img.alt = course.title;
+};
 
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
+const createModuleHTML = (subject) => `
+  <div class="Course-sections--item">
+    <div class="Item-imgContent">
+      <img class="Item-img" src="${subject.img}" alt="${subject.title}">
+    </div>
+    <div class="Item-content">
+      <h3 class="u-title">${subject.title}</h3>
+    </div>
+  </div>
+`;
 
-}
+const handleAccordionClick = (content, modules) => {
+  content.innerHTML = modules.map(createModuleHTML).join('');
+  
+  // Agregar evento a cada módulo creado
+  content.querySelectorAll('.Course-sections--item').forEach((div, index) => {
+    div.addEventListener('click', () => {
+      window.location.href = `./temas.html?course=${course.title}&subject=${modules[index].title}`;
+    });
+  });
 
-/**
- * Funcion para obtener el curso que viene en la url
- */
-async function getCourse(paramCourse) {
-    try {
-        const courses = await getCourses();
-        const course = courses.courses.find((course) => course.title === paramCourse);
-        return course;
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
-}
+  content.classList.toggle('isActive');
+  content.closest('.Acordeon-item').classList.toggle('isActive');
+};
 
+const setupAccordion = async () => {
+  course = await getCourse(paramCourse);
 
-/**
- * Funcion para llenar los datos del html con informacion del json
- */
-async function fillData() {
-    course = await getCourse(paramCourse);
-    elements.forEach((element) => {
-        const key = element.getAttribute('data-key');
-        element.textContent = course[key];
-    })
-    img.src = course.img;
-    img.alt = course.title;
-
-}
-
-
-
-
-
-acordeonTitle.forEach(async (title) => {
-    course = await getCourse(paramCourse);
+  acordeonTitles.forEach(title => {
     const item = title.closest('.Acordeon-item');
     const content = item.querySelector('.Acordeon-content');
+
     title.addEventListener('click', () => {
-
-        acordeonItems.forEach((item) => {
-            const content = item.querySelector('.Acordeon-content');
-            content.innerHTML = '';
-            item.classList.remove('isActive');
-        });
-
-
-        course.modules.map((subject) => {
-
-            const div = document.createElement('div');
-            const divImg = document.createElement('div');
-            const img = document.createElement('img');
-            const divContent = document.createElement('div');
-            const title = document.createElement('h3');
-
-            div.classList.add('Course-sections--item');
-            divImg.classList.add('Item-imgContent');
-            img.classList.add('Item-img');
-            divContent.classList.add('Item-content');
-            title.classList.add('u-title');
-
-            img.src = subject.img;
-            img.alt = subject.title;
-            title.textContent = subject.title;
-            divImg.appendChild(img);
-            divContent.appendChild(title);
-            div.appendChild(divImg);
-            div.appendChild(divContent);
-            content.appendChild(div);
-            // Evento para redireccionar a la pagian de temas se envia el curso y el tema seleccionados
-            div.addEventListener('click', () => {
-                window.location.href = `./temas.html?course=${course.title}&subject=${subject.title}`;
-            });
-
-        });
-
-
-        content.classList.toggle('isActive');
-        item.classList.toggle('isActive');
+      acordeonItems.forEach(item => {
+        item.classList.remove('isActive');
+        item.querySelector('.Acordeon-content').innerHTML = '';
+      });
+      handleAccordionClick(content, course.modules);
     });
-});
+  });
+};
+
+const addCourseSection = async () => {
+  course = await getCourse(paramCourse);
+
+  course.careers.forEach(career => {
+    courseSection.innerHTML += `
+      <ul class="Oporunities-list">
+        <li class="u-text">${career.title}</li>
+      </ul>
+    `;
+  });
+};
+
+const addAuthor = async () => {
+  course = await getCourse(paramCourse);
+  authorSection.innerHTML = course.author.map(author => `
+    <div class="Instructor-sections--item">
+      <div class="Instructor-imgContent">
+        <img class="Instructor-img" src="${author.img}" alt="${author.name}">
+      </div>
+      <div class="Instructor-content">
+        <h3 class="u-title">${author.name}</h3>
+        <p class="u-text">${author.biography}</p>
+      </div>
+    </div>
+  `).join('');
+};
 
 
-/**
- * Funcion para crear seccions del curso
- */
-
-async function addCourseSection() {
-    course = await getCourse(paramCourse);
-    course.careers.map((carrear) => {
-        const ul = document.createElement('ul');
-        const li = document.createElement('li');
-        ul.classList.add('Oporunities-list');
-        li.classList.add('u-text');
-        li.textContent = carrear.title;
-
-        ul.appendChild(li);
-
-        courseSection.appendChild(ul);
-    });
-}
-
-/**
- * Funcion para llenar los datos del author
- */
-
-async function addAuthor() {
-    course = await getCourse(paramCourse);
-    authorSection.innerHTML = '';
-    course.author.map((author) => {
-
-        const div = document.createElement('div');
-        const divImg = document.createElement('div');
-        const img = document.createElement('img');
-        const divContent = document.createElement('div');
-        const title = document.createElement('h3');
-        const text = document.createElement('p');
-
-        div.classList.add('Instructor-sections--item');
-        divImg.classList.add('Instructor-imgContent');
-        img.classList.add('Instructor-img');
-        divContent.classList.add('Instructor-content');
-        title.classList.add('u-title');
-        text.classList.add('u-text');
-
-        img.src = author.img;
-        img.alt = author.name;
-        title.textContent = author.name;
-        text.textContent = author.biography
-        divImg.appendChild(img);
-        divContent.appendChild(title);
-        divContent.appendChild(text);
-        div.appendChild(divImg);
-        div.appendChild(divContent);
-        
-        authorSection.appendChild(div);
-
-    })
-}
 //--------------------------------------
-//Events
+// Events
 //--------------------------------------
 
-addCourseSection();
-fillData();
-addAuthor();
+(async function init() {
+  await Promise.all([
+    addCourseSection(),
+    fillData(),
+    addAuthor(),
+    setupAccordion()
+  ]);
+})();

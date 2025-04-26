@@ -182,9 +182,7 @@
     flex-direction: row;
     gap: 1rem;
   }
-  .Methodology-title {
-    width: 60%;
-  }
+  
   .Markdown-content {
     width: 40%;
     justify-content: space-around;

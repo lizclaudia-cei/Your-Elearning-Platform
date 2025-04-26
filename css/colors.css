@@ -129,38 +129,18 @@
 }
 
 
-.Dialog {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0; /* Oculto por defecto */
-    pointer-events: none; /* Desactiva interacciones cuando está oculto */
-    transition: opacity 0.3s ease; /* Transición suave */
-  }
+.u-link{
+  
+        font-size:16px;
+        color: var(--bg-primary);
+        transition: color 0.3s ease;
+        cursor: pointer;
+        margin: 8px;
+        transition: transform 0.5s ease,color 0.5s ease;
 
-  .isActive{
-    opacity: 1; /* Visible */
-    pointer-events: auto; /* Activa interacciones cuando está visible */
-  }
-  .Dialog-content {
-    display: flex;
-    flex-direction: column;
-    background-color: var(--bg-primary);
-    padding: 20px;
-    border-radius: 10px;
-    text-align: center;
-    box-shadow: var(--box-shadow);
-    gap: 1rem;
-  }
-  .Dialog-footer {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    align-items: center;
-  }
+   
+}
+.u-link:hover{
+    color: var(--txt-primary);
+    transform: scale(1.05);
+}

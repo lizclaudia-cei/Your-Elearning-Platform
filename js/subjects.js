@@ -1,338 +1,170 @@
 //--------------------------------------
-//Variables
+// Variables
 //--------------------------------------
 
 const acordeon = document.querySelector('.Acordeon');
-
 const elements = document.querySelectorAll('[data-key]');
-
 const courseSection = document.querySelector('.Course-sections');
-
 const methodologySection = document.querySelector('.Section-content');
-
-
 const img = document.getElementById('img');
-
 
 const params = new URLSearchParams(window.location.search);
 const paramCourse = params.get("course");
 const paramSubject = params.get("subject");
 
 
-let course = [];
-
-
-
-
-
-
 //--------------------------------------
-//Functions
+// Fetch Functions
 //--------------------------------------
 
-
-/**
- * Funcion para tarer los cursos desde el courses.json
- */
-
-async function getCourses() {
+const getCourses = async () => {
     try {
-        let courses = await fetch('./jsons/courses_new.json');
-        courses = await courses.json();
-        return courses;
-
+        const res = await fetch('./jsons/courses_new.json');
+        return await res.json();
     } catch (error) {
         console.error(error);
         return null;
     }
+};
 
-}
+const getCourse = async (paramCourse) => {
+    const courses = await getCourses();
+    return courses?.courses.find(course => course.title === paramCourse);
+};
 
-/**
- * Funcion para obtener el curso que viene en la url
- */
-async function getCourse(paramCourse) {
-    try {
-        const courses = await getCourses();
-        const course = courses.courses.find((course) => course.title === paramCourse);
+const getSubject = async (paramCourse, paramSubject) => {
+    const course = await getCourse(paramCourse);
+    return course?.modules.find(subject => subject.title === paramSubject);
+};
 
-        return course;
-    } catch (error) {
-        console.error(error);
-        return null;
-    }
-}
+//--------------------------------------
+// UI Helper Functions
+//--------------------------------------
 
-/**
- * Funcion para obtener el tema que viene en la url
- */
-async function getSubject(paramCourse, paramSubject) {
-    try {
-        const curse = await getCourse(paramCourse);
+const createListItems = (items = []) => {
+    return items.map(item => `<li class="u-text">${item}</li>`).join('');
+};
 
-        const subject = curse.modules.find((subject) => subject.title === paramSubject);
+const createAccordionItem = (stage) => `
+    <div class="Acordeon-item">
+        <div class="Acordeon-title">
+            <h3 class="u-title">${stage.title}</h3>
+            <span class="material-symbols-outlined">arrow_drop_down</span>
+        </div>
+        <div class="Acordeon-content"></div>
+    </div>
+`;
 
-        return subject;
+const createMethodologyItem = (content) => `
+    <div class="Methodology-item">
+        <div class="Methodology-title">
+            <h3 class="u-title">${content.title}</h3>
+            <p class="u-text">${content.description}</p>
+        </div>
+        <div class="Methodology-content">
+            <h2 class="projects-title">Real projects usage</h2>
+            ${content.frameworks?.length ? `
+                <div class="Methodology-extras">
+                    <h4 class="u-title">Frameworks</h4>
+                    <ul class="Oporunities-list">${createListItems(content.frameworks)}</ul>
+                </div>` : ''}
+            ${content.advantages?.length ? `
+                <div class="Methodology-advantages">
+                    <h4 class="u-title">Advantages</h4>
+                    <ul class="Oporunities-list">${createListItems(content.advantages)}</ul>
+                </div>` : ''}
+            ${content.disadvantages?.length ? `
+                <div class="Methodology-disadvantages">
+                    <h4 class="u-title">Disadvantages</h4>
+                    <ul class="Oporunities-list">${createListItems(content.disadvantages)}</ul>
+                </div>` : ''}
+            ${content.roles?.length ? `
+                <div class="Methodology-extras">
+                    <h4 class="u-title">Roles</h4>
+                    <ul class="Oporunities-list">${createListItems(content.roles)}</ul>
+                </div>` : ''}
+        </div>
+    </div>
+`;
 
+//--------------------------------------
+// Main Render Functions
+//--------------------------------------
 
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
-}
+const fillData = async () => {
+    const subject = await getSubject(paramCourse, paramSubject);
+    if (!subject) return;
 
+    elements.forEach(element => {
+        const key = element.dataset.key;
+        element.textContent = subject[key] ?? '';
+    });
 
-/**
- * Funcion para llenar los datos del html con informacion del json
- */
-async function fillData() {
-    subject = await getSubject(paramCourse, paramSubject);
-    elements.forEach((element) => {
-        const key = element.getAttribute('data-key');
-        element.textContent = subject[key];
-    })
     img.src = subject.img;
     img.alt = subject.title;
+};
 
-}
+const createAccordion = async () => {
+    acordeon.innerHTML = `<h2 class="u-title Section-title">Modules</h2>`;
 
-
-/**
- * Funcion para crear el acordeon 
- */
-
-async function createAcordeon() {
-    acordeon.innerHTML = '';
     const subject = await getSubject(paramCourse, paramSubject);
+    if (!subject) return;
 
+    subject.lessons[0].content.forEach(stage => {
+        const template = document.createElement('div');
+        template.innerHTML = createAccordionItem(stage);
+        const item = template.firstElementChild;
 
-    const titleSection = document.createElement('h2');
-    titleSection.classList.add('u-title');
-    titleSection.classList.add('Section-title');
-    titleSection.textContent = 'Modules';
-    acordeon.appendChild(titleSection);
-    subject.lessons[0].content.forEach((stage) => {
-        const divItem = document.createElement('div');
-        const divTitle = document.createElement('div');
-        const divContent = document.createElement('div');
-        const title = document.createElement('h3');
-        const span = document.createElement('span');
+        const title = item.querySelector('.Acordeon-title');
+        const content = item.querySelector('.Acordeon-content');
 
-        title.classList.add('u-title');
-        span.classList.add('material-symbols-outlined');
-        divItem.classList.add('Acordeon-item');
-        divTitle.classList.add('Acordeon-title');
-        divContent.classList.add('Acordeon-content');
+        title.addEventListener('click', () => {
+            const isActive = item.classList.contains('isActive');
 
-        
-        title.textContent = stage.title;
-        span.textContent = 'arrow_drop_down';
-        divTitle.appendChild(title);
-        divTitle.appendChild(span);
-        divItem.appendChild(divTitle);
-        divItem.appendChild(divContent);
-        acordeon.appendChild(divItem);
-
-
-        // Agregar el evento para que al clickear se muestre el contenido del acordeon
-        divTitle.addEventListener('click', () => {
-            // Creacion de variable booleana para saber si el item esta activo
-            const isActive = divItem.classList.contains('isActive');
-            // se recorre el acordeon-item para  que si hay un item activo se le quite la clase isActive y se limpie el contenido del divContent
-            document.querySelectorAll('.Acordeon-item').forEach(item => {
-                item.classList.remove('isActive');
-                divContent.innerHTML = '';
+            document.querySelectorAll('.Acordeon-item').forEach(i => {
+                i.classList.remove('isActive');
+                i.querySelector('.Acordeon-content').innerHTML = '';
             });
-            // Si el item que se selecciono no esta activo se le agrega la clase active y se agrega contenido al divContent
-            if (!isActive) {
-                divItem.classList.toggle('isActive');
-                divContent.classList.toggle('isActive');
-                const div = document.createElement('div');
-                const text = document.createElement('p');
-                const ul = document.createElement('ul');
-                const divMarkdown = document.createElement('div');
-                divMarkdown.classList.add('Markdown-content');
-                text.classList.add('u-text');
-                ul.classList.add('Oporunities-list');
-                text.textContent = stage.description;
-               // Se busca en el contenido del json si hay una propiedad markdownContent 
-                
-                stage.key_points.forEach(keyActivity => {
-                    const li = document.createElement('li');
-                    li.classList.add('u-text');
-                    li.textContent = keyActivity;
-                    ul.appendChild(li);
-                });
-                div.appendChild(text);
-                div.appendChild(ul);
-                div.classList.add('Content-title')
-                divContent.appendChild(div);
-                // saber si en el json viene la propiedad markdownContent   
-                if(stage.markdownContent != null){
-                    // si la encuentra, se crea una variable const htmlContent que contendra la conversion del markdown a html 
-                    const htmlContent = marked.parse(stage.markdownContent);
-                    // se agrega el htmlContent al divMarkdown
-                    divMarkdown.innerHTML = htmlContent;
-                    divContent.appendChild(divMarkdown);
-                }
-                
-                
 
+            if (!isActive) {
+                item.classList.add('isActive');
+                content.classList.add('isActive');
+
+                content.innerHTML = `
+                    <div class="Content-title">
+                        <p class="u-text">${stage.description}</p>
+                        <ul class="Oporunities-list">
+                            ${createListItems(stage.key_points)}
+                        </ul>
+                    </div>
+                    ${stage.markdownContent ? `<div class="Markdown-content">${marked.parse(stage.markdownContent)}</div>` : ''}
+                `;
             }
         });
+
+        acordeon.appendChild(item);
     });
-}
+};
 
-/**
- * Funcion para crear seccion de metodologias
- */
-async function addMethodologies() {
+const addMethodologies = async () => {
     methodologySection.innerHTML = '';
+
     const subject = await getSubject(paramCourse, paramSubject);
-    subject.lessons[1].content.forEach((content) => {
-        const divContent = document.createElement('div');
-        const divTitle = document.createElement('div');
-        const typeTitle = document.createElement('h3');
-        const typeText = document.createElement('p');
+    if (!subject) return;
 
-        const div = document.createElement('div');
-
-        const h2 = document.createElement('h2');
-
-        const divAdvantages = document.createElement('div');
-        const advantages = document.createElement('h4');
-        const ulAdvantages = document.createElement('ul');
-
-        const divDisadvantages = document.createElement('div');
-        const disadvantages = document.createElement('h4');
-        const ulDisadvantages = document.createElement('ul');
-
-
-        const divFrameworks = document.createElement('div');
-        const frameworks = document.createElement('h4');
-        const ulFrameworks = document.createElement('ul');
-
-        const divRoles = document.createElement('div');
-        const roles = document.createElement('h4');
-        const ulRoles = document.createElement('ul');
-        
-        if (content.advantages != null) {
-            for (let j = 0; j < content.advantages.length; j++) {
-                const li = document.createElement('li');
-                li.classList.add('u-text');
-                li.textContent = content.advantages[j];
-                ulAdvantages.appendChild(li);
-            }
-        }
-        if (content.disadvantages != null) {
-            for (let k = 0; k < content.disadvantages.length; k++) {
-                const li = document.createElement('li');
-                li.classList.add('u-text');
-                li.textContent = content.disadvantages[k];
-                ulDisadvantages.appendChild(li);
-            }
-        }
-        if (content.frameworks != null) {
-            for (let f = 0; f < content.frameworks.length; f++) {
-                const li = document.createElement('li');
-                li.classList.add('u-text');
-                li.textContent = content.frameworks[f];
-                ulFrameworks.appendChild(li);
-            }
-        }
-        if (content.roles != null) {
-            for (let r = 0; r < content.roles.length; r++) {
-                const li = document.createElement('li');
-                li.classList.add('u-text');
-                li.textContent = content.roles[r];
-                ulRoles.appendChild(li);
-            }
-        }
-
-
-
-        typeTitle.classList.add('u-title');
-        typeText.classList.add('u-text');
-        h2.classList.add('projects-title');
-        divContent.classList.add('Methodology-item');
-        div.classList.add('Methodology-content');
-        
-        divTitle.classList.add('Methodology-title');
-
-        divAdvantages.classList.add('Methodology-advantages');
-        advantages.classList.add('u-title');
-        ulAdvantages.classList.add('Oporunities-list');
-
-
-        divDisadvantages.classList.add('Methodology-disadvantages');
-        disadvantages.classList.add('u-title');
-        ulDisadvantages.classList.add('Oporunities-list');
-
-        divFrameworks.classList.add('Methodology-extras');
-        frameworks.classList.add('u-title');
-        ulFrameworks.classList.add('Oporunities-list');
-
-
-        divRoles.classList.add('Methodology-extras');
-        roles.classList.add('u-title');
-        ulRoles.classList.add('Oporunities-list');
-
-        typeTitle.textContent = content.title;
-        typeText.textContent = content.description;
-
-        h2.textContent = 'Real projects usage';
-        advantages.textContent = 'Addvantages';
-        disadvantages.textContent = 'Disadvantages';
-        frameworks.textContent = 'Frameworks';
-        roles.textContent = 'Roles';
-
-
-        divAdvantages.appendChild(advantages);
-        divAdvantages.appendChild(ulAdvantages);
-
-        divDisadvantages.appendChild(disadvantages);
-        divDisadvantages.appendChild(ulDisadvantages);
-
-        divFrameworks.appendChild(frameworks);
-        divFrameworks.appendChild(ulFrameworks);
-
-        divRoles.appendChild(roles);
-        divRoles.appendChild(ulRoles);
-
-        divTitle.appendChild(typeTitle);
-        divTitle.appendChild(typeText);
-        divContent.appendChild(divTitle);
-        div.appendChild(h2);
-        
-        if (ulFrameworks.childElementCount > 0) {
-            divContent.appendChild(divFrameworks);
-        }
-        if (
-            ulAdvantages.childElementCount > 0) {
-            div.appendChild(divAdvantages);
-        }
-
-        if (ulDisadvantages.childElementCount > 0) {
-            div.appendChild(divDisadvantages);
-        }
-        if (ulRoles.childElementCount > 0) {
-            divContent.appendChild(divRoles);
-        }
-
-        divContent.appendChild(div);
-
-        methodologySection.appendChild(divContent);
-
-    })
-
-}
-
-
+    subject.lessons[1].content.forEach(content => {
+        const template = document.createElement('div');
+        template.innerHTML = createMethodologyItem(content);
+        methodologySection.appendChild(template.firstElementChild);
+    });
+};
 
 //--------------------------------------
-//Events
+// Events
 //--------------------------------------
 
-fillData();
-createAcordeon();
-addMethodologies();
+(async function init() {
+    await fillData();
+    await createAccordion();
+    await addMethodologies();
+})();

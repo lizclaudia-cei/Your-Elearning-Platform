@@ -1,0 +1,26 @@
+[
+    {
+        "topic": "Platform",
+        "author": "Juan Perez",
+        "img": "./assets/img/user2.webp",
+        "description":"Excelente plataforma, me ayudo a mejorar mis habilidades"
+    },
+    {
+        "topic": "Software Engineering",
+        "author": "Maria Lopez",
+        "img": "./assets/img/user1.webp",
+        "description":"Me encanto el curso, muy recomendado"
+    },
+    {
+        "topic": "Software Engineering",
+        "author": "Pedro Ramirez",
+        "img": "./assets/img/user3.webp",
+        "description":"Excelente curso, muy completo"
+    },
+    {
+        "topic": "Software Engineering",
+        "author": "Ana Maria",
+         "img": "./assets/img/user4.webp",
+        "description":"Muy buen curso, lo recomiendo"
+    }
+]

@@ -20,6 +20,7 @@
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/colors.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="./css/elements.css" />
 
     <script src="./js/header.js" defer></script>
     <script src="./js/content.js" defer></script>
@@ -54,7 +55,6 @@
           <span id="changeTeam" class="material-symbols-outlined u-icon">
             dark_mode
           </span>
-          <button id="loginButton" class="u-button">Sign in</button>
         </ul>
         <button id="btnClose" class="u-close">
           <span class="material-symbols-outlined u-icon"> close </span>
@@ -65,6 +65,87 @@
         <span class="cart-count">0</span>
       </div>
       
+      
+      
+    </header>
+
+    <main class="Main">
+      <section class="Main-imageCarousel">
+        <div id="imageBoxes" class="ImageBoxes"></div>
+        <button id="btnPrev" class="Main-imageCarousel--button u-Prev">
+          <span class="material-symbols-outlined"> arrow_back_ios </span>
+        </button>
+        <button id="btnNext" class="Main-imageCarousel--button u-Next">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
+      </section>
+
+      <section class="StartSection">
+        <div class="Courses-tittle">
+          <h1 class="u-title">Your Elearning Platform</h1>
+          <p class="u-text">
+            Discover a new way of learning with our online courses. At learn
+            with us, we offer a wide variety of courses designed to help you
+            achieve your educational and professional goals. Whether you're
+            looking to improve your technical skills, learn a new language, or
+            explore a new passion, we have the perfect course for you.
+          </p>
+
+          <button id="loginButton" class="u-button">Sign in</button>
+          
+       
+        </div>
+      </section>
+      <section id="Courses" class="Main-courses">
+        <div class="Main-courses-start">
+          <p class="u-title">
+            Here are the courses available. Start by searching for the skill you
+            want to develop and take the first step toward your learning
+            journey!
+          </p>
+        </div>
+        <div class="Main-courses-content">
+          <div class="searchInput">
+            <input
+              class="input"
+              type="text"
+              id="serachInput"
+              name="searchInput"
+              placeholder="What do you want to learn?"
+            />
+            <span id="btnSearch" class="material-symbols-outlined u-icon">
+              search
+            </span>
+          </div>
+          <div class="CoursesCards"></div>
+         
+        </div>
+       
+      </section>
+     
+      <section id="Comments" class="Main-comments u-bgPrimary">
+        <h2 class="u-title">See what others are achieving through learning</h2>
+        <div class="Comments">
+          
+          
+        </div>
+        <button id="btnPrevComment" hidden=true class="Main-imageCarousel--button 'u-Prev'">
+          <span class="material-symbols-outlined"> arrow_back_ios </span>
+        </button>
+        <button id="btnNextComment" class="Main-imageCarousel--button u-Next">
+          <span class="material-symbols-outlined"> arrow_forward_ios </span>
+        </button>
+      </section>
+      <div id="custom-dialog" class="Dialog">
+        <div class="Dialog-content">
+          <p id="coursesBuy"class='u-title'></p>
+          <div class="Dialog-footer">
+            <button class="u-button" id="go-to-cart">Buy now</button>
+            <button class="u-button" id="go-to-home">Keep looking</button>
+          </div>
+          
+        </div>
+      </div>
       <div id="modal" class="modal">
         <div class="modal-contenido">
           <img
@@ -93,114 +174,61 @@
             />
 
             <button class="u-button" id="logIn" type="submit">Sign in</button>
-            <span class="u-txtPrimary"
-              >You don't have an account yet? <a href="./">Sign up</a></span
+            <span class="u-txtPrimary" id="linkRegister"
+              >You don't have an account yet? <a class="u-link">Sign up</a></span
             >
           </form>
         </div>
       </div>
-    </header>
 
-    <main class="Main">
-      <section class="Main-imageCarousel">
-        <div id="imageBoxes" class="ImageBoxes"></div>
-        <button id="btnPrev" class="Main-imageCarousel--button u-Prev">
-          <span class="material-symbols-outlined"> arrow_back_ios </span>
-        </button>
-        <button id="btnNext" class="Main-imageCarousel--button u-Next">
-          <span class="material-symbols-outlined"> arrow_forward_ios </span>
-        </button>
-      </section>
-
-      <section class="StartSection">
-        <div class="Courses-tittle">
-          <h1 class="u-title">Your Elearning Platform</h1>
-          <p class="u-text">
-            Discover a new way of learning with our online courses. At learn
-            with us, we offer a wide variety of courses designed to help you
-            achieve your educational and professional goals. Whether you're
-            looking to improve your technical skills, learn a new language, or
-            explore a new passion, we have the perfect course for you.
-          </p>
-
-          <button id="loginButton" class="u-button">Sign in</button>
-        </div>
-      </section>
-      <section id="Courses" class="Main-courses">
-        <div class="Main-courses-start">
-          <p class="u-text">
-            Here are the courses available. Start by searching for the skill you
-            want to develop and take the first step toward your learning
-            journey!
-          </p>
-        </div>
-        <div class="Main-courses-content">
-          <div class="searchInput">
+      <div id="register" class="modal">
+        <div class="modal-contenido">
+          <img
+            class="imageForm"
+            id="headerLogo"
+            src="./assets/img/elearning_icon.webp"
+            alt="Elearning logo"
+          />
+          <form id="registerFom" class="form" method="get" action="./index.html">
+            <label class="u-txtPrimary" for="emailRegister">Email</label>
             <input
-              class="input"
-              type="text"
-              id="serachInput"
-              name="searchInput"
-              placeholder="What do you want to learn?"
+              class="u-input"
+              type="email"
+              id="emailRegister"
+              name="emailRegister"
+              required
             />
-            <span id="btnSearch" class="material-symbols-outlined u-icon">
-              search
-            </span>
-          </div>
-          <div class="CoursesCards"></div>
-         
-        </div>
-        <div id="custom-dialog" class="Dialog">
-          <div class="Dialog-content">
-            <p id="coursesBuy"class='u-title'></p>
-            <div class="Dialog-footer">
-              <button class="u-button" id="go-to-cart">Buy now</button>
-              <button class="u-button" id="go-to-home">Keep looking</button>
-            </div>
+            <label class="u-txtPrimary" for="nameRegister">Name</label>
+            <input
+            class="u-input"
+            type="text"
+            id="nameRegister"
+            name="nameRegister"
+            required
+          />
+
+            <label class="u-txtPrimary" for="passwordRegister">Password</label>
+            <input
+              class="u-input"
+              type="password"
+              id="passwordRegister"
+              name="passwordRegister"
+              required
+            />
+            <label class="u-txtPrimary" for="passwordConfirm">Confirm Password</label>
+            <input
+              class="u-input"
+              type="password"
+              id="passwordConfirm"
+              name="passwordConfirm"
+              required
+            />
+
+            <button class="u-button" id="btnRegister" type="submit">Sign up</button>
             
-          </div>
+          </form>
         </div>
-      </section>
-      <section id="Comments" class="Main-comments u-bgPrimary">
-        <h2 class="u-title">See what others are achieving through learning</h2>
-        <div class="Comments">
-          <div class="Main-comments--coment">
-            <p class="u-txtPrimary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-              illo ullam itaque, voluptatibus ad aperiam corrupti? Nemo
-              asperiores repellendus, libero tempora praesentium ea nam,
-              recusandae sint fugit laboriosam, aspernatur alias?
-            </p>
-            <div class="Main-comments--coment-user">
-              <img
-                class="Main-comments--coment-user-img"
-                src="https://placehold.co/600x400?text=imagen"
-                alt="Imagen referente al curso"
-              />
-              <p class="u-title">Arturo Diaz</p>
-            </div>
-          </div>
-          <div class="Main-comments--coment">
-            <p class="u-txtPrimary">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Culpa
-              illo ullam itaque, voluptatibus ad aperiam corrupti? Nemo
-              asperiores repellendus, libero tempora praesentium ea nam,
-              recusandae sint fugit laboriosam, aspernatur alias?
-            </p>
-            <div class="Main-comments--coment-user">
-              <img
-                class="Main-comments--coment-user-img"
-                src="https://placehold.co/600x400?text=imagen"
-                alt="Imagen referente al curso"
-              />
-              <p class="u-title">Arturo Diaz</p>
-            </div>
-          </div>
-        </div>
-        <button id="btnNextComment" class="Main-imageCarousel--button u-Next">
-          <span class="material-symbols-outlined"> arrow_forward_ios </span>
-        </button>
-      </section>
+      </div>
     </main>
 
     <footer class="Footer u-bgSecondary">
@@ -230,15 +258,6 @@
             id="name"
             name="name"
             placeholder="Nombre"
-            required
-          />
-
-          <input
-            class="u-input"
-            type="email"
-            id="emailComment"
-            name="emailComment"
-            placeholder="Email"
             required
           />
           <textarea

@@ -1,155 +1,153 @@
-//----------------------------------
-//  Variables
-//----------------------------------
-
-
+// Variables
 const cardBoxes = document.querySelector('.CartItems');
 const summary = document.getElementById('sumary');
-const cardsSlider = [];
 const btnBuy = document.getElementById('btnBuy');
 const paymentModal = document.getElementById('modalPayment');
 const paymentForm = document.getElementById('paymentForm');
-
 const dialog = document.getElementById('custom-dialog');
+
 let courses = JSON.parse(localStorage.getItem('courses'));
-    
+const cardsSlider = [];
 
 /**
- * 
- * Funcion para agregar las tarjetas de los cursos agregados al carrito
- * 
+ * Función para mostrar las tarjetas de los cursos agregados al carrito
  */
-function showCards(){
-    
-let courses = JSON.parse(localStorage.getItem('courses'));
-    if(courses){
-        courses.map((course) => {
-            const card = document.createElement('div');
-            const cardImage = document.createElement('img');
-            const cardTitle = document.createElement('p');
-            const cardAuthor = document.createElement('p');
-            const cardPrice = document.createElement('p');
-            const cardStarts = document.createElement('div');
-            const btnRemove = document.createElement('button');
+function showCards() {
+    cardBoxes.innerHTML = ''; // Limpiar contenido antes de volver a renderizar
 
+    const courses = JSON.parse(localStorage.getItem('courses'));
+    
+    if (courses && courses.length > 0) {
+        courses.forEach((course) => {
+            const card = document.createElement('div');
+            card.classList.add('CartItem');
+            card.id = `Curso_${course.id}`;
+
+            const cardImage = document.createElement('img');
+            cardImage.classList.add('CartItem-img');
+            cardImage.src = course.img;
+            cardImage.alt = course.title;
+
+            const cardTitle = document.createElement('p');
+            cardTitle.classList.add('u-title');
+            cardTitle.textContent = course.title;
+
+            const cardAuthor = document.createElement('p');
+            cardAuthor.classList.add('u-text');
+            cardAuthor.textContent = course.author[0].name;
+
+            const cardStarts = document.createElement('div');
             for (let i = 0; i < course.qualification; i++) {
                 const star = document.createElement('span');
-                star.classList.add('material-symbols-outlined');
-                star.classList.add('u-Starts');
+                star.classList.add('material-symbols-outlined', 'u-Starts');
                 star.innerText = 'star';
                 cardStarts.appendChild(star);
             }
 
-            card.id = `Curso_${course.id}`;
-            card.classList.add('CartItem');
-            cardImage.classList.add('CartItem-img');
-            cardTitle.classList.add('u-title');
-            cardAuthor.classList.add('u-text');
+            const cardPrice = document.createElement('p');
             cardPrice.classList.add('u-text');
-            btnRemove.classList.add('u-button');
-            cardImage.src = course.img;
-            cardImage.alt = course.title;
-            cardTitle.textContent = course.title;
             cardPrice.textContent = '$ 20.00';
-            cardAuthor.textContent = course.author[0].name;
+
+            const btnRemove = document.createElement('button');
+            btnRemove.classList.add('u-button');
             btnRemove.textContent = 'Eliminar';
-            
 
-            card.appendChild(cardImage);
-            card.appendChild(cardTitle);
-            card.appendChild(cardAuthor);
-            card.appendChild(cardStarts);
-            card.appendChild(cardPrice);
-
-            card.appendChild(btnRemove);
             btnRemove.addEventListener('click', () => {
-                const courses = JSON.parse(localStorage.getItem('courses'));
-                const newCourses = courses.filter((c) => c.id !== course.id);
-                localStorage.setItem('courses', JSON.stringify(newCourses));
-                cardBoxes.removeChild(card);
+                const updatedCourses = courses.filter((c) => c.id !== course.id);
+                localStorage.setItem('courses', JSON.stringify(updatedCourses));
                 showCards();
             });
-         
+
+            card.append(cardImage, cardTitle, cardAuthor, cardStarts, cardPrice, btnRemove);
             cardBoxes.appendChild(card);
             cardsSlider.push(card);
         });
+
         const total = courses.length * 20;
-        console.log(total);
         summary.textContent = `Total: $ ${total}`;
-    }else{
-       const card = document.createElement('div');
-         const cardTitle = document.createElement('h2');
-         card.classList.add('CartItem');
-            cardTitle.classList.add('u-title');
-            cardTitle.textContent = 'No hay cursos en el carrito';
-            card.appendChild(cardTitle);
-            cardBoxes.appendChild(card);
+    } else {
+        const emptyCard = document.createElement('div');
+        emptyCard.classList.add('CartItem');
 
-            summary.textContent = `Total: $0`;
-            
+        const emptyTitle = document.createElement('h2');
+        emptyTitle.classList.add('u-title');
+        emptyTitle.textContent = 'You don\'t have any courses yet';
+
+        emptyCard.appendChild(emptyTitle);
+        cardBoxes.appendChild(emptyCard);
+
+        summary.textContent = `Total: $ 0`;
     }
-
-
 }
+
 /**
- * Funcion para mostrar un form de login
- * 
+ * Función para abrir el modal de pago
  */
 function openModal() {
     paymentModal.classList.add('isOpen');
 }
 
-paymentForm.addEventListener('submit', (e) => {
-    
-    e.preventDefault();
-    const cardNumber = document.getElementById('cardNumber').value;
-    const cardName = document.getElementById('cardName').value;
-    const cardDate = document.getElementById('cardDate').value;
-    const cardCvv = document.getElementById('cardCvc').value;
-
-    if (cardNumber === '' || cardName === '' || cardDate === '' || cardCvv === '') {
-        alert('Por favor complete todos los campos');
-        return;
-    }
-    paymentForm.reset();
+/**
+ * Función para cerrar el modal de pago
+ */
+function closeModal() {
     paymentModal.classList.remove('isOpen');
-    showDialog();
-
-    localStorage.removeItem('courses');
- 
-
-})
+}
 
 /**
- * Funcion para mostrar el confirm dialog
+ * Función para mostrar el dialog de confirmación
  */
 function showDialog() {
     dialog.classList.add('isActive');
 }
 
 /**
- * Funcion para ocultar el confirm dialog
+ * Función para ocultar el dialog de confirmación
  */
 function hideDialog() {
     dialog.classList.remove('isActive');
 }
 
+// Eventos
+btnBuy.addEventListener('click', openModal);
 
-document.getElementById('go-to-course').addEventListener('click', () => {
-    hideDialog();
-    window.location.href = 'course.html?course=' + courses[0].title;
-  });
-  
-  document.getElementById('go-to-home').addEventListener('click', () => {
-    hideDialog();
-    window.location.href = './index.html';
-  });
-  
-btnBuy.addEventListener('click',openModal);
+paymentForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+
+    const cardNumber = document.getElementById('cardNumber').value;
+    const cardName = document.getElementById('cardName').value;
+    const cardDate = document.getElementById('cardDate').value;
+    const cardCvv = document.getElementById('cardCvc').value;
+
+    if (!cardNumber || !cardName || !cardDate || !cardCvv) {
+        alert('Please fill in all fields');
+        return;
+    }
+
+    paymentForm.reset();
+    closeModal();
+    showDialog();
+    localStorage.removeItem('courses');
+    localStorage.setItem('coursesBought', JSON.stringify(courses));
+});
+
 window.addEventListener('click', (e) => {
     if (e.target === paymentModal) {
         closeModal();
     }
-})
+});
 
+document.getElementById('go-to-course').addEventListener('click', () => {
+    hideDialog();
+
+        window.location.href = `./courses.html`;
+   
+});
+
+document.getElementById('go-to-home').addEventListener('click', () => {
+    hideDialog();
+    window.location.href = './index.html';
+});
+
+// Inicializar tarjetas
 showCards();

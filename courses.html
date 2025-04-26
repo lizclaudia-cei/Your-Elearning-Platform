@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Courses Bought</title>
+    <meta name="description" content="Pagina de resumen de carrito" />
+    <meta name="author" content="Liz Claudia Espinosa Gutierrez" />
+    <meta
+      name="keywords"
+      content="CEI, HTML, CSS, JS, Proyecto,Cursos,Development"
+    />
+
+    <!-- icons -->
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"
+    />
+
+    <!-- fonts -->
+
+    <!-- styles -->
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/colors.css" />
+    <link rel="stylesheet" href="./css/shop_car.css" />
+
+    <link rel="stylesheet" href="./css/elements.css" />
+    <script src="./js/header.js" defer></script>
+    <script src="./js/courses.js" defer></script>
+  </head>
+  <body class="Body">
+    <header class="Header">
+      <span class="material-symbols-outlined Header-menu" id="menuBtn">
+        menu
+      </span>
+
+      <a href="./index.html"
+        ><img
+          class="Header-logo"
+          id="headerLogo"
+          src="./assets/logo/logo_black.svg"
+          alt="Elearning logo"
+      /></a>
+
+      <nav class="Header-nav">
+        <ul class="Header-nav--ul">
+          <li class="Footer-nav--ul-li"><a class="ul-li" href="./">Home</a></li>
+
+          <li class="Footer-nav--ul-li">
+            <a class="ul-li" href="./courses.html">Courses</a>
+          </li>
+
+          <li class="Footer-nav--ul-li">
+            <a class="ul-li" href="./">Comments</a>
+          </li>
+
+          <span id="changeTeam" class="material-symbols-outlined u-icon">
+            dark_mode
+          </span>
+        </ul>
+        <button id="btnClose" class="u-close">
+          <span class="material-symbols-outlined u-icon"> close </span>
+        </button>
+      </nav>
+      <div class="cart-container">
+        <span class="material-symbols-outlined u-icon"> shopping_cart </span>
+        <span class="cart-count">0</span>
+      </div>
+
+      
+    </header>
+    <main class="Main">
+      <div class="Cart">
+        <h1 class="u-title">Courses Bought</h1>
+        <div class="searchInput">
+            <input
+              class="input"
+              type="text"
+              id="serachInput"
+              name="searchInput"
+              placeholder="Type the name of your course"
+            />
+            <span id="btnSearch" class="material-symbols-outlined u-icon">
+              search
+            </span>
+          </div>
+        <div class="CartItems"></div>
+    </main>
+    <footer class="Footer u-bgSecondary">
+        <div class="Footer-section">
+          
+          
+          <nav class="Footer-nav">
+            <ul class="Footer-nav--ul">
+              <li class="Footer-nav--ul-li">
+                <a class="ul-li" href="./terms_conditons.html " target="_blank"
+                  >Terms and Conditions</a
+                >
+              </li>
+            </ul>
+          </nav>
+        </div>
+        <hr class="Footer-nav--hr" />
+        <div class="Footer-nav--proyect-image">
+          <img
+            class="Footer-user-img"
+            src="./assets/img/elearning_icon.webp"
+            alt="Imagen referente al curso"
+          />
+          <p class="u-txtPrimary">© 2025 Liz Claudia Espinosa</p>
+        </div>
+      </footer>
+  </body>
+</html>

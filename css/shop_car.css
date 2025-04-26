@@ -1,7 +1,7 @@
 .Main{
     display: flex;
     flex-direction: column;
-    height: 100vh;
+   flex:1;
 }
 
 .Cart{
@@ -13,6 +13,8 @@
     justify-content: center;
 }
 
+
+
 .CartItems {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -20,6 +22,7 @@
     padding: 10px;
     transition: transform 0.5s ease;
 }
+
 
 .CartItem {
     display: flex;
@@ -36,6 +39,9 @@
     opacity: 1;
 }
 
+.isNotFounded{
+    display: none;
+}
 .Cart-summary{
     display: flex;
     gap: 1rem;
